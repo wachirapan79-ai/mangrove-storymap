@@ -1,0 +1,624 @@
+/* CSS Reset & Variables */
+:root {
+  --primary: #2e7d32;
+  --primary-dark: #1b5e20;
+  --accent: #d8a628;
+  --bg-light: #f4f7f6;
+  --text-dark: #2c3e50;
+  --text-light: #607d8b;
+}
+
+@font-face {
+  font-family: "SimSun";
+  src: url("../fonts/simsun/SIMSUN.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Prompt", "SimSun", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========================================= */
+/* NAVBAR (2 แถว สไตล์ Mangrove)            */
+/* ========================================= */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column; /* 🎯 เรียงจากบนลงล่าง */
+    gap: 15px; /* ระยะห่างระหว่าง 2 แถว */
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+#navbar.scrolled {
+    background: linear-gradient(135deg, rgba(26, 77, 46, 0.85) 0%, rgba(20, 90, 50, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 15px 50px;
+}
+
+/* 🎯 แถวบน: โลโก้ + เปลี่ยนภาษา */
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* 🎯 แถวล่าง: ปุ่มคู่มือ */
+.header-bottom-row {
+    display: flex;
+    justify-content: flex-end; /* ให้ปุ่มคู่มือชิดขวา ให้บาลานซ์กับโลโก้ */
+    align-items: center;
+    width: 100%;
+}
+
+.logo-text {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.logo-text:hover {
+    translate: 0px -3px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+nav.scrolled .logo-text {
+    text-shadow: none;
+}
+
+/* ========================================= */
+/* ปุ่มสลับภาษา (Language Switcher)           */
+/* ========================================= */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Prompt", "SimSun", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.lang-btn:hover {
+  opacity: 1;
+  background: #ffffff4f;
+  color: #52a665;
+}
+
+.lang-btn.active {
+  background: #52a665;
+  color: white;
+  opacity: 1;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); 
+}
+
+nav.scrolled .lang-switcher {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+nav.scrolled .lang-btn {
+  color: white;
+}
+
+nav.scrolled .lang-btn.active {
+  background: #52a665;
+}
+
+/* ========================================= */
+/* ปุ่มเปิดไฟล์ PDF คู่มือการใช้งาน               */
+/* ========================================= */
+.btn-read-pdf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+    padding: 8px 15px; /* ย่อขนาดลงนิดนึงให้ดูไม่เกะกะ */
+    background-color: rgba(255, 255, 255, 0.15); /* ทำให้โปร่งแสงนิดๆ จะได้กลมกลืน */
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px); /* เบลอหลังให้เหมือนแถบภาษา */
+}
+
+.btn-read-pdf:hover {
+    background-color: #4da553;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-color: #4da553;
+}
+
+.btn-read-pdf:active {
+    transform: translateY(0); 
+}
+
+/* =========================================
+   ลูกศรชี้ลง (Scroll Down Arrow)
+   ========================================= */
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 30px; 
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  animation: bounce 2s infinite;
+}
+
+.scroll-down-arrow:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateX(-50%) scale(1.1);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* ========================================= */
+/* Hero Section                              */
+/* ========================================= */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
+    url("../image/intro/intro.webp") center/cover;
+  filter: blur(8px);
+  transform: scale(1.1);
+  z-index: -1;
+}
+.hero-tag {
+  background: var(--primary);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-family: "Prompt", "SimSun", serif;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 40px;
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 0 20px;
+  text-shadow: 2px 2px 5px #000000;
+  box-sizing: border-box;
+}
+
+.btn-main {
+  background-color: var(--primary);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+}
+
+.btn-main:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.6);
+}
+
+/* ========================================= */
+/* General Section Layout                    */
+/* ========================================= */
+section {
+  padding: 80px 10%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  color: var(--text-light);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  color: #555;
+  text-indent: 40px;
+  text-align: left;
+}
+
+.about-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Routes Section */
+.routes-section {
+  background-color: var(--bg-light);
+}
+.routes-section p {
+  text-indent: 20px;
+}
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.route-card {
+  background: white;
+  border-radius: 15px;
+  border: #2c3e5037 1px solid;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  top: 0;
+}
+
+.route-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.16);
+  top: -10px;
+}
+
+.card-img-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.route-card:hover .card-img-container img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.badge-wellness {
+  background: #d7ffd7;
+  color: #2e7d32;
+}
+
+.badge-spiritual {
+  background: #ffe7c7d7;
+  color: #e65100;
+}
+
+.badge-sight {
+  background: #cde9ffb6;
+  color: #1565c0;
+}
+
+.card-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  border-bottom: 1px solid #b0b0b0;
+  padding-bottom: 15px;
+}
+
+.card-meta {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-dark);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+}
+ .feature-item {
+  display: grid;
+  grid-template-columns: 1fr; 
+  justify-items: center; 
+}
+
+.feature-item h4,
+.feature-item i,
+.feature-item p {
+  justify-self: center;
+}
+.feature-item i {
+  color: #23892b;
+  font-size: xx-large;
+  margin: 10px;
+}
+/* ========================================= */
+/* โค้ด Skeleton Loading                     */
+/* ========================================= */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.skeleton-route-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 380px; 
+  animation: pulse 1.5s infinite ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 200px;
+  background: #b0b0b0;
+}
+.skeleton-content {
+  padding: 20px;
+}
+.skeleton-badge {
+  width: 80px;
+  height: 20px;
+  background: #b0b0b0;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.skeleton-title {
+  width: 60%;
+  height: 25px;
+  background: #b0b0b0;
+  margin-bottom: 10px;
+}
+.skeleton-text {
+  width: 100%;
+  height: 15px;
+  background: #b0b0b0;
+  margin-bottom: 10px;
+}
+.skeleton-meta {
+  width: 40%;
+  height: 15px;
+  background: #b0b0b0;
+}
+
+/* ========================================= */
+/* Responsive - Mobile View                  */
+/* ========================================= */
+@media (max-width: 768px) {
+  /* ปรับ Navbar บนมือถือ */
+  #navbar {
+      padding: 15px;
+      gap: 10px;
+  }
+  
+  #navbar.scrolled {
+      padding: 10px 15px;
+  }
+
+  .logo-text {
+      font-size: 1rem;
+      gap: 5px;
+  }
+
+  /* ปุ่มคู่มือบนมือถือ ให้กลับมาชิดซ้ายเหมือนโลโก้ หรืออยู่ตรงกลางก็ได้ */
+  .header-bottom-row {
+      justify-content: flex-start;
+  }
+
+  .lang-switcher {
+      gap: 2px;
+      padding: 2px;
+  }
+
+  .lang-btn {
+      padding: 4px 10px;
+      font-size: 0.8rem;
+  }
+
+  .btn-read-pdf {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+  }
+
+  /* ส่วน Hero */
+  .hero {
+    min-height: 100svh; 
+    padding: 100px 15px 100px 15px; 
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    font-size: 0.95rem; 
+    line-height: 1.45;
+    max-width: 100%; 
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  html[lang="th"] p {
+    word-break: normal; 
+    overflow-wrap: break-word; 
+    line-break: normal;
+  }
+
+
+
+  .hero-tag {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn-main {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .scroll-down-arrow {
+    bottom: 30px; 
+    width: 40px;
+    height: 40px;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+}

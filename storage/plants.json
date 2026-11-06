@@ -1,0 +1,2573 @@
+[
+    {
+        "id": 1,
+        "type": "flora",
+        "name": {
+            "th": "หงอนไก่ทะเล",
+            "en": "Looking-glass Tree",
+            "zh": "银叶树"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:823569-1",
+        "image_url": "../image/flora/f1_2.webp",
+        "sci_name": "<i>Heritiera littoralis</i> Aiton",
+        "family": "Malvaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็ก-กลาง สูง 5-15 เมตร เปลือกสีน้ำตาลถึงเทาเข้ม แตกเป็นร่องลึก",
+                "h2": "ราก",
+                "v2": "มีรากพูพอนต่ำแผ่แบนเป็นครีบ บิดไปมา",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปรี ปลายแหลม ด้านบนมีสีเขียวคล้ำเป็นมัน ด้านล่างมีสีเทาเงิน",
+                "h4": "ดอก",
+                "v4": "ดอกขนาดเล็กรูปคล้ายระฆัง ออกเป็นช่อ สีน้ำตาลแกมเขียว ด้านในสีแดงเข้ม",
+                "h5": "ผล",
+                "v5": "ผลรูปรี ผิวเรียบเป็นมัน มีสันนูนคล้ายหงอนไก่ มีเมล็ด 1 เมล็ด และสามารถลอยน้ำได้"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "A small to medium-sized tree, 5-15 meters tall. Bark is brown to dark gray, deeply fissured.",
+                "h2": "Root",
+                "v2": "Has low buttress roots spreading like flat, twisting fins.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic, with a pointed tip. Glossy dark green above, silvery-gray below.",
+                "h4": "Flower",
+                "v4": "Small, bell-shaped flowers in clusters. Greenish-brown outside, dark red inside.",
+                "h5": "Fruit",
+                "v5": "Elliptic, smooth, and glossy with a prominent ridge resembling a rooster's comb. Contains 1 seed and can float on water."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中小型乔木，高5-15米树皮呈棕色至深灰色，有深纵裂纹",
+                "h2": "根",
+                "v2": "具有低矮的板根，呈扁平鳍状，扭曲延伸",
+                "h3": "叶",
+                "v3": "单叶，椭圆形，先端尖上面呈暗绿色有光泽，下面呈银灰色",
+                "h4": "花",
+                "v4": "花小，呈钟状，簇生外侧呈绿棕色，内侧深红色",
+                "h5": "果",
+                "v5": "果实椭圆形，表面光滑有光泽，有类似鸡冠的凸起脊内含1粒种子，能漂浮在水面上"
+            }
+        },
+        "properties": {
+            "th": "แก้บิด แก้ท้องเสีย แก้รำมะนาด ปากอักเสบ รักษาเหงือก",
+            "en": "Treats dysentery, diarrhea, periodontitis, stomatitis, and maintains gum health.",
+            "zh": "治疗痢疾、腹泻、牙周炎、口腔炎，保护牙龈健康"
+        },
+        "story": {
+            "th": "หงอนไก่ทะเล คือ “นักเดินเรือแห่งมหาสมุทร” ผู้ไม่ยืนอยู่กับที่ แต่เลือกออกเดินทางไปกับคลื่นลม เพื่อเชื่อมผืนป่ากับมหาสมุทร ชื่อของเขามาจากผลที่มีสันนูนคล้ายหงอนไก่ ซึ่งทำหน้าที่เสมือน “ใบเรือ” เมื่อผลหล่นลงน้ำเขาจะลอยได้อย่างมั่นคง และถูกพัดพาเดินทางไปไกล เพื่อเริ่มต้นชีวิตใหม่ในที่แห่งอื่น เขาถูกเรียกว่า “Looking-glass Tree” เพราะใต้ใบมีสีเงินวาวคล้ายเกล็ดปลา เมื่อสายลมพัดใบจะพลิกไปมา สะท้อนแสงแดดระยิบระยับเหมือนกระจกเงา ทั้งงดงาม และช่วยสะท้อนความร้อน รักษาความชื้นได้อย่างชาญฉลาด",
+            "en": "The Looking-glass Tree is the “Navigator of the Ocean.” It doesn't just stand still but chooses to travel with the wind and waves, bridging the forest and the sea. Its name comes from its fruit, which has a ridge resembling a rooster's comb that acts like a “sail.” When the fruit drops into the water, it floats stably and is carried far away to start a new life elsewhere. It is called the “Looking-glass Tree” because the underside of its leaves has a silvery sheen like fish scales. When the wind blows, the leaves flip and reflect sunlight like a mirror, which is not only beautiful but also cleverly reflects heat and retains moisture.",
+            "zh": "银叶树是“海洋的航海家”它不局限于原地，而是选择随风浪远行，将森林与海洋连接起来它的名字源于其带有类似鸡冠状凸起的果实，这凸起的作用如同“船帆”当果实落入水中时，它能平稳地漂浮，并被水流带到远方开启新生命它被称为“银叶树”（Looking-glass Tree），是因为其叶子背面带有类似鱼鳞的银色光泽当微风吹过，叶片翻转，像镜子一样反射阳光，不仅美丽，还能巧妙地反射热量并保持水分"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการเดินทาง",
+                "meaning": "“การเติบโต คือการกล้าออกเดินทาง และเปิดรับการเปลี่ยนแปลง”",
+                "steps": [
+                    "🪑 ยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 สังเกตสิ่งรอบตัวที่กำลังเคลื่อนไหว",
+                    "👉 “วันนี้เราพร้อมจะปล่อยอะไร และเริ่มต้นอะไรใหม่บ้าง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Journey",
+                "meaning": "“Growth means daring to embark on a journey and embracing change.”",
+                "steps": [
+                    "🪑 Stand or sit still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Observe the moving things around you.",
+                    "👉 “What am I ready to let go of today, and what new thing am I ready to start?”"
+                ]
+            },
+            "zh": {
+                "title": "旅程之点",
+                "meaning": "“成长意味着敢于踏上旅程并拥抱变化”",
+                "steps": [
+                    "🪑 静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 观察周围正在移动的事物",
+                    "👉 “今天我准备放下什么，又准备开始什么新事物？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 2,
+        "type": "flora",
+        "name": {
+            "th": "ตาตุ่มทะเล",
+            "en": "Milky Mangrove",
+            "zh": "海漆"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:348815-1",
+        "image_url": "../image/flora/f3_1.webp",
+        "sci_name": "<i>Excoecaria agallocha</i> L.",
+        "family": "Euphorbiaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นผลัดใบขนาดเล็ก-กลาง สูง 10-18 เมตร ลำต้นตรง เปลือกสีน้ำตาลอ่อนถึงเทา เรียบแตกเป็นร่อง มีน้ำยางสีขาวจำนวนมาก",
+                "h2": "ราก",
+                "v2": "มีรากหายใจแผ่กระจายไปตามผิวดิน",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปรี ปลายแหลมมน สีเขียวเข้มคล้ำเป็นมัน และจะเปลี่ยนเป็นสีแดงอิฐก่อนร่วง",
+                "h4": "ดอก",
+                "v4": "ดอกขนาดเล็ก ออกเป็นช่อติดกันเป็นกระจุก สีเหลืองแกมเขียว",
+                "h5": "ผล",
+                "v5": "ผลรูปเกือบกลม มี 3 พู ผิวเกลี้ยงสีเขียวถึงน้ำตาลเข้ม เมล็ดสีดำ"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "A small to medium deciduous tree, 10-18 meters tall. Straight trunk, light brown to gray bark, smooth but fissured, producing copious white latex.",
+                "h2": "Root",
+                "v2": "Has breathing roots spreading along the soil surface.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic, with a bluntly pointed tip. Glossy dark green, turning brick-red before falling.",
+                "h4": "Flower",
+                "v4": "Small flowers in dense clusters, yellowish-green.",
+                "h5": "Fruit",
+                "v5": "Nearly spherical, 3-lobed, smooth surface ranging from green to dark brown. Black seeds."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中小型落叶乔木，高10-18米树干笔直，树皮呈浅棕色至灰色，平滑且有裂纹，含有大量白色乳胶",
+                "h2": "根",
+                "v2": "具有沿地表蔓延的呼吸根",
+                "h3": "叶",
+                "v3": "单叶，椭圆形，先端钝尖呈有光泽的深绿色，落叶前会变成砖红色",
+                "h4": "花",
+                "v4": "花小，呈黄绿色，密集簇生",
+                "h5": "果",
+                "v5": "果实近球形，有3个裂瓣，表面光滑，呈绿色至深棕色种子为黑色"
+            }
+        },
+        "properties": {
+            "th": "รักษาโลน สังคัง โรคเรื้อน ช่วยขับลม ขับเสมหะ แก้ลมชัก",
+            "en": "Treats pubic lice, ringworm, leprosy; relieves flatulence, expels phlegm, and treats epilepsy.",
+            "zh": "治疗阴虱、股癣、麻风病；有助于驱风、祛痰、治疗癫痫"
+        },
+        "story": {
+            "th": "ตาตุ่มทะเลคือ “จอมเวทย์มนตร์ดำแห่งป่าชายเลน” ผู้ไม่ต้องถืออาวุธ แต่มีพลังที่ทำให้ทุกชีวิตต้องยำเกรง เมื่อใดเขาถูกทำร้าย ยางสีขาวจะไหลออกมา ดูเหมือนน้ำนม แต่แท้จริงคือพิษร้ายแรง หากกระเด็นเข้าตาอาจทำให้แสบร้อนรุนแรง มองไม่เห็นชั่วคราว หรือสูญเสียการมองเห็น นี่คือ “น้ำตาปีศาจ” จึงถูกเรียกว่า “Blind your eye Mangrove” สมัยก่อนเคยถูกใช้เป็นพิษอาบหัวลูกศรของนักล่า ในฤดูกาลหนึ่ง ใบของเขาจะเปลี่ยนเป็น “สีแดงอิฐทั้งต้น” ซึ่งดูสวยงามโดดเด่นกลางป่าชายเลนที่เขียวชอุ่ม สีแดงนี้ไม่ใช่แค่ความสวยแต่คือ “สัญญาณแห่งการเปลี่ยนแปลง”",
+            "en": "The Milky Mangrove is the “Dark Magician of the Mangrove Forest.” It carries no weapons but possesses a power that commands respect from all life. Whenever harmed, a white sap flows out, resembling milk but actually highly toxic. If it gets into the eyes, it causes severe burning, temporary blindness, or permanent vision loss. This “Demon's Tear” gives it the name “Blind-your-eye Mangrove.” In the past, hunters used it to poison arrowheads. During a certain season, its leaves turn completely brick-red, standing out beautifully amidst the lush green mangrove forest. This red color is not just beautiful; it is a “signal of change.”",
+            "zh": "海漆是“红树林中的黑魔法师”它不需要携带武器，却拥有让所有生命敬畏的力量一旦受损，便会流出状似牛奶的白色汁液，但实际上这是一种剧毒如果溅入眼中，会引起严重的灼痛、暂时性失明甚至永久失明这被称为“恶魔之泪”，因此它在英文中被称为“致盲红树”（Blind your eye Mangrove）过去，猎人们常将其毒液涂在箭头上在某个季节，它的叶子会整棵变成砖红色，在翠绿的红树林中显得格外美丽显眼这种红色不仅代表美丽，更是“改变的信号”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการตระหนักรู้",
+                "meaning": "“ชีวิตมีทั้งด้านอ่อนโยนและอันตราย การมีสติ คือ การปกป้องตัวเองที่ดีที่สุด”",
+                "steps": [
+                    "🪑 ยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 สังเกตสิ่งรอบตัวอย่างมีสติ",
+                    "👉 “ตอนนี้เรากำลังรู้ตัว หรือเผลอไปกับความคิด”"
+                ]
+            },
+            "en": {
+                "title": "Point of Awareness",
+                "meaning": "“Life has both gentle and dangerous sides. Being mindful is the best way to protect yourself.”",
+                "steps": [
+                    "🪑 Stand or sit still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Mindfully observe your surroundings.",
+                    "👉 “Am I fully aware right now, or lost in my thoughts?”"
+                ]
+            },
+            "zh": {
+                "title": "觉察之点",
+                "meaning": "“生活既有温柔的一面，也有危险的一面保持正念是保护自己最好的方式”",
+                "steps": [
+                    "🪑 静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 带着正念观察周围的事物",
+                    "👉 “现在我是清醒觉知的，还是迷失在思绪中了？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 3,
+        "type": "flora",
+        "name": {
+            "th": "ฝาดดอกแดง",
+            "en": "Bird-poll, Red Flower Black-Mangrove",
+            "zh": "红榄李"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:170675-1",
+        "image_url": "../image/flora/f21_2.webp",
+        "sci_name": "<i>Lumnitzera littorea</i> (Jack) Voigt",
+        "family": "Combretaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดกลาง-ใหญ่ สูงถึง 25 เมตร เปลือกสีน้ำตาลคล้ำ แตกเป็นร่องลึกตามยาว",
+                "h2": "ราก",
+                "v2": "มีรากหายใจคล้ายหัวเข่า",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปหอกกลับ ปลายกลมเว้าตื้น ด้านบนสีเขียวเข้ม ด้านล่างสีเขียวอ่อน อวบน้ำ",
+                "h4": "ดอก",
+                "v4": "ดอกเป็นพุ่มคล้ายช่อ ขนาดเล็ก ช่อละ 5–15 ดอก สีแดง มีเกสรยาวเด่นชัด",
+                "h5": "ผล",
+                "v5": "ผลรูปกระสวยป่องตรงกลางคล้ายแจกัน"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Medium to large tree, up to 25 meters tall. Dark brown bark, deeply fissured longitudinally.",
+                "h2": "Root",
+                "v2": "Has knee-like breathing roots.",
+                "h3": "Leaf",
+                "v3": "Simple, obovate, rounded apex with a shallow notch. Succulent, dark green above and light green below.",
+                "h4": "Flower",
+                "v4": "Small red flowers in dense racemes, 5–15 flowers per cluster, with prominent long stamens.",
+                "h5": "Fruit",
+                "v5": "Spindle-shaped fruit, swollen in the middle like a vase."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中大型乔木，高可达25米树皮呈深棕色，有很深的纵向裂纹",
+                "h2": "根",
+                "v2": "具有膝状呼吸根",
+                "h3": "叶",
+                "v3": "单叶，倒披针形，先端圆而微凹肉质多汁，上面深绿色，下面浅绿色",
+                "h4": "花",
+                "v4": "花小，呈簇状，每簇5-15朵，红色，花蕊细长显眼",
+                "h5": "果",
+                "v5": "果实呈纺锤形，中间膨大如花瓶"
+            }
+        },
+        "properties": {
+            "th": "เปลือกมีแทนนินสูง ใช้สมานแผล ห้ามเลือด แก้ท้องร่วง ท้องเดิน",
+            "en": "Bark is high in tannins. Used to heal wounds, stop bleeding, and treat diarrhea.",
+            "zh": "树皮富含单宁，用于促进伤口愈合、止血及治疗腹泻"
+        },
+        "story": {
+            "th": "ฝาดดอกแดงคือ “ราชินีผู้เจิดจรัส” ผู้ไม่ต้องยืนอยู่แนวหน้า แต่เพียงปรากฏตัวก็ทำให้ทั้งผืนป่าเปล่งประกาย เธอได้รับการยกย่องว่าเป็น “ราชินีแห่งไม้ประดับชายเลน” เพราะในขณะที่ต้นไม้ส่วนใหญ่มีดอกสีขาวหรือเขียวซีด แต่เธอกลับเปล่งประกายด้วยดอกสีแดงสด ราวกับ “มงกุฎของราชินี” เธอไม่เพียงแค่สะดุดตา แต่ยังดึงดูดนก แมลง และชีวิตทั้งผืนป่าให้เข้ามารวมตัวกัน เป็นภาพที่ดูมีชีวิตชีวา ภายใต้ความงดงามเธอมีความแกร่ง เนื้อไม้เหนียวและทดทาน จนถูกนำไปทำไม้พายและหางเสือเรือ เปลือกที่มีรสฝาดถูกใช้เป็นยาสมานแผล และยังนำมาย้อมสีอวนให้แข็งแรง ทนต่อน้ำเค็ม เธอจึงไม่ใช่เพียงความงาม แต่ยังเป็น “ผู้เยียวยาและช่างย้อมผ้า” ของชายฝั่ง",
+            "en": "The Red Flower Black-Mangrove is the “Radiant Queen.” She doesn't need to stand on the front lines; simply appearing makes the entire forest shine. Celebrated as the “Queen of Mangrove Ornamentals,” while most trees bear pale white or green flowers, she radiates with vivid red blooms like a “Queen's Crown.” Not only eye-catching, she attracts birds, insects, and forest life, creating a vibrant scene. Beneath her beauty lies strength: her tough, durable wood is used for oars and ship rudders. The astringent bark is used to heal wounds and as a dye to make fishing nets durable against saltwater. She is not just a beauty, but the “Healer and Dyer” of the coast.",
+            "zh": "红榄李是“闪耀的王后”她不需要站在最前线，只要一出现就能让整片森林熠熠生辉她被誉为“红树林观赏植物的女王”，因为当大多数树木开着白色或苍绿色的花朵时，她却绽放出鲜红的花朵，宛如“王后的王冠”她不仅引人注目，还吸引了鸟类、昆虫和森林中的各种生命聚集，展现出生机勃勃的景象在美丽的外表下，她拥有强大的力量：其木材质地坚韧耐用，常被制成船桨和船舵具有收敛作用的树皮被用作愈合伤口的良药，还被用来染渔网，使其更坚固耐盐水侵蚀因此，她不仅是美丽的化身，更是海岸的“治愈者和染布匠”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความงามและพลังภายใน",
+                "meaning": "“ความงามที่แท้จริง คือความเข้มแข็งจากภายใน และคุณค่าที่เรามอบให้ผู้อื่น”",
+                "steps": [
+                    "🪑 ยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 สังเกตความรู้สึกของตัวเองในขณะนี้",
+                    "👉 “เรามองเห็นคุณค่าในตัวเองแล้วหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Beauty and Inner Strength",
+                "meaning": "“True beauty is inner strength and the value we provide to others.”",
+                "steps": [
+                    "🪑 Stand or sit still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Observe your feelings at this moment.",
+                    "👉 “Do I recognize my own worth?”"
+                ]
+            },
+            "zh": {
+                "title": "内在美与力量之点",
+                "meaning": "“真正的美丽源自内心的坚强，以及我们带给他人的价值”",
+                "steps": [
+                    "🪑 静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 觉察自己此刻的感受",
+                    "👉 “我已经看到自己的价值了吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 4,
+        "type": "flora",
+        "name": {
+            "th": "โกงกางใบเล็ก",
+            "en": "Bird-poll, Red Flower Black-Mangrove",
+            "zh": "红榄李"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:719801-1",
+        "image_url": "../image/flora/f23_2.webp",
+        "sci_name": "<i>Rhizophora apiculata</i> Blume",
+        "family": "Rhizophoraceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดกลาง-ใหญ่ สูง 25-30 เมตร เปลือกสีเทาคล้ำ แตกเป็นร่องตามยาวตื้นๆ",
+                "h2": "ราก",
+                "v2": "มีรากค้ำยันโค้งหักศอกลงดินเกือบเป็นมุมฉากรอบลำต้น",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปรี ปลายแหลม สีเขียวเข้ม เส้นกลางใบด้านล่างสีแดง และมีจุดสีน้ำตาลเล็กๆ กระจายอยู่เต็มท้องใบ",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ กลีบดอกรูปไข่สีเขียวอมเหลือง",
+                "h5": "ผล",
+                "v5": "ผลเป็นรูปไข่กลับ งอกเป็นฝักยาวปลายแหลมตั้งแต่ยังอยู่บนต้น เมื่อแก่จะหลุดปักลงดินเลนได้เอง"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Medium to large tree, 25-30 meters tall. Dark gray bark with shallow longitudinal fissures.",
+                "h2": "Root",
+                "v2": "Has stilt roots that arch and drop into the ground almost at right angles around the trunk.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic, with a pointed tip. Dark green, with a red midrib underneath and small brown spots scattered across the lower surface.",
+                "h4": "Flower",
+                "v4": "Flowers in clusters, with yellowish-green oval petals.",
+                "h5": "Fruit",
+                "v5": "Obovate fruit that germinates into a long, pointed hypocotyl while still on the tree. When mature, it drops and plants itself into the mud."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中大型乔木，高25-30米树皮呈深灰色，有浅的纵向裂纹",
+                "h2": "根",
+                "v2": "具有支柱根，呈近直角状弯曲扎入树干周围的土壤中",
+                "h3": "叶",
+                "v3": "单叶，椭圆形，先端尖深绿色，叶片底部的中脉呈红色，且布满褐色小斑点",
+                "h4": "花",
+                "v4": "花簇生，花瓣呈黄绿色卵形",
+                "h5": "果",
+                "v5": "果实倒卵形，在树上时便长出细长的尖头胚轴成熟后会自动脱落并直插泥中"
+            }
+        },
+        "properties": {
+            "th": "แก้ท้องร่วง คลื่นไส้ อาเจียน และบิดเรื้อรัง ช่วยสมานแผล ห้ามเลือด และป้องกันการติดเชื้อ",
+            "en": "Treats diarrhea, nausea, vomiting, and chronic dysentery. Helps heal wounds, stops bleeding, and prevents infections.",
+            "zh": "治疗腹泻、恶心、呕吐及慢性痢疾，有助于伤口愈合、止血及预防感染"
+        },
+        "story": {
+            "th": "ในอาณาจักรป่าชายที่ต้องเผชิญทั้งคลื่นลมและกระแสน้ำโกงกางใบเล็ก คือ “ราชาผู้ปักหลัก” ผู้ยืนอยู่แนวหน้าปกป้องทั้งผืนแผ่นดินและชีวิตที่อยู่ด้านหลัง รากค้ำยันของเขาแผ่กว้างและปักลงในดินเลนเกือบเป็นมุมฉาก ราวกับกองทัพที่ยืนจับมือกันเป็นกำแพงด่านแรกปกป้องอาณาจักรจากแรงคลื่นลมพายุ ลูกของเขาคือ “ลูกไม้ที่เกิดมาเพื่อสู้” เติบโตเป็นฝักยาวตั้งแต่อยู่บนต้น เมื่อถึงเวลาจะทิ้งตัวลง “ปักดิ่ง” ลงในเลนทันที เขายังเป็น “ราชาแห่งถ่าน” เนื้อไม้ของเขาแน่น แข็ง และทนทาน เมื่อนำไปเผาจะได้ถ่านคุณภาพสูง ไฟแรง ควันน้อย และมีขี้เถ้าน้อยมาก",
+            "en": "In the mangrove kingdom facing wind and tides, the Rhizophora apiculata is the “Anchored King,” standing on the frontlines to protect the land and life behind him. His stilt roots spread wide and dive into the mud almost at right angles, like an army holding hands to form the first defense wall against storm waves. His offspring are “born to fight,” growing into long hypocotyls while still attached to the tree, and when the time is right, dropping to “spear” themselves directly into the mud. He is also the “King of Charcoal.” His dense, hard, and durable wood, when burned, produces high-quality charcoal with intense heat, low smoke, and very little ash.",
+            "zh": "在红树林王国面对风浪和潮汐时，红海榄是“坚守阵地的国王”，他站在最前线保护着身后的土地和生命他的支柱根广泛蔓延，几乎呈直角扎入泥土中，就像一支手拉手的军队，构成了抵御风浪的第一道城墙他的后代是“为战斗而生的种子”，在树上就已经长出长长的胚轴，当时机成熟时，便会直接“刺入”泥潭他也是“木炭之王”其木材致密、坚硬且耐用，烧制后可得到热量高、烟少、灰烬极少的优质木炭"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความมั่นคง",
+                "meaning": "“ความงามที่แท้จริง คือความเข้มแข็งจากภายใน และคุณค่าที่เรามอบให้ผู้อื่น”",
+                "steps": [
+                    "🪑 ยืนตัวตรง วางเท้าให้มั่นคงกับพื้น",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 รับรู้ความแข็งแรงของร่างกายในขณะนี้",
+                    "👉 “อะไรคือสิ่งที่ทำให้เรายืนหยัดได้”"
+                ]
+            },
+            "en": {
+                "title": "Point of Stability",
+                "meaning": "“True beauty is inner strength and the value we provide to others.”",
+                "steps": [
+                    "🪑 Stand up straight, planting your feet firmly on the ground.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Acknowledge the strength of your body at this moment.",
+                    "👉 “What is the foundation that allows me to stand strong?”"
+                ]
+            },
+            "zh": {
+                "title": "稳固之点",
+                "meaning": "“真正的美丽源自内心的力量以及我们为他人创造的价值”",
+                "steps": [
+                    "🪑 挺直站立，双脚稳稳踩在地面上",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 感受此刻身体的力量",
+                    "👉 “是什么支撑我坚定地站立着？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 5,
+        "type": "flora",
+        "name": {
+            "th": "โกงกางใบใหญ่",
+            "en": "Loop-root Mangrove , Red Mangrove",
+            "zh": "红茄苳"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:719830-1",
+        "image_url": "../image/flora/f18_1.webp",
+        "sci_name": "<i>Rhizophora mucronata</i> Poir.",
+        "family": "Rhizophoraceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดกลาง-ใหญ่ สูง 25-30 เมตร เปลือกสีเทาดำ แตกเป็นร่องตามยาว-ตามขวาง ตื้นๆ",
+                "h2": "ราก",
+                "v2": "มีรากค้ำยันโค้งลงดิน",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปรี ปลายแหลม สีเขียวอมเหลือง เส้นกลางใบสีเขียวอ่อน มีจุดสีน้ำตาลเล็กๆ กระจายอยู่เต็มท้องใบ",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ สีเหลืองอ่อนมีขนปกคลุมตามขอบ มีกลิ่นหอมอ่อน",
+                "h5": "ผล",
+                "v5": "ผลรูปไข่กลับ งอกเป็นฝักยาวปลายแหลมตั้งแต่ยังอยู่บนต้น เมื่อแก่จะหลุดปักลงดินเลนได้เอง"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Medium to large tree, 25-30 meters tall. Dark gray bark with shallow longitudinal and transverse fissures.",
+                "h2": "Root",
+                "v2": "Has stilt roots arching into the ground.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic, with a pointed tip. Yellowish-green, with a light green midrib and small brown spots scattered across the lower surface.",
+                "h4": "Flower",
+                "v4": "Flowers in clusters, light yellow with hairy margins, possessing a mild fragrance.",
+                "h5": "Fruit",
+                "v5": "Obovate fruit that germinates into a long, pointed hypocotyl while on the tree. When mature, it drops and plants itself in the mud."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中大型乔木，高25-30米树皮呈黑灰色，有浅的纵横交错裂纹",
+                "h2": "根",
+                "v2": "具有弯曲扎入土壤的支柱根",
+                "h3": "叶",
+                "v3": "单叶，椭圆形，先端尖呈黄绿色，中脉为浅绿色，叶底布满褐色小斑点",
+                "h4": "花",
+                "v4": "花簇生，呈淡黄色，边缘生有绒毛，带有淡淡的香气",
+                "h5": "果",
+                "v5": "果实倒卵形，在树上时便长出细长的尖头胚轴成熟后会自动脱落并直插泥中"
+            }
+        },
+        "properties": {
+            "th": "แก้ท้องร่วง คลื่นไส้ อาเจียน และบิดเรื้อรัง ช่วยสมานแผล ห้ามเลือด และป้องกันการติดเชื้อ",
+            "en": "Treats diarrhea, nausea, vomiting, and chronic dysentery. Helps heal wounds, stops bleeding, and prevents infections.",
+            "zh": "治疗腹泻、恶心、呕吐及慢性痢疾有助于伤口愈合、止血及预防感染"
+        },
+        "story": {
+            "th": "โกงกางใบใหญ่คือ “ขุนพลร่างยักษ์แห่งพรมแดนสองโลก” ผู้ยืนอยู่แนวหน้ารับแรงคลื่นแทนทุกชีวิตที่อยู่ด้านหลัง เขาไม่ได้มีเพียงรากใต้ดิน แต่ส่ง “รากค้ำยัน” จำนวนมากโค้งลงสู่พื้นดิน ราวกับแขนขาของยักษ์ ที่ยึดผืนดินไว้ไม่ให้หลุดลอยไปกับคลื่น และใต้รากที่ซับซ้อนนี้กลายเป็นบ้านและสถานรับเลี้ยงสัตว์น้ำวัยอ่อน แม้ภายนอกเขาจะดูแข็งแกร่ง แต่ดอกของเขากลับมีขนปุยนุ่มสีขาวนวลปกคลุม เป็นความสมดุลระหว่าง “พลัง” และ “ความอ่อนโยน”",
+            "en": "The Large-Leaved Mangrove is the “Giant Warlord of the Two Worlds' Border,” standing on the frontlines to take the impact of waves for all life behind him. He doesn't just have underground roots, but sends numerous “stilt roots” arching down to the ground, like the limbs of a giant holding the earth firmly to prevent it from washing away with the waves. Beneath these complex roots lies a home and nursery for young marine animals. Though he appears tough on the outside, his flowers are covered in soft, white fuzz, representing a perfect balance between “power” and “gentleness.”",
+            "zh": "大叶红树是“两个世界边界的巨型猛将”，他站在最前线，为身后的所有生命抵御海浪的冲击他不仅拥有地下根，还伸出许多向下弯曲的“支柱根”，犹如巨人的手脚，紧紧抓住大地，防止被波浪冲走在这错综复杂的根系之下，成为了幼小海洋动物的家园和庇护所虽然他外表坚韧粗犷，但其花朵却覆盖着一层洁白柔软的绒毛，完美诠释了“力量”与“温柔”的平衡"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการปกป้อง",
+                "meaning": "“ความเข้มแข็งที่แท้จริง คือการปกป้องผู้อื่น โดยไม่สูญเสียความอ่อนโยนภายใน”",
+                "steps": [
+                    "🪑 ยืนตัวตรง วางเท้าให้มั่นคงกับพื้น",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 รับรู้ความมั่นคงและพลังในร่างกาย",
+                    "👉 “เรากำลังปกป้องสิ่งใด และดูแลตัวเองเพียงพอแล้วหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Protection",
+                "meaning": "“True strength is protecting others without losing your inner gentleness.”",
+                "steps": [
+                    "🪑 Stand straight and plant your feet firmly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Acknowledge the stability and power in your body.",
+                    "👉 “What am I protecting, and am I taking enough care of myself?”"
+                ]
+            },
+            "zh": {
+                "title": "守护之点",
+                "meaning": "“真正的坚强是保护他人的同时，不失内心的温柔”",
+                "steps": [
+                    "🪑 挺直站立，双脚稳稳踩在地面上",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 感受身体内部的稳固与力量",
+                    "👉 “我正在保护什么，我对自己照顾得足够吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 6,
+        "type": "flora",
+        "name": {
+            "th": "จาก",
+            "en": "Nipa Palm",
+            "zh": "水椰"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:668507-1",
+        "image_url": "../image/flora/f4_1.webp",
+        "sci_name": "<i>Nypa fruticans</i> Wurmb",
+        "family": "Arecaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นพืชตระกูลปาล์มขนาดกลาง ลำต้นเป็นเหง้าอยู่ใต้ดิน",
+                "h2": "ราก",
+                "v2": "มีรากอวบอ้วน อัดแน่นอยู่ใต้เหง้ารอบกอ",
+                "h3": "ใบ",
+                "v3": "ใบประกอบแบบขนนก รูปแถบแกมรูปหอก ปลายแหลม ยาว 4–8 เมตร ด้านบนสีเขียวเข้มเป็นมัน ด้านล่างมีสีเขียวอมเหลือง มีความเหนียวแข็งแรง",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อที่โคนต้น มีทั้งเพศผู้และเพศเมียในต้นเดียวกัน ดอกเพศเมียเป็นช่อกระจุกแน่นล้อมด้วยดอกเพศผู้เป็นแท่งสีเหลืองเข้ม",
+                "h5": "ผล",
+                "v5": "ผลเป็นช่อกลมขนาดใหญ่ เส้นผ่านศูนย์กลางราว 30 ซม. เมล็ดสีขาวใส รับประทานได้"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "A medium-sized palm, with a creeping underground rhizome trunk.",
+                "h2": "Root",
+                "v2": "Has thick, fleshy roots densely packed under the rhizome.",
+                "h3": "Leaf",
+                "v3": "Pinnately compound, linear-lanceolate, pointed tips. 4–8 meters long. Glossy dark green above, yellowish-green below, tough and strong.",
+                "h4": "Flower",
+                "v4": "Inflorescence emerges from the base. Monoecious (both male and female flowers on the same plant). Female flowers form a dense cluster surrounded by dark yellow, rod-like male flowers.",
+                "h5": "Fruit",
+                "v5": "Large globular fruiting head, about 30 cm in diameter. Seeds are translucent white and edible."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中型棕榈科植物，茎为地下根状茎",
+                "h2": "根",
+                "v2": "根部肥厚，紧密排列在根状茎周围",
+                "h3": "叶",
+                "v3": "羽状复叶，呈披针形条状，先端尖长4-8米上面为有光泽的深绿色，下面为黄绿色，韧性强",
+                "h4": "花",
+                "v4": "花序生于基部，雌雄同株雌花呈密集簇状，被深黄色的棒状雄花包围",
+                "h5": "果",
+                "v5": "果实呈大型球状聚花果，直径约30厘米种子透明呈白色，可食用"
+            }
+        },
+        "properties": {
+            "th": "ช่วยขับปัสสาวะ รักษานิ่วและหินปูนในไต แก้อาการเมาคลื่น เมาเหล้า แก้โรคเบาหวาน",
+            "en": "Acts as a diuretic, treats kidney stones and calcification. Relieves seasickness, hangovers, and manages diabetes.",
+            "zh": "利尿，治疗肾结石和钙化缓解晕船、宿醉，及治疗糖尿病"
+        },
+        "story": {
+            "th": "จาก คือ “ผู้ให้แห่งชายคลอง” ผู้ที่เลี้ยงดูผู้คนมาอย่างยาวนาน โดยไม่เคยเรียกร้องสิ่งตอบแทน ใบของเขาคือ “หลังคาแรก” ของบ้านริมน้ำ เขายังเป็น “ห้องครัวธรรมชาติ” ที่ไม่เคยปล่อยให้ใครหิว ผลอ่อนนำมาใส่แกง รสสัมผัสนุ่มหนึบ ผลสุกกลายเป็นของหวาน “ลูกจากเชื่อม” น้ำหวานจากก้านดอกทำเป็น “น้ำตาลจาก” หรือใช้หมักเป็นเหล้า ยอดอ่อนนำมาสานเสื่อ ก้านใช้มวนยาสูบ เขาคือหนึ่งในพืชตระกูลปาล์มที่ “เก่าแก่ที่สุดในโลก” ย้อนไปถึง 70 ล้านปี เป็น “ฟอสซิลที่มีชีวิต”",
+            "en": "The Nipa Palm is the “Provider of the Canal,” nourishing people for a long time without asking for anything in return. Its leaves act as the “first roof” for riverside homes. It is also a “natural kitchen” that never lets anyone go hungry. Young fruits are cooked in curries, offering a soft and chewy texture. Ripe fruits are turned into a sweet dessert (candied Nipa palm). Sap from the flower stalks is boiled into “Nipa sugar” or fermented into alcohol. Young leaves are woven into mats, and petioles are used for rolling tobacco. It is one of the “oldest palm species in the world,” dating back 70 million years, earning it the title of a “living fossil.”",
+            "zh": "水椰是“运河畔的施予者”，长期以来养育了人们，却从不求回报它的叶片是水边房屋的“第一屋顶”它也是“天然厨房”，从不让人挨饿嫩果可以加入咖喱，口感柔软且有嚼劲成熟果实可制成甜点“糖水椰果”花梗中的汁液可制成“水椰糖”或酿酒嫩叶用于编织垫子，叶柄可用来卷烟草它是“世界上最古老”的棕榈科植物之一，可追溯至7000万年前，被称为“活化石”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความพอเพียง",
+                "meaning": "“ความสุขที่แท้จริง คือการรู้จักพอ และการแบ่งปันสิ่งที่เรามี”",
+                "steps": [
+                    "🪑 นั่งพักบริเวณจุดนี้",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 นึกถึงสิ่งดีๆ ที่เรามีอยู่ในชีวิต",
+                    "👉 “วันนี้เรามีพอแล้วหรือยัง และเราจะแบ่งปันอะไรได้บ้าง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Sufficiency",
+                "meaning": "“True happiness is knowing contentment and sharing what we have.”",
+                "steps": [
+                    "🪑 Sit and rest at this point.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Think of the good things you currently have in life.",
+                    "👉 “Do I have enough today, and what can I share with others?”"
+                ]
+            },
+            "zh": {
+                "title": "知足之点",
+                "meaning": "“真正的幸福在于懂得满足，并分享我们所拥有的”",
+                "steps": [
+                    "🪑 坐在这里休息",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 回想生活中已经拥有的美好事物",
+                    "👉 “今天我拥有的足够了吗？我能分享什么？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 7,
+        "type": "flora",
+        "name": {
+            "th": "พังกาหัวสุมดอกแดง",
+            "en": "Large-leafed Orange Mangrove",
+            "zh": "木榄"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:719532-1",
+        "image_url": "../image/flora/f8_2.webp",
+        "sci_name": "<i>Bruguiera gymnorhiza</i> (L.) Lam. ex Savigny",
+        "family": "Rhizophoraceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดใหญ่ สูง 20–30 เมตร เปลือกแตกเป็นแนวยาว สีน้ำตาลหรือสีดำ",
+                "h2": "ราก",
+                "v2": "โคนต้นมีรากพูพอนสูง และมีรากหายใจคล้ายหัวเข่า",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปรี ปลายแหลม ด้านบนสีเขียวเข้มเป็นมัน ด้านล่างสีเขียวอมเหลือง",
+                "h4": "ดอก",
+                "v4": "ดอกตูมรูปทรงกระสวยห้อยลง สีแดงสด เมื่อบานจะมีลักษณะคล้ายสุ่ม",
+                "h5": "ผล",
+                "v5": "ผลรูปไข่ งอกเป็นฝักสั้นอวบรูปทรงกระสวยตั้งแต่อยู่บนต้น ฝักสีเขียวเข้ม เมื่อแก่จะเป็นสีม่วงดำก่อนหล่นลงดิน"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Large tree, 20–30 meters tall. Bark is fissured longitudinally, colored brown or black.",
+                "h2": "Root",
+                "v2": "Base has high buttress roots and knee-like breathing roots.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic, with a pointed tip. Glossy dark green above, yellowish-green below.",
+                "h4": "Flower",
+                "v4": "Flower buds are spindle-shaped, drooping, and bright red. When blooming, they resemble a traditional Thai fish trap (sum).",
+                "h5": "Fruit",
+                "v5": "Oval fruit. Germinates into a short, plump, spindle-shaped hypocotyl while on the tree. Dark green, turning purplish-black before dropping."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "大型乔木，高20–30米树皮有纵向裂纹，呈棕色或黑色",
+                "h2": "根",
+                "v2": "基部具有高大的板根和膝状呼吸根",
+                "h3": "叶",
+                "v3": "单叶，椭圆形，先端尖上面呈有光泽的深绿色，下面呈黄绿色",
+                "h4": "花",
+                "v4": "花蕾呈纺锤形下垂，鲜红色绽放时形状类似捕鱼用的竹笼",
+                "h5": "果",
+                "v5": "果实呈卵形在树上便长出短而丰满的纺锤形胚轴胚轴呈深绿色，成熟后变成紫黑色脱落入土"
+            }
+        },
+        "properties": {
+            "th": "แก้ท้องร่วง ใช้พอกแผลเพื่อช่วยห้ามเลือด",
+            "en": "Treats diarrhea, applied as a poultice to stop bleeding.",
+            "zh": "治疗腹泻，外敷伤口有助于止血"
+        },
+        "story": {
+            "th": "พังกาหัวสุมดอกแดง คือ “ขุนนางผู้ลึกลับ” แห่งป่าชายเลนชั้นใน ดอกของเขาไม่ได้บานแผ่เหมือนดอกไม้ทั่วไป แต่กลับห้อยลง สีแดงเข้ม คล้าย “เปลวไฟที่กำลังซ่อนตัว” ท่ามกลางป่าชายเลน ใต้ต้นเขาจะมีรากที่โผล่ขึ้นมาแล้วโค้งกลับลงดิน ราวกับ “หัวเข่าที่กำลังคุกเข่า” ช่วยดักตะกอนและสร้างผืนดินใหม่ เขาจึงเป็นขุนนางที่ “ก้มตัวลงเพื่อค้ำจุนแผ่นดิน” โคนผลมีกลีบสีแดงหุ้มอยู่ นี่คือที่มาของชื่อ “หัวสุม” เพราะดูเหมือนมี “สุมไฟ” อยู่ด้านบน",
+            "en": "The Large-leafed Orange Mangrove is the “Mysterious Noble” of the inner mangrove forest. Its flowers don't spread open like typical flowers; instead, they hang down in deep red, resembling a “hidden flame” amidst the mangroves. Beneath the tree, roots emerge and curve back into the ground like “kneeling knees,” trapping sediment to build new land. Thus, it acts as a noble who “bows down to support the earth.” The base of its fruit is enveloped in red calyces, looking like an “ember stack” (sum-fai), giving it its Thai name “Hua Sum.”",
+            "zh": "木榄是内陆红树林的“神秘贵族”它的花朵不像普通花卉那样平展绽放，而是深红色下垂，宛如隐藏在红树林中的“暗火”树下有冒出泥面又弯曲扎入土中的根系，宛如“正在下跪的膝盖”，有助于截留沉积物并创造新陆地因此，他是一位“俯身支撑大地”的贵族果实基部被红色的花萼包裹，看起来就像顶端“生着一堆火”（在泰语中发音为Hua Sum，这也是其泰语名字的由来）"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความสงบ",
+                "meaning": "“ความยิ่งใหญ่ที่แท้จริง คือการถ่อมตน และการสร้างประโยชน์ให้ผู้อื่นอย่างเงียบงัน”",
+                "steps": [
+                    "🪑 หยุดยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 สังเกตความเงียบและสิ่งรอบตัว",
+                    "👉 “เรากำลังรีบเกินไป จนลืมฟังความสงบภายในหรือไม่”"
+                ]
+            },
+            "en": {
+                "title": "Point of Tranquility",
+                "meaning": "“True greatness is humility and creating value for others silently.”",
+                "steps": [
+                    "🪑 Stand or sit in absolute stillness.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Observe the silence and your surroundings.",
+                    "👉 “Am I rushing too much, forgetting to listen to my inner peace?”"
+                ]
+            },
+            "zh": {
+                "title": "宁静之点",
+                "meaning": "“真正的伟大是谦逊，并默默地为他人创造价值”",
+                "steps": [
+                    "🪑 停下来，静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 感受寂静和周围的环境",
+                    "👉 “我是否太过匆忙，以至于忘记倾听内心的宁静？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 8,
+        "type": "flora",
+        "name": {
+            "th": "โปรงแดง",
+            "en": "Spurred Mangrove, Tagal Mangrove",
+            "zh": "角果木"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:719711-1",
+        "image_url": "../image/flora/f30_1.webp",
+        "sci_name": "<i>Ceriops tagal</i> (Perr.) C.B.Rob.",
+        "family": "Rhizophoraceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็ก-กลาง สูง 20 เมตร เปลือกสีน้ำตาลอ่อน เรียบถึงแตกล่อนเป็นสะเก็ด",
+                "h2": "ราก",
+                "v2": "โคนต้นมีรากพูพอนเล็กน้อย มีรากค้ำยันขนาดเล็ก และรากหายใจคล้ายหัวเข่ากลมอ้วน สั้น",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปไข่กลับ ปลายมนเว้าตื้น ผิวใบเกลี้ยงอวบน้ำ สีเขียวเข้ม",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ สีขาว",
+                "h5": "ผล",
+                "v5": "ผลรูปลูกไข่กลับ มีฝักสีเขียวงอกตั้งแต่อยู่บนต้น และเปลี่ยนเป็นสีน้ำตาลเมื่อแก่"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small to medium tree, up to 20 meters tall. Light brown bark, smooth to flaking.",
+                "h2": "Root",
+                "v2": "Base has minor buttresses, small stilt roots, and short, thick, rounded knee roots.",
+                "h3": "Leaf",
+                "v3": "Simple, obovate, with a rounded and slightly notched tip. Smooth, succulent, dark green.",
+                "h4": "Flower",
+                "v4": "White flowers in clusters.",
+                "h5": "Fruit",
+                "v5": "Obovate fruit. Green hypocotyl germinates while on the tree, turning brown when mature."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中小型乔木，高20米树皮浅棕色，平滑或呈鳞片状剥落",
+                "h2": "根",
+                "v2": "树基有小板根，具小型支柱根，以及短而肥厚的圆形膝状呼吸根",
+                "h3": "叶",
+                "v3": "单叶，倒卵形，先端钝圆且微凹叶面光滑多汁，呈深绿色",
+                "h4": "花",
+                "v4": "白花，簇生",
+                "h5": "果",
+                "v5": "果实倒卵形在树上时便长出绿色的胚轴，成熟时变为棕色"
+            }
+        },
+        "properties": {
+            "th": "แก้ท้องร่วง คลื่นไส้ อาเจียน ใช้พอกแผลเพื่อช่วยห้ามเลือด รักษางูสวัด เริม",
+            "en": "Treats diarrhea, nausea, vomiting. Applied as a poultice to stop bleeding. Treats shingles and herpes.",
+            "zh": "治疗腹泻、恶心、呕吐，外敷可止血治疗带状疱疹和单纯疱疹"
+        },
+        "story": {
+            "th": "โปรงแดง คือ “อัศวินผู้เฝ้ายาม” แห่งป่าชายเลนชั้นใน โดดเด่นด้วย “ความเรียบ เท่ และมีระเบียบ” เหมือนนักรบที่ยืนเงียบๆ แต่มั่นคง แม้ชื่อจะบอกว่า “แดง” แต่สีแดงซ่อนอยู่ในเปลือกไม้ที่อุดมด้วยสารแทนนิน ใช้ย้อมแห อวน และผ้า ให้สีน้ำตาลแดงเข้ม ลำต้นของเขาสะท้อนแสงเหมือนสีทองอ่อน ทำให้ดูสะอาดและมั่นคง ราวกับอัศวินที่ยืนเฝ้าป่าในชุดเกราะสีทอง เขาไม่ได้เป็นฮีโร่ที่ทุกคนเห็น แต่เป็น “ผู้รักษาความสมดุลของอาณาจักร”",
+            "en": "The Tagal Mangrove is the “Guardian Knight” of the inner mangrove forest, standing out with its “sleek, cool, and disciplined” presence like a silent yet steadfast warrior. Although its Thai name means “Red,” the red is hidden within its tannin-rich bark, traditionally used to dye nets, fishing gear, and cloth a deep reddish-brown. Its trunk reflects light like pale gold, looking clean and unwavering, akin to a knight guarding the forest in golden armor. It may not be the highly visible hero, but it is the “Keeper of the Kingdom's Balance.”",
+            "zh": "角果木是内陆红树林的“守卫骑士”，以“简约、冷峻、井然有序”的姿态脱颖而出，就像一名安静却坚定的战士虽然它的泰语名字带有“红”字，但红色隐藏在富含单宁的树皮中，人们常用它将渔网、渔具和布料染成深红棕色它的树干反射着淡淡的金光，看起来整洁稳重，犹如穿着金色盔甲守护森林的骑士它也许不是众人眼中的显赫英雄，却是“王国平衡的守护者”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความสมดุล",
+                "meaning": "“ความนิ่ง คือพลังที่แท้จริง และความสมดุลคือหัวใจของชีวิต”",
+                "steps": [
+                    "🪑 หยุดยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 สังเกตร่างกายและจังหวะลมหายใจ",
+                    "👉 “ตอนนี้ชีวิตเราสมดุลแล้วหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Balance",
+                "meaning": "“Stillness is true power, and balance is the heart of life.”",
+                "steps": [
+                    "🪑 Stand or sit completely still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Notice your body and the rhythm of your breath.",
+                    "👉 “Is my life in balance right now?”"
+                ]
+            },
+            "zh": {
+                "title": "平衡之点",
+                "meaning": "“平静才是真正的力量，平衡是生活的核心”",
+                "steps": [
+                    "🪑 停下来，静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 感受身体状态和呼吸的节奏",
+                    "👉 “目前我的生活处于平衡状态吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 9,
+        "type": "flora",
+        "name": {
+            "th": "ปรงทะเล",
+            "en": "Golden Leather Fern",
+            "zh": "鹵蕨"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:319061-2",
+        "image_url": "../image/flora/f2_1.webp",
+        "sci_name": "<i>Acrostichum aureum</i> L.",
+        "family": "Pteridaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นพืชกลุ่มเฟิร์นขนาดใหญ่ สูง 2–4 เมตร มีลำต้นเป็นเหง้าอยู่ใต้ดิน ขึ้นเป็นกอหนาแน่น",
+                "h2": "ราก",
+                "v2": "มีรากค้ำยันหนา อวบน้ำ",
+                "h3": "ใบ",
+                "v3": "ใบประกอบแบบขนนก รูปขอบขนานแกมรูปหอก ขนาดใหญ่ ปลายกลมเว้าบุ๋ม ยาวถึง 1 เมตร ใบหนา สีเขียวเข้มเป็นมัน ใบแก่ด้านล่างมีสปอร์สีน้ำตาลทองปกคลุม",
+                "h4": "ดอก",
+                "v4": "-",
+                "h5": "ผล",
+                "v5": "-"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "A large fern, 2–4 meters tall. Has an underground rhizome and grows in dense clumps.",
+                "h2": "Root",
+                "v2": "Has thick, fleshy stilt roots.",
+                "h3": "Leaf",
+                "v3": "Pinnately compound, oblong-lanceolate, very large (up to 1 meter long). Tips are rounded and notched. Leaves are thick and glossy dark green. Older leaves are covered underneath with golden-brown spores.",
+                "h4": "Flower",
+                "v4": "-",
+                "h5": "Fruit",
+                "v5": "-"
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "大型蕨类植物，高2-4米地下具根状茎，密集丛生",
+                "h2": "根",
+                "v2": "具有厚实多汁的支柱根",
+                "h3": "叶",
+                "v3": "羽状复叶，长圆披针形，体积大，末端圆而微凹，长达1米叶片厚实，呈有光泽的深绿色老叶底部覆盖着金棕色的孢子",
+                "h4": "花",
+                "v4": "-",
+                "h5": "果",
+                "v5": "-"
+            }
+        },
+        "properties": {
+            "th": "ลดอาการฟกช้ำ ปวดบวม ช่วยแก้พิษยางตาตุ่มทะเลเข้าตา แก้เริมและงูสวัด",
+            "en": "Reduces bruising and swelling. An antidote for Milky Mangrove sap in the eyes. Treats herpes and shingles.",
+            "zh": "消肿散瘀可解除海漆汁液入眼的毒性治疗单纯疱疹和带状疱疹"
+        },
+        "story": {
+            "th": "ปรงทะเลคือ “พญานาคราช” ผู้เฝ้าประตูสู่ป่าชั้นใน กอของเขาสูงและหนาแน่น ใบยาวเรียงซ้อนกัน ดูราวกับหงอนพญานาค ที่แผ่ปกคลุมผืนดิน ผู้ที่จะก้าวสู่ป่าด้านใน จะต้องผ่าน “ด่านสีเขียว” นี้ก่อน ใต้ใบของเขามีสปอร์สีน้ำตาลทองปกคลุม ดูราวกับแผ่นทองคำ เมล็ดพันธุ์แห่งชีวิตที่พร้อมเริ่มต้นใหม่ เขาเป็น “เฟิร์นยักษ์โบราณ” ผู้รอดชีวิตจากยุคดึกดำบรรพ์ และเป็นผู้ฟื้นฟู เมื่อผืนดินเสื่อมโทรม เขาจะกลับมาก่อนใคร เพื่อยึดหน้าดินและเปิดทางให้ชีวิตอื่นเติบโตอีกครั้ง",
+            "en": "The Golden Leather Fern is the “Naga King,” the guardian of the gates to the inner forest. Its clumps are tall and dense, with long overlapping leaves resembling the crest of a Naga sprawling over the land. Anyone wanting to enter the deep forest must pass this “Green Checkpoint” first. Beneath its leaves lies a layer of golden-brown spores that look like gold leaf—the seeds of life ready for a new beginning. It is an “ancient giant fern,” a survivor from prehistoric times, and a restorer of nature. When the soil degrades, it returns first to stabilize the topsoil and pave the way for other life to thrive anew.",
+            "zh": "卤蕨是守卫内陆森林大门的“那伽之王”（蛇神）它的丛生高大茂密，细长的叶片层层叠叠，犹如覆盖在大地上的那伽神冠想进入深林的人，必须先通过这道“绿色关卡”在它的叶背下覆盖着金棕色的孢子，看起来就像金箔——这是准备重新开始的生命之种它是一种“古老的巨型蕨类”，是从史前时代幸存下来的物种，也是大自然的复苏者当土壤退化时，它会最先归来，稳固表层土壤，为其他生命的再次繁荣开辟道路"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการฟื้นฟู",
+                "meaning": "“ทุกการเริ่มต้นใหม่ อาจต้องเริ่มจากการฟื้นฟูตัวเองก่อน”",
+                "steps": [
+                    "🪑 หยุดยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 รับรู้ร่างกายและความรู้สึกในขณะนี้",
+                    "👉 “วันนี้เราต้องการพัก หรือเริ่มต้นใหม่”"
+                ]
+            },
+            "en": {
+                "title": "Point of Restoration",
+                "meaning": "“Every new beginning may first require restoring yourself.”",
+                "steps": [
+                    "🪑 Stop to stand or sit quietly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Acknowledge your body and current feelings.",
+                    "👉 “Do I need rest today, or am I ready to begin anew?”"
+                ]
+            },
+            "zh": {
+                "title": "复苏之点",
+                "meaning": "“每一次重新开始，可能都需要先从恢复自我做起”",
+                "steps": [
+                    "🪑 停下来，静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 感受现在的身体状态与情绪",
+                    "👉 “今天我是需要休息，还是准备好重新开始了？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 10,
+        "type": "flora",
+        "name": {
+            "th": "ฝาดดอกขาว",
+            "en": "White-flowered Black Mangrove",
+            "zh": "榄李"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:170681-1",
+        "image_url": "../image/flora/f20_2.webp",
+        "sci_name": "<i>Lumnitzera racemosa</i> Willd.",
+        "family": "Combretaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็กกึ่งไม้พุ่ม สูง 8 เมตร เปลือกขรุขระแตกล่อนเป็นแผ่นเล็กๆ สีน้ำตาลแดง",
+                "h2": "ราก",
+                "v2": "-",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปใบหอกกลับ ปลายกลมเว้าตื้น หนาอวบน้ำ ใบเกลี้ยงสีเขียวเรื่อ",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ ดอกย่อยขนาดเล็กสีขาว ออกดอกช่วงสิงหาคม-มีนาคม",
+                "h5": "ผล",
+                "v5": "ผลเมล็ดเดียว แข็ง แบน รูปรี"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small tree to shrub, 8 meters tall. Rough reddish-brown bark, peeling in small flakes.",
+                "h2": "Root",
+                "v2": "-",
+                "h3": "Leaf",
+                "v3": "Simple, obovate, rounded tip with a shallow notch. Thick, succulent, smooth, and light green.",
+                "h4": "Flower",
+                "v4": "Flowers in racemes; individual flowers are small and white. Blooms from August to March.",
+                "h5": "Fruit",
+                "v5": "Single-seeded fruit, hard, flat, and elliptic."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "小型乔木或灌木，高8米树皮粗糙，呈红棕色，呈小片状剥落",
+                "h2": "根",
+                "v2": "-",
+                "h3": "叶",
+                "v3": "单叶，倒披针形，先端圆而微凹厚实多汁，叶片光滑，呈淡绿色",
+                "h4": "花",
+                "v4": "花呈总状花序，小花为白色花期为8月至次年3月",
+                "h5": "果",
+                "v5": "单籽果实，坚硬，扁平，呈椭圆形"
+            }
+        },
+        "properties": {
+            "th": "แก้ท้องอืด ท้องเฟ้อ แก้เริม งูสวัด และโรคหิด",
+            "en": "Relieves bloating and flatulence. Treats herpes, shingles, and scabies.",
+            "zh": "缓解腹胀、胃气胀治疗单纯疱疹、带状疱疹和疥疮"
+        },
+        "story": {
+            "th": "ฝาดดอกขาว คือ “สตรีชุดขาวผู้อ่อนโยนแห่งชายป่า” ท่ามกลางพุ่มใบสีเขียวเข้ม ดอกสีขาวเล็กๆ ของเธอ ดูราวกับเกล็ดหิมะที่โปรยลงมา ดอกของเธอไม่ใช่แค่สวยงามเท่านั้น แต่คือ “งานเลี้ยง” ของเหล่าผีเสื้อ ผึ้ง นกและแมลงกินน้ำหวาน แม้จะดูบอบบางแต่เธอกลับแข็งแกร่ง เธอเลือกอยู่ในพื้นที่ที่ท้าทาย ดินเค็ม น้ำท่วมถึงเป็นครั้งคราว แดดแรง ใบที่หนาและอวบน้ำคือพลังที่ทำให้เธออยู่รอดได้อย่างสง่างาม",
+            "en": "The White-flowered Black Mangrove is the “Gentle Lady in White of the Forest Edge.” Amidst the dark green foliage, her tiny white flowers look like gently falling snowflakes. Her blooms aren't just visually beautiful; they host a “banquet” for butterflies, bees, birds, and nectar-feeding insects. Though she looks fragile, she is remarkably resilient. She chooses to thrive in challenging environments—saline soil, occasional tidal flooding, and intense sunlight. Her thick, succulent leaves give her the power to survive elegantly.",
+            "zh": "榄李是林缘边“温柔的白衣淑女”在深绿色的树丛中，她那一朵朵洁白的小花，宛如飘落的雪花她的花不仅美丽，更是蝴蝶、蜜蜂、鸟类和食蜜昆虫的“盛宴”虽然看似娇弱，但她却非常坚强她选择在充满挑战的环境中生存——高盐分的土壤、偶尔的潮水淹没以及强烈的阳光她那厚实多汁的叶片是她能够优雅生存下去的力量源泉"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความอ่อนโยน",
+                "meaning": "“ความอ่อนโยน ไม่ใช่ความอ่อนแอ แต่คือความเข้มแข็งในรูปแบบที่สงบ”",
+                "steps": [
+                    "🪑 หยุดยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – ออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 ปล่อยใจให้เบาสบายกับธรรมชาติรอบตัว",
+                    "👉 “วันนี้เราอ่อนโยนกับตัวเองแล้วหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Gentleness",
+                "meaning": "“Gentleness is not weakness, but strength in a peaceful form.”",
+                "steps": [
+                    "🪑 Stop to stand or sit still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Let your mind relax with the nature around you.",
+                    "👉 “Have I been gentle with myself today?”"
+                ]
+            },
+            "zh": {
+                "title": "温柔之点",
+                "meaning": "“温柔不是软弱，而是一种平静的力量”",
+                "steps": [
+                    "🪑 停下来，静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 让心情在周围的自然中放松下来",
+                    "👉 “今天我对自己温柔了吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 11,
+        "type": "flora",
+        "name": {
+            "th": "ตะบูนขาว",
+            "en": "Cannonball mangrove rove",
+            "zh": "木果楝"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:579970-1",
+        "image_url": "../image/flora/f14_1.webp",
+        "sci_name": "<i>Xylocarpus granatum</i> J. Koenig",
+        "family": "Meliaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็ก-กลาง สูง 8–20 เมตร เปลือกเรียบบาง สีเหลืองแต้มเขียวอ่อนถึงน้ำตาลอมชมพู และลอกเป็นแผ่น",
+                "h2": "ราก",
+                "v2": "มีรากพูพอนคดเคี้ยวเหมือนริบบิ้นต่อเนื่องกับรากหายใจที่แบนคล้ายกระดาษ",
+                "h3": "ใบ",
+                "v3": "ใบประกอบแบบขนนก รูปไข่กลับ ปลายมนกลมเว้าตื้นสีเขียวคล้ำ ใบแก่สีส้มอมเหลือง",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อขนาดเล็ก สีขาวครีม มีกลิ่นหอมช่วงบ่ายถึงค่ำ",
+                "h5": "ผล",
+                "v5": "ผลกลมขนาดใหญ่คล้ายส้มโอ แบ่งเป็น 4 พู ผลแก่จะมีสีแดงคล้ายทับทิม มีเมล็ดจำนวนมาก"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small to medium tree, 8–20 meters tall. Thin, smooth bark varying from yellow with light green patches to pinkish-brown, peeling off in flakes.",
+                "h2": "Root",
+                "v2": "Has ribbon-like sinuous buttress roots continuous with flat, paper-like pneumatophores.",
+                "h3": "Leaf",
+                "v3": "Pinnately compound, obovate, rounded tip with a shallow notch. Dark green, turning yellowish-orange when old.",
+                "h4": "Flower",
+                "v4": "Small creamy-white flowers in clusters. Fragrant from afternoon to evening.",
+                "h5": "Fruit",
+                "v5": "Large, spherical fruit resembling a pomelo, divided into 4 lobes. Ripe fruit is ruby red and contains numerous seeds."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中小型乔木，高8–20米树皮平滑且薄，呈黄色带浅绿色斑点至粉棕色，常呈片状剥落",
+                "h2": "根",
+                "v2": "具有如丝带般蜿蜒的板根，并与扁平如纸的呼吸根相连",
+                "h3": "叶",
+                "v3": "羽状复叶，倒卵形，先端圆而微凹呈暗绿色，老叶为黄橙色",
+                "h4": "花",
+                "v4": "花小簇生，呈奶油白色，在下午至傍晚时分散发香气",
+                "h5": "果",
+                "v5": "果实大如柚子，分为4瓣成熟后果实呈红宝石色，内含大量种子"
+            }
+        },
+        "properties": {
+            "th": "แก้ท้องเสีย บิด รักษาแผลภายใน อาเจียนเป็นเลือด บรรเทาอาการฟกช้ำ แก้ไอ",
+            "en": "Treats diarrhea, dysentery, internal wounds, hematemesis (vomiting blood), bruises, and coughs.",
+            "zh": "治疗腹泻、痢疾、内伤、吐血，缓解跌打损伤，止咳"
+        },
+        "story": {
+            "th": "ตะบูนขาว คือ “ศิลปินผู้สร้างสรรค์แห่งป่าชายเลน” ผลของเขากลมใหญ่ราวกับลูกปืนใหญ่ จนได้ชื่อว่า “Cannonball Mangrove” เมื่อแตกออกจะเผยให้เห็นเมล็ดจำนวนมากที่เรียงตัวอย่างประณีต เหมือนชิ้นส่วนจิ๊กซอว์ เขามีเปลือกสวยที่สุดต้นหนึ่งในป่าชายเลน เปลือกเรียบสีเทาอ่อน ดูสะอาดตาเมื่อถึงเวลาผลัดเปลือกจะเผยสีใหม่ที่ออกส้มอมชมพู รากพูพอนของเขาแผ่ออกเป็นเส้นสายโค้งงอคล้ายลวดลายศิลปะ ทั้งงดงามและช่วยยึดผืนดิน เขาจึงเป็นทั้ง “ผู้สร้างสรรค์” และ “ผู้ค้ำจุนชีวิต” ไปพร้อมกัน",
+            "en": "The Cannonball Mangrove is the “Creative Artist of the Mangroves.” Its large, spherical fruits resemble cannonballs, earning it the name “Cannonball Mangrove.” When the fruit breaks open, it reveals numerous seeds arranged neatly like a jigsaw puzzle. It has one of the most beautiful barks in the mangrove forest—smooth and pale gray, looking immaculate. When it sheds its bark, it reveals a fresh pinkish-orange hue. Its buttress roots spread out in curved, artistic lines, which are not only visually stunning but also hold the soil firmly in place. It serves as both a “Creator” and a “Sustainer of Life.”",
+            "zh": "木果楝是“红树林的创意艺术家”它的果实又圆又大，宛如加农炮弹，因此被称为“炮弹红树”（Cannonball Mangrove）当果实裂开时，会露出像拼图一样排列整齐的大量种子它拥有红树林中最美丽的树皮之一，平滑且呈浅灰色，看起来十分干净每当它蜕去老皮，就会露出带有粉橙色的新皮它的板根像艺术线条般蜿蜒展开，不仅外形优美，更能稳固土壤因此，它既是“创作者”，也是“生命的支撑者”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความงาม",
+                "meaning": "“ความงามอยู่ในรายละเอียด และความสุขเริ่มจากการมองเห็นสิ่งเล็กๆ รอบตัว”",
+                "steps": [
+                    "🪑 หยุดยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – ออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 มองรายละเอียดของเปลือกไม้ ราก และผล",
+                    "👉 “วันนี้เรามองเห็นความงามรอบตัวแล้วหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Beauty",
+                "meaning": "“Beauty is in the details, and happiness starts by noticing the little things around you.”",
+                "steps": [
+                    "🪑 Stand or sit still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Observe the details of the bark, roots, and fruits.",
+                    "👉 “Have I noticed the beauty around me today?”"
+                ]
+            },
+            "zh": {
+                "title": "美丽之点",
+                "meaning": "“美在细节中，幸福始于发现身边微小的事物”",
+                "steps": [
+                    "🪑 停下来，静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 仔细观察树皮、树根和果实的细节",
+                    "👉 “今天我发现身边的美了吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 12,
+        "type": "flora",
+        "name": {
+            "th": "แสมขาว",
+            "en": "Grey Mangrove, Olive Mangrove",
+            "zh": "白海榄"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:861116-1",
+        "image_url": "../image/flora/f31_2.webp",
+        "sci_name": "<i>Avicennia alba</i> Blume",
+        "family": "Acanthaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดกลาง-ใหญ่ สูง 8–20 เมตร เปลือกเรียบสีเทาอมดำ มักมีสีสนิมจากเชื้อรา",
+                "h2": "ราก",
+                "v2": "มีรากหายใจคล้ายดินสอ แทงขึ้นเหนือดินรอบโคนต้น",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปใบหอกแกมรี ปลายแหลม ด้านบนสีเขียวเข้มเป็นมัน ด้านล่างมีขนสีเทาเงินปกคลุม ใบแห้งม้วนสีดำ",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ สีเหลืองส้มขนาดเล็ก มีขนนุ่ม",
+                "h5": "ผล",
+                "v5": "ผลคล้ายพริก ค่อนข้างแบน ปลายผลเป็นจะงอย สีเหลืองอมเขียว มีขนนุ่มสีเทาอ่อนปกคลุม เมล็ดงอกตั้งแต่บนต้น มีเมล็ด 1 เมล็ด"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Medium to large tree, 8–20 meters tall. Smooth dark-gray bark, often with rust-colored spots from fungus.",
+                "h2": "Root",
+                "v2": "Has pencil-like pneumatophores pointing upwards from the soil around the base.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic-lanceolate, pointed tip. Glossy dark green above, covered with silvery-gray hairs below. Dried leaves curl up and turn black.",
+                "h4": "Flower",
+                "v4": "Small yellowish-orange flowers in clusters, covered in soft hairs.",
+                "h5": "Fruit",
+                "v5": "Chili-shaped fruit, somewhat flat with a beaked tip. Yellowish-green, covered in soft light gray hairs. Germinates on the tree and contains 1 seed."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中大型乔木，高8–20米树皮平滑，呈深灰色，常因真菌生长而带有铁锈色斑块",
+                "h2": "根",
+                "v2": "树基周围有像铅笔一样垂直向上的呼吸根",
+                "h3": "叶",
+                "v3": "单叶，披针状椭圆形，先端尖上面呈有光泽的深绿色，下面覆有银灰色绒毛落叶干枯后会卷曲变黑",
+                "h4": "花",
+                "v4": "花小，黄橙色，呈簇状，表面有柔软的细毛",
+                "h5": "果",
+                "v5": "果实形似辣椒，略扁，末端呈鸟喙状呈黄绿色，表面覆有浅灰色细毛种子在树上萌发，含1粒种子"
+            }
+        },
+        "properties": {
+            "th": "แก้ท้องร่วง สมานแผลในปาก แก้พิษสัตว์น้ำทะเล",
+            "en": "Treats diarrhea, heals mouth ulcers, and acts as an antidote to marine animal toxins.",
+            "zh": "治疗腹泻，促进口腔溃疡愈合，可解海洋动物的毒素"
+        },
+        "story": {
+            "th": "แสมขาว คือ “นักประดิษฐ์และนักสู้แห่งแนวคลื่น” ผู้สร้างนวัตกรรมเพื่อเอาชีวิตรอดในพื้นที่ที่โหดที่สุดของป่าชายเลน รากหายใจของเขาที่แทงขึ้นจากเลนเหมือนดินสอนับพัน ช่วยนำออกซิเจนส่งลงไปเลี้ยงรากใต้ดิน เขาขับเกลือออกทางใบ เห็นเป็นคราบสีขาวนวล เหมือน “หยาดเหงื่อของนักสู้” เขาคือผู้เริ่มต้นผืนแผ่นดินใหม่ รากของเขาดักตะกอน ทำให้ดินสูงขึ้น เปลี่ยนน้ำเป็นแผ่นดิน เขาไม่ใช่ราชา แต่คือ “ผู้เสียสละที่ยืนแนวหน้า”",
+            "en": "The Grey Mangrove is the “Innovator and Fighter of the Tide,” engineering ways to survive in the harshest areas of the mangrove forest. Its pencil-like breathing roots thrusting up from the mud by the thousands channel oxygen to the underground roots. It excretes salt through its leaves, forming a powdery white crust that looks like the “sweat of a warrior.” It acts as the pioneer of new land; its roots trap sediment, raising the soil level and turning water into solid ground. It may not be a king, but it is the “Sacrificial Vanguard.”",
+            "zh": "白海榄是“海浪边缘的发明家与斗士”，它凭借创新在红树林最恶劣的环境中生存下来成千上万根像铅笔一样从泥土中冒出的呼吸根，将氧气输送到地下根系中它通过叶片排出盐分，在叶面形成白色的盐结晶，宛如“斗士的汗水”它是新陆地的开拓者，它的根系能够拦截泥沙沉积物，使地表抬升，化水为陆它不是国王，而是“坚守前线的奉献者”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการปรับตัว",
+                "meaning": "“การปรับตัว คือพลังที่ทำให้เราอยู่รอดและเติบโตได้ในทุกสถานการณ์”",
+                "steps": [
+                    "🪑 ยืนรับลม หรือหยุดนิ่งในจุดนี้",
+                    "🌬️ หายใจเข้า 4 วินาที – ออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 สังเกตร่างกายและความรู้สึกของตัวเอง",
+                    "👉 “เราปรับตัวกับสิ่งที่เกิดขึ้นได้ดีแค่ไหน”"
+                ]
+            },
+            "en": {
+                "title": "Point of Adaptation",
+                "meaning": "“Adaptability is the power that allows us to survive and thrive in any situation.”",
+                "steps": [
+                    "🪑 Stand in the breeze or pause quietly at this point.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Observe your body and emotions.",
+                    "👉 “How well am I adapting to what is happening?”"
+                ]
+            },
+            "zh": {
+                "title": "适应之点",
+                "meaning": "“适应能力是让我们在任何环境中都能生存并成长的力量”",
+                "steps": [
+                    "🪑 迎风站立，或在此处停下静心",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 感受自己的身体状态与情绪",
+                    "👉 “我对发生的事情适应得如何？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 13,
+        "type": "flora",
+        "name": {
+            "th": "เตยทะเล",
+            "en": "Seashore screwpine",
+            "zh": "林投"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:671284-1",
+        "image_url": "../image/flora/f6_1.webp",
+        "sci_name": "<i>Pandanus odorifer</i> (Forssk.) Kuntze",
+        "family": "Pandanaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็ก สูง 4–8 เมตร ลำต้นมักมีหนาม เปลือกขาวอมน้ำตาลอ่อนๆ",
+                "h2": "ราก",
+                "v2": "มีรากค้ำจุนที่โคนต้น",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปใบดาบ ปลายเรียวแหลมโค้งรูปแซ่ ด้านบนสีเขียวเข้มเป็นมัน ด้านล่างมีขนสีเทาเงินปกคลุม ใบแห้งม้วนสีดำ",
+                "h4": "ดอก",
+                "v4": "ดอกแยกเพศอยู่ต่างต้น ดอกเพศผู้เป็นช่อเชิงลด สีนวลมีกลิ่นหอมรุนแรง ดอกเพศเมียติดกันเป็นช่อกระจุกแน่น ลักษณะเกือบกลม",
+                "h5": "ผล",
+                "v5": "ผลแบบรวม อยู่รวมกันเป็นกระจุก คล้ายสับปะรด ผลอ่อนมีสีเขียวแล้วเปลี่ยนเป็นสีเหลือง และเมื่อผลแก่จะเปลี่ยนเป็นสีส้มถึงแดง"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small tree, 4–8 meters tall. Trunk often has spines. Bark is pale white with a light brown tint.",
+                "h2": "Root",
+                "v2": "Has stilt roots at the base.",
+                "h3": "Leaf",
+                "v3": "Simple, sword-shaped, with a long whip-like pointed tip. Glossy dark green above, covered in silvery-gray hairs below. Dried leaves curl up and turn black.",
+                "h4": "Flower",
+                "v4": "Dioecious (separate male and female trees). Male flowers are in spadix clusters, cream-colored with a strong scent. Female flowers form a dense, nearly spherical cluster.",
+                "h5": "Fruit",
+                "v5": "Multiple fruit in a cluster resembling a pineapple. Young fruits are green, turning yellow, and finally orange to red when fully ripe."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "小型乔木，高4–8米树干通常带有刺，皮呈带浅棕色的灰白色",
+                "h2": "根",
+                "v2": "基部具有支撑根",
+                "h3": "叶",
+                "v3": "单叶，剑形，末端呈鞭状细长尖头上面呈有光泽的深绿色，下面有银灰色细毛干枯后卷曲变黑",
+                "h4": "花",
+                "v4": "雌雄异株雄花为肉穗花序，呈奶白色，香气浓郁雌花紧密簇生，近乎球形",
+                "h5": "果",
+                "v5": "聚花果，簇生如菠萝幼果为绿色，随后变黄，成熟时变为橙色至红色"
+            }
+        },
+        "properties": {
+            "th": "ช่วยขับปัสสาวะ ขับนิ่ว แก้ไข้ ใช้ปรุงเป็นยาหอมและยาบำรุงหัวใจ",
+            "en": "Acts as a diuretic, removes kidney stones, reduces fever. Used in traditional aromatic medicines and heart tonics.",
+            "zh": "利尿、排结石、退热在传统医学中用于制作芳香药和心脏补品"
+        },
+        "story": {
+            "th": "เตยทะเล คือ “อัศวินดาบแห่งชายหาด” ผู้ยืนอยู่แนวหน้าระหว่างทะเลกับผืนดิน ใบของเขาเรียวยาวและคม เต็มไปด้วยหนามแหลม ราวกับดาบที่เรียงตัวเป็นแนว เป็นปราการที่ช่วยปกป้องนกและสัตว์เล็ก รากค้ำยันของเขาแผ่ออกทุกทิศทางดูเหมือนขาของนักรบที่ยืนหยัดมั่นคงบนผืนทราย รับแรงลม ผลของเขามีรูปร่างคล้ายสับปะรดสีส้มแดงสด เมื่อหลนจะลอยน้ำไปได้ไกล ข้ามทะเลเพื่อเริ่มต้นชีวิตใหม่ เขาจึงไม่ใช่เพียงผู้ยืนหยัด แต่ยังเป็น “อัศวินผู้เดินทางแห่งชายฝั่ง”",
+            "en": "The Seashore Screwpine is the “Sword Knight of the Beach,” standing on the frontlines between the sea and the land. Its long, slender, sharp leaves are lined with prickly spines, resembling a phalanx of swords that act as a fortress protecting birds and small animals. Its stilt roots spread out in all directions, looking like the legs of a steadfast warrior standing firm on the sand to withstand the coastal winds. Its bright orange-red, pineapple-like fruit falls into the sea and floats far across the ocean to start a new life. Thus, it is not just a staunch defender, but the “Traveling Knight of the Coast.”",
+            "zh": "林投是“海滩上的剑之骑士”，他站在大海与陆地之间的前线他那细长锋利的叶片上布满了尖刺，犹如一排排利剑，构成了保护鸟类和小动物的堡垒他的支柱根向四面八方展开，就像战士稳稳地站立在沙滩上的双腿，抵御着狂风他鲜橙红色的果实形似菠萝，掉落后能在海中漂浮很远，跨越海洋去开始新的生命因此，他不仅是坚定的守护者，也是“海岸的旅行骑士”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความกล้าหาญ",
+                "meaning": "“ความกล้าหาญ คือการยืนหยัดท่ามกลางความเปลี่ยนแปลง โดยไม่สูญเสียตัวตน”",
+                "steps": [
+                    "🪑 ยืนรับลมหรือยืนตัวตรงอย่างมั่นคง",
+                    "🌬️ หายใจเข้า 4 วินาที – ออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 รับรู้ความแข็งแรงของร่างกาย",
+                    "👉 “เรากล้าพอที่จะยืนหยัดในแบบของตัวเองหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Courage",
+                "meaning": "“Courage is standing firm amidst change without losing your true self.”",
+                "steps": [
+                    "🪑 Stand facing the wind, or simply stand up straight and firm.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Acknowledge the strength of your body.",
+                    "👉 “Am I brave enough to stand firm as who I truly am?”"
+                ]
+            },
+            "zh": {
+                "title": "勇气之点",
+                "meaning": "“勇气是在变化中坚定地站稳脚跟，不迷失自我”",
+                "steps": [
+                    "🪑 迎风站立，或挺直身体站稳",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 感受自己身体的坚强",
+                    "👉 “我足够勇敢去坚持做真实的自己了吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 14,
+        "type": "flora",
+        "name": {
+            "th": "แคทะเล",
+            "en": "Mangrove Trumpet Tree",
+            "zh": "银角树"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:109557-1",
+        "image_url": "../image/flora/f10_1.webp",
+        "sci_name": "<i>Dolichandrone spathacea</i> (L.f.) K.Schum.",
+        "family": "Bignoniaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็ก สูง 5–15 เมตร เปลือกสีน้ำตาลอมเทา แตกเป็นร่องตื้น เมื่อทุกส่วนแห้งจะเป็นสีดำ",
+                "h2": "ราก",
+                "v2": "-",
+                "h3": "ใบ",
+                "v3": "ใบประกอบแบบขนนก รูปใบหอก ปลายเรียวแหลมเป็นติ่งยาวคล้ายหาง เนื้อใบบาง สีเขียวมันวาว",
+                "h4": "ดอก",
+                "v4": "ดอกสีขาว รูปแตร มีกลิ่นหอม บานช่วงค่ำถึงรุ่งเช้า",
+                "h5": "ผล",
+                "v5": "ผลคล้ายฝักเรียวโค้งและบิดเป็นเกลียว เมล็ดสี่เหลี่ยมผืนผ้า หนานุ่ม แบน มีปีกบาง ช่วยให้ลอยน้ำ และกระจายพันธุ์"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small tree, 5–15 meters tall. Grayish-brown bark with shallow fissures. All parts turn black when dried.",
+                "h2": "Root",
+                "v2": "-",
+                "h3": "Leaf",
+                "v3": "Pinnately compound, lanceolate, with a long tail-like pointed tip. Leaves are thin, glossy green.",
+                "h4": "Flower",
+                "v4": "White, trumpet-shaped flowers. Fragrant, blooming from dusk until dawn.",
+                "h5": "Fruit",
+                "v5": "Pod-like fruit, slender, curved, and twisted. Seeds are rectangular, thick, soft, flat with thin wings that help them float and disperse."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "小型乔木，高5–15米树皮呈灰棕色，有浅裂纹植物的各个部位干燥后都会变黑",
+                "h2": "根",
+                "v2": "-",
+                "h3": "叶",
+                "v3": "羽状复叶，披针形，末端呈长尾状尖头叶片薄，有光泽的绿色",
+                "h4": "花",
+                "v4": "白花，呈喇叭状，有香气，于傍晚至清晨绽放",
+                "h5": "果",
+                "v5": "果实呈细长的荚果状，弯曲并扭转种子为长方形，厚软扁平，带有薄翼，有助于漂浮和传播"
+            }
+        },
+        "properties": {
+            "th": "ใช้พอกรักษาแผล ทำเป็นยาบ้วนปาก แก้อาการท้องอืด ท้องเฟ้อ แก้ไข้",
+            "en": "Applied as a poultice to heal wounds. Used as a mouthwash, to treat bloating and flatulence, and to reduce fever.",
+            "zh": "外敷治疗伤口，可制成漱口水，缓解腹胀胃胀，及用于退烧"
+        },
+        "story": {
+            "th": "แคทะเลคือ “ผู้ส่งสารแห่งรุ่งอรุณ” เขาไม่ได้ถือดาบ แต่ถือ “เสียงแห่งการเริ่มต้น” ในยามเช้าที่เงียบงัน ดอกมีสีขาวบริสุทธิ์รูปทรงคล้ายแตร จะบานในยามค่ำคืน ส่งกลิ่นหอมอ่อนๆ ดึงดูดชีวิตยามค่ำ เมื่อแสงแรกสาดส่องมา ดอกจะร่วงหล่น ลอยไปตามกระแสน้ำอย่างช้าๆ ราวกับเสียงแตรที่ประกาศการเริ่มต้นของวันใหม่ เขายืนอยู่ตรงรอยต่อระหว่างน้ำเค็มและน้ำจืด เป็นสะพานเชื่อมสองโลกเข้าด้วยกัน ไม่ใช่แนวหน้า ไม่ใช่ปลายทาง แต่เป็น “จุดเปลี่ยนผ่าน” ที่สำคัญ",
+            "en": "The Mangrove Trumpet Tree is the “Messenger of Dawn.” It carries no sword, but bears the “sound of beginnings.” In the quiet morning, its pure white, trumpet-shaped flowers—which opened the night before with a gentle fragrance to attract nocturnal life—fall as the first light breaks. They drift slowly along the current, like a trumpet blast announcing a new day. Standing at the transition zone between saltwater and freshwater, it serves as a bridge between two worlds. Not on the frontline, nor at the destination, but at a vital “point of transition.”",
+            "zh": "银角树是“黎明的使者”他不持刀剑，却带来了“起始的声音”在宁静的清晨，他那纯白如喇叭状的花朵（在夜晚绽放并散发淡淡清香以吸引夜间生物）伴随着第一缕晨光的洒落而凋谢花朵随着水流缓缓漂浮，就像吹响了宣告新一天开始的号角他站在海水与淡水的交界处，成为连接两个世界的桥梁他既不是前线，也不是终点，而是至关重要的“过渡点”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการเริ่มต้นใหม่",
+                "meaning": "“ทุกวันคือโอกาสใหม่ในการเริ่มต้นอีกครั้ง”",
+                "steps": [
+                    "🪑 ยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "👂 ฟังเสียงรอบตัวอย่างตั้งใจ",
+                    "👉 “วันนี้เราอยากเริ่มต้นอะไรใหม่”"
+                ]
+            },
+            "en": {
+                "title": "Point of New Beginnings",
+                "meaning": "“Every day is a new opportunity to start again.”",
+                "steps": [
+                    "🪑 Stand or sit still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "👂 Listen attentively to the sounds around you.",
+                    "👉 “What do I want to begin anew today?”"
+                ]
+            },
+            "zh": {
+                "title": "重新开始之点",
+                "meaning": "“每一天都是重新开始的新机会”",
+                "steps": [
+                    "🪑 静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "👂 专心倾听周围的声音",
+                    "👉 “今天我想开启什么新的篇章？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 15,
+        "type": "flora",
+        "name": {
+            "th": "หลุมพอทะเล",
+            "en": "Borneo teak",
+            "zh": "印茄木"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:500954-1",
+        "image_url": "../image/flora/f26_1.webp",
+        "sci_name": "<i>Intsia bijuga</i> (Colebr.) Kuntze",
+        "family": "Fabaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "ไม้ยืนต้นผลัดใบขนาดกลาง-ใหญ่ สูง 25 เมตร ลำต้นตรง เปลือกเรียบสีเทาอมชมพู",
+                "h2": "ราก",
+                "v2": "มีรากพูพอนแผ่เป็นครีบขนาดเล็ก",
+                "h3": "ใบ",
+                "v3": "ใบประกอบขนนก รูปไข่กว้าง ปลายกลมเว้าตื้นค่อนข้างแหลม ผิวเรียบสีเขียวเป็นมัน",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ มี 1 กลีบ กลมแป้น สีขาว แล้วเปลี่ยนเป็นสีชมพู และสีแดงเมื่อแก่",
+                "h5": "ผล",
+                "v5": "ผลเป็นฝักแบบถั่ว แข็ง แบน ภายในมีเมล็ด 4–8 เมล็ด"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Medium to large deciduous tree, 25 meters tall. Straight trunk, smooth pinkish-gray bark.",
+                "h2": "Root",
+                "v2": "Has small fin-like buttress roots.",
+                "h3": "Leaf",
+                "v3": "Pinnately compound, broadly ovate, rounded tip with a shallow notch or slightly pointed. Smooth, glossy green.",
+                "h4": "Flower",
+                "v4": "Flowers in clusters, with a single rounded, flat petal. Starts white, changes to pink, and turns red as it ages.",
+                "h5": "Fruit",
+                "v5": "Hard, flat bean-like pod. Contains 4–8 seeds inside."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中大型落叶乔木，高25米树干笔直，树皮平滑，呈灰粉色",
+                "h2": "根",
+                "v2": "有小型的鳍状板根",
+                "h3": "叶",
+                "v3": "羽状复叶，阔卵形，末端圆而微凹或稍尖表面光滑，有光泽的绿色",
+                "h4": "花",
+                "v4": "花簇生，仅有1片花瓣，呈扁圆形初开时为白色，随后变为粉红色，老去时变成红色",
+                "h5": "果",
+                "v5": "豆荚状果实，坚硬且扁平，内含4-8粒种子"
+            }
+        },
+        "properties": {
+            "th": "แก้ลม จุกเสียด แน่นท้อง",
+            "en": "Relieves flatulence, colic, and stomach tightness.",
+            "zh": "缓解胃气痛、肠绞痛及腹部胀满"
+        },
+        "story": {
+            "th": "หลุมพอทะเลคือ “มหาเศรษฐีผู้ใจดีแห่งชายป่า” เขาเป็นไม้เนื้อแข็งที่มีมูลค่าสูงมาก เขาไม่ร่ำรวยเพราะการครอบครอง แต่ร่ำรวยเพราะการ “ให้” เนื้อไม้ของเขามีสีน้ำตาลอมส้มแข็งแกร่ง ทนทานต่อปลวกและน้ำทะเล เคยถูกใช้สร้างเรือและเสาเรือน เปรียบเหมือน “ทองคำของชาวเล” เขาไม่แย่งพื้นที่แนวหน้า แต่เลือกยืนอยู่ตรงรอยต่อของป่าชายเลนกับป่าบก คอยแผ่ร่มเงาให้ทุกชีวิตได้พักพิง เขาจะปล่อยเมล็ดลอยน้ำไปอย่างช้าๆ ไม่รีบเลือกที่ใด จนกว่าจะเจอที่มั่นคงพอจะหยั่งราก เพื่อเริ่มต้นชีวิตใหม่",
+            "en": "Borneo teak is the “Generous Millionaire of the Forest Edge.” It is a high-value hardwood tree, rich not because of what it hoards, but because of what it “gives.” Its strong orange-brown wood is highly resistant to termites and seawater, historically used to build ships and house pillars—akin to the “Gold of the Sea Nomads.” It doesn't fight for the frontline but chooses to stand at the ecotone between the mangrove and terrestrial forests, casting shade for all life to rest under. It lets its seeds float slowly on the water, taking its time to find the perfect, stable place to lay roots and start a new life.",
+            "zh": "印茄木是“森林边缘慷慨的百万富翁”它是一种具有极高价值的硬木树它的富有不在于占有，而在于“给予”它坚硬的橙棕色木材极其抗白蚁和海水的侵蚀，历史上曾被用来建造船只和房屋栋梁，被誉为“海民的黄金”它不与其它树争夺前线的领地，而是选择站在红树林与陆地森林的交界处，为所有生命提供休憩的阴凉它的种子会慢慢地漂浮在水面上，从不急于选择落脚点，直到找到足够稳固的地方才会扎根，开启新的生命"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการให้",
+                "meaning": "“ความมั่งคั่งที่แท้จริง ไม่ใช่การมีมาก แต่คือการให้ และการเป็นที่พึ่งพาของผู้อื่น”",
+                "steps": [
+                    "🪑 นั่งพัก",
+                    "🌬️ หายใจเข้า 4 วินาที – ออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 นึกถึงสิ่งดีๆที่เรามี",
+                    "👉 “วันนี้เราจะแบ่งปันอะไรได้บ้าง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Giving",
+                "meaning": "“True wealth is not having a lot, but giving and being a reliable support for others.”",
+                "steps": [
+                    "🪑 Sit and rest.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Think of the good things you have.",
+                    "👉 “What can I share with someone today?”"
+                ]
+            },
+            "zh": {
+                "title": "给予之点",
+                "meaning": "“真正的财富不在于拥有的多，而在于给予，以及成为他人可以依靠的港湾”",
+                "steps": [
+                    "🪑 坐下来休息",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 想想你拥有的美好事物",
+                    "👉 “今天我能与他人分享些什么？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 16,
+        "type": "flora",
+        "name": {
+            "th": "โปรงขาว",
+            "en": "Yellow Mangrove, Flat-leafed Spurred Mangrove",
+            "zh": "角果木"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:941633-1",
+        "image_url": "../image/flora/f32_1.webp",
+        "sci_name": "<i>Ceriops decandra</i> (Griff.) W.Theob.",
+        "family": "Rhizophoraceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็กกึ่งไม้พุ่ม สูง 10 เมตร เปลือกสีเทาอ่อน เรียบถึงแตกล่อนเป็นสะเก็ด สะท้อนแสงได้ดี",
+                "h2": "ราก",
+                "v2": "โคนต้นพองขยายออกเป็นพูพอนเล็กน้อย และมีรากหายใจลักษณะคล้ายหัวเข่า อ้วนสั้น กลม",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปไข่กลับ ปลายกลมเว้าตื้น สีเขียวเข้มเป็นมัน",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อสีขาวขนาดเล็ก ก่อนเปลี่ยนเป็นสีน้ำตาล",
+                "h5": "ผล",
+                "v5": "ผลเป็นฝักทรงกระบอกสั้น อวบ งอกตั้งแต่อยู่บนต้น ฝักอ่อนสีเขียว ฝักแก่มีสีม่วงคล้ำ"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small tree or shrub, 10 meters tall. Light gray bark, smooth to flaking into reflective scales.",
+                "h2": "Root",
+                "v2": "Base slightly swollen into minor buttresses. Has short, thick, rounded knee-like breathing roots.",
+                "h3": "Leaf",
+                "v3": "Simple, obovate, rounded tip with a shallow notch. Glossy dark green.",
+                "h4": "Flower",
+                "v4": "Small white flowers in clusters, changing to brown later.",
+                "h5": "Fruit",
+                "v5": "Short, plump cylindrical pod. Germinates while on the tree. Young pods are green; old pods turn dark purple."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "小型乔木或灌木，高10米树皮呈浅灰色，平滑或呈鳞片状剥落，反射光线能力强",
+                "h2": "根",
+                "v2": "基部略微膨大形成小板根具短胖浑圆的膝状呼吸根",
+                "h3": "叶",
+                "v3": "单叶，倒卵形，先端圆而微凹有光泽的深绿色",
+                "h4": "花",
+                "v4": "小花簇生呈白色，随后变为棕色",
+                "h5": "果",
+                "v5": "果实为短胖圆柱形荚果在树上即开始萌发幼荚绿色，老荚变为暗紫色"
+            }
+        },
+        "properties": {
+            "th": "ใช้พอกแผลสด ช่วยห้ามเลือด แก้ท้องร่วง คลื่นไส้ อาเจียน",
+            "en": "Applied to fresh wounds to stop bleeding. Treats diarrhea, nausea, and vomiting.",
+            "zh": "外敷新伤口有助于止血治疗腹泻、恶心、呕吐"
+        },
+        "story": {
+            "th": "โปรงขาว คือ “กงสุลแห่งผืนเลน” ผู้ไม่ได้ใช้พลังแต่ใช้ความละเอียดอ่อน ผู้ทำหน้าที่เชื่อมประสานความสมดุลอย่างเงียบงัน ดอกสีขาวสะอาดขนาดเล็กจิ๋วของเขา เมื่อมองใกล้ๆ เกสรจะดูเหมือน “มงกุฎเล็กๆ” ไม่โดดเด่นจากระยะไกล แต่ยิ่งมองใกล้ยิ่งงดงาม เป็นความงามที่ต้อง “ตั้งใจมอง” เปลือกสีอ่อนของเขา เมื่อกระทบแสงแดดจะดูสว่างสะอาดตา ช่วยสะท้อนความร้อนและรักษาความชุ่มชื้น เปรียบเหมือนเสื้อคลุมของกงสุลที่ทั้งสง่างามและมีหน้าที่ปกป้อง แม้ว่าเขาจะไม่ยืนอยู่แนวหน้า เขาคือผู้เติมเต็มและประคองระบบนิเวศ เป็น “พลังเงียบ” ที่ทำให้ทุกสิ่งดำเนินไปอย่างสมดุลและยั่งยืน",
+            "en": "The Yellow Mangrove is the “Consul of the Mudflats.” It doesn't use brute force but applies delicacy, quietly harmonizing balance. Its pure white, tiny flowers look like “little crowns” up close. Unnoticeable from afar, their beauty reveals itself when examined closely—a beauty that requires “intentional looking.” Its light-colored bark shines brightly under the sunlight, reflecting heat and conserving moisture, much like a consul's elegant cloak that also serves as protection. Even though it doesn't stand on the frontline, it sustains and fulfills the ecosystem as a “silent power” keeping everything balanced and sustainable.",
+            "zh": "角果木是“泥滩上的领事”它不依靠蛮力，而是运用细腻的心思，默默地在其中协调平衡它那纯白微小的花朵，近看时花蕊仿佛“小小的王冠”远看并不显眼，但越靠近看越觉得美丽，这是一种需要“用心去凝视”的美它浅色的树皮在阳光下显得明亮洁净，有助于反射热量和保持水分，如同领事那件既优雅又具保护作用的斗篷尽管它不站在最前线，但它却是生态系统的补充者与维持者，是一股维持一切平衡与可持续发展的“无声力量”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความละเมียด",
+                "meaning": "“ความละเอียดอ่อน คือพลังที่ทำให้ชีวิตสมดุลและยั่งยืน”",
+                "steps": [
+                    "🪑 นั่งพักหรือหยุดยืนนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออกออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "👀 ลองมองรายละเอียดเล็กๆ รอบตัว",
+                    "👉 “เราให้ความสำคัญกับสิ่งเล็กๆ ในชีวิตมากพอหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Delicacy",
+                "meaning": "“Delicacy is the power that makes life balanced and sustainable.”",
+                "steps": [
+                    "🪑 Sit and rest or stand quietly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "👀 Notice the tiny details around you.",
+                    "👉 “Do I give enough importance to the little things in life?”"
+                ]
+            },
+            "zh": {
+                "title": "细腻之点",
+                "meaning": "“细腻是一种让生活保持平衡且可持续发展的力量”",
+                "steps": [
+                    "🪑 坐下休息或静静站立",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "👀 试着观察周围微小的细节",
+                    "👉 “我对生活中微小事物的重视程度足够吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 17,
+        "type": "flora",
+        "name": {
+            "th": "ปอทะเล",
+            "en": "Yellow Mallow Tree",
+            "zh": "黄槿"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30143354-2",
+        "image_url": "../image/flora/f22_3.webp",
+        "sci_name": "<i>Hibiscus tiliaceus</i> L.",
+        "family": "Malvaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็ก สูง 3–10 เมตร ลำต้นคดงอ เปลือกสีน้ำตาลเทา แตกเป็นร่องตื้น",
+                "h2": "ราก",
+                "v2": "-",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปหัวใจ ขนาดใหญ่ ปลายเป็นติ่งแหลม สีเขียวอ่อน ด้านล่างมีขนละเอียดสีขาวปกคลุม",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ สีเหลืองสดขนาดใหญ่ กลางดอกสีแดงเข้ม และจะค่อยๆ เปลี่ยนเป็นสีส้มและแดงก่อนร่วง",
+                "h5": "ผล",
+                "v5": "ผลรูปไข่เกือบกลม แบ่งเป็น 5 พู มีเมล็ดจำนวนมาก"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small tree, 3–10 meters tall. Crooked trunk, grayish-brown bark with shallow fissures.",
+                "h2": "Root",
+                "v2": "-",
+                "h3": "Leaf",
+                "v3": "Simple, large heart-shaped leaf, pointed tip. Light green, covered in fine white hairs underneath.",
+                "h4": "Flower",
+                "v4": "Large bright yellow flowers in clusters, with dark red centers. Gradually turns orange and then red before falling.",
+                "h5": "Fruit",
+                "v5": "Nearly spherical oval fruit, divided into 5 lobes, containing many seeds."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "小型乔木，高3-10米树干弯曲，树皮呈灰棕色，有浅裂纹",
+                "h2": "根",
+                "v2": "-",
+                "h3": "叶",
+                "v3": "单叶，大型心形，先端有尖头浅绿色，下面覆有纤细的白毛",
+                "h4": "花",
+                "v4": "花簇生，呈鲜黄色且较大，花心为深红色掉落前会逐渐变成橙色及红色",
+                "h5": "果",
+                "v5": "近圆形卵状果实，分为5个心皮，内含大量种子"
+            }
+        },
+        "properties": {
+            "th": "แก้ไอ หลอดลมอักเสบ เป็นยาขับปัสสาวะ รักษาแผลสด แผลเรื้อรัง",
+            "en": "Treats coughs and bronchitis. Acts as a diuretic. Heals fresh and chronic wounds.",
+            "zh": "止咳、治疗支气管炎、利尿治疗新伤口及慢性溃疡"
+        },
+        "story": {
+            "th": "ปอทะเลคือ “ช่างทอแห่งชายฝั่ง” ผู้ถักทอสายใยระหว่างธรรมชาติ ผู้คน และกาลเวลา เส้นใยจากเปลือกของเขาถูกนำไปทำเชือก อวน และเครื่องจักสานที่ผูกพันวิถีชีวิตชาวประมง เชือกของเขาไม่เพียงเหนียวและทน แต่ยังเชื่อมโยงผู้คนเข้าหากัน ดอกของเขาไม่ได้มีแค่ความสวย แต่มี “เรื่องราวของเวลา” ซ่อนอยู่ เริ่มต้นสีเหลืองสดใสในยามเช้า ก่อนจะค่อยๆ เปลี่ยนเป็นสีส้ม และสีแดงในยามเย็น แล้วค่อยร่วงหล่น ดอกเดียวแต่เล่าเรื่องทั้งชีวิต",
+            "en": "The Yellow Mallow Tree is the “Weaver of the Coast,” weaving bonds between nature, people, and time. Fibers extracted from its bark are used to make ropes, fishing nets, and woven goods deeply tied to the fisherman's way of life. Its ropes are not just tough and durable but connect communities together. Its flowers are not only beautiful but hide a “story of time.” Starting bright yellow in the morning, they slowly turn orange and then red by the evening before dropping—a single flower recounting an entire lifespan.",
+            "zh": "黄槿是“海岸的织布工”，编织着自然、人类与时间之间的纽带人们从它的树皮中提取纤维，用来制作绳索、渔网和各种编织品，这与渔民的生活方式息息相关它的绳索不仅坚韧耐用，更将人们紧紧相连它的花朵不仅美丽，还隐藏着关于“时间的流逝”的故事清晨绽放时呈现明亮的亮黄色，傍晚前慢慢变成橙色，最后变成红色后凋谢仅仅一朵花，便诉说了一生的故事"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความสัมพันธ์",
+                "meaning": "“ชีวิตคือการเชื่อมโยง และความสัมพันธ์คือสิ่งที่ทำให้เรามีความหมาย”",
+                "steps": [
+                    "🪑 นั่งพักหรือหยุดยืนนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออกออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 นึกถึงคนหรือสิ่งที่มีความหมายในชีวิต",
+                    "👉 “วันนี้เราได้ดูแลความสัมพันธ์สำคัญของเราหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Relationships",
+                "meaning": "“Life is about connections, and relationships give us meaning.”",
+                "steps": [
+                    "🪑 Sit and rest or stand still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Think of the people or things that hold meaning in your life.",
+                    "👉 “Have I taken care of my important relationships today?”"
+                ]
+            },
+            "zh": {
+                "title": "连结之点",
+                "meaning": "“生活就是建立连结，而人际关系赋予了我们生命的意义”",
+                "steps": [
+                    "🪑 坐下休息或静静站立",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 想想生命中对你有意义的人或事",
+                    "👉 “今天我用心维护过我重要的人际关系了吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 18,
+        "type": "flora",
+        "name": {
+            "th": "ตีนเป็ดทะเล",
+            "en": "Pong Pong Tree, Sea Mango",
+            "zh": "海芒果"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77913-1",
+        "image_url": "../image/flora/f24_1.webp",
+        "sci_name": "<i>Cerbera odollam</i> Gaertn.",
+        "family": "Apocynaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "ไม้ยืนต้นขนาดเล็ก สูง 5–10 เมตร เปลือกเรียบสีเทา มีน้ำยางสีขาวข้น",
+                "h2": "ราก",
+                "v2": "-",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปใบหอกกลับ ปลายเป็นติ่งแหลมอ่อน ด้านบนสีเขียวคล้ำเป็นมัน ใบแก่มีสีส้ม",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ สีขาว กลางดอกสีเหลือง มีกลิ่นหอม",
+                "h5": "ผล",
+                "v5": "ผลกลมแข็ง ผิวเรียบเป็นมันสีเขียว และเปลี่ยนเป็นเขียวอมม่วงเมื่อแก่ ภายในมีเมล็ดเดียว"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small tree, 5–10 meters tall. Smooth gray bark with thick white latex.",
+                "h2": "Root",
+                "v2": "-",
+                "h3": "Leaf",
+                "v3": "Simple, obovate, softly pointed tip. Glossy dark green above. Old leaves turn orange.",
+                "h4": "Flower",
+                "v4": "White flowers in clusters with a yellow center. Fragrant.",
+                "h5": "Fruit",
+                "v5": "Hard, spherical fruit. Smooth glossy green, turning purplish-green when old. Contains a single seed."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "小型乔木，高5-10米树皮平滑呈灰色，含有浓稠的白色汁液",
+                "h2": "根",
+                "v2": "-",
+                "h3": "叶",
+                "v3": "单叶，倒披针形，末端呈钝尖上面为有光泽的暗绿色，老叶为橙色",
+                "h4": "花",
+                "v4": "花簇生，呈白色，花心为黄色，有香气",
+                "h5": "果",
+                "v5": "果实坚硬呈球形，表面光滑呈绿色，成熟后变为紫绿色内含单粒种子"
+            }
+        },
+        "properties": {
+            "th": "ใช้บรรเทาอาการปวดกล้ามเนื้อและข้อ รักษาโรคผิวหนังและตาปลา",
+            "en": "Relieves muscle and joint pain. Treats skin diseases and corns.",
+            "zh": "缓解肌肉及关节疼痛治疗皮肤病和鸡眼"
+        },
+        "story": {
+            "th": "ตีนเป็ดทะเล คือ “เจ้าหญิงสโนไวท์แห่งชายฝั่ง” ผู้มีดอกไม้ขาวบริสุทธิ์ดั่งหิมะ แต่ซ่อน “แอปเปิลอาบยาพิษ” ไว้ในอ้อมกอด ดอกสีขาวบริสุทธิ์ของเธอ สวยงามเหมือน “ดวงดาว” ที่เปล่งประกายอยู่กลางพุ่มใบสีเขียว ส่งกลิ่นหอมละมุน ราวกับความงามที่ไร้พิษภัย ภายใต้ความงามบริสุทธิ์นั้น ผลของเธอเมื่อแก่จะมีสีม่วงเข้มดูน่าลิ้มลอง แต่ภายในกลับซ่อนพิษที่มีผลต่อหัวใจ เป็น “ผลไม้สั่งลา” เป็นความงามที่มองได้แต่ไม่ควรลิ้มลอง แม้ว่าเธอจะมีพิษ เธอก็ยังเป็นนักเดินทางที่แข็งแกร่ง ผลของเธอลอยน้ำได้ไกล ข้ามทะเลไปเริ่มต้นชีวิตใหม่ในที่ห่างไกล",
+            "en": "The Sea Mango is the “Snow White of the Coast,” possessing flowers pure white as snow, yet harboring a “poisoned apple” in her embrace. Her pure white flowers are as beautiful as “stars” twinkling amid the green canopy, exuding a soft, innocent fragrance. But beneath this pure beauty, her mature fruit takes on an inviting deep purple color that actually conceals cardiac glycosides. It is a “fruit of farewell”—a beauty you can admire but must never taste. Despite her toxicity, she is a resilient traveler. Her fruit can float far across the sea to start life anew in distant lands.",
+            "zh": "海芒果是“海岸边的白雪公主”她拥有如雪般洁白的花朵，怀里却藏着“毒苹果”她纯白色的花朵像“星星”一样在绿叶丛中闪耀，散发着温柔的香气，显得如此美丽且毫无毒害的错觉然而在纯洁的美丽之下，她成熟的果实呈深紫色，看起来非常诱人，但内部却隐藏着足以影响心脏的剧毒这是一种“诀别的果实”，只能观赏绝不能品尝尽管她身怀剧毒，她依然是一位顽强的旅行者她的果实可以随海水漂流很远，跨越海洋在遥远的地方开始新生命"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งสติและการตระหนักรู้",
+                "meaning": "“ไม่ใช่ทุกสิ่งที่สวยงามจะปลอดภัย การมีสติคือการปกป้องตัวเองที่ดีที่สุด”",
+                "steps": [
+                    "🪑 หยุดยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "👀 มองสิ่งรอบตัวอย่างมีสติ",
+                    "👉 “สิ่งที่เรากำลังเลือก…ดีต่อเราจริงหรือไม่”"
+                ]
+            },
+            "en": {
+                "title": "Point of Mindfulness and Awareness",
+                "meaning": "“Not everything beautiful is safe. Mindfulness is the best protection.”",
+                "steps": [
+                    "🪑 Stop to stand or sit quietly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "👀 Look at your surroundings mindfully.",
+                    "👉 “Is the choice I'm making right now truly good for me?”"
+                ]
+            },
+            "zh": {
+                "title": "正念与觉察之点",
+                "meaning": "“并非所有美好的事物都是安全的保持正念是保护自己最好的方式”",
+                "steps": [
+                    "🪑 停下来，静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "👀 带着正念去观察周围的事物",
+                    "👉 “我现在所选择的……对我真的好吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 19,
+        "type": "flora",
+        "name": {
+            "th": "ลำพูทะเล",
+            "en": "Mangrove Apple",
+            "zh": "杯萼海桑"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:554265-1",
+        "image_url": "../image/flora/f7_1.webp",
+        "sci_name": "<i>Sonneratia alba</i> Sm.",
+        "family": "Lythraceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็ก-กลาง สูง 6–15 เมตร เปลือกสีน้ำตาลอมชมพูหรือเทา แตกเป็นสะเก็ดเล็กน้อย",
+                "h2": "ราก",
+                "v2": "มีรากหายใจตั้งตรง รูปกรวยคว่ำ",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปไข่กลับ ปลายเว้าตื้นถึงกลม ด้านบนสีเขียว ด้านล่างเป็นฝ้านวล",
+                "h4": "ดอก",
+                "v4": "ดอกเดี่ยวหรือเป็นช่อแบบกระจุก กลีบรูปดาวด้านนอกสีเขียวอ่อนโคนกลีบด้านในสีแดงเรื่อ เกสรสีขาวพุ่งเป็นพู่ยาว มีกลิ่นหอม",
+                "h5": "ผล",
+                "v5": "ผลกลม มีเนื้อ ภายในมีเมล็ดจำนวนมาก ทรงแป้นคล้ายตลับ ปลายผลมีติ่งแหลม ผลสุกเนื้อจะนิ่ม มีกลิ่นหอม"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small to medium tree, 6–15 meters tall. Pinkish-brown or gray bark, slightly flaky.",
+                "h2": "Root",
+                "v2": "Has upright, cone-shaped pneumatophores.",
+                "h3": "Leaf",
+                "v3": "Simple, obovate, rounded tip with a shallow notch. Green above, powdery pale below.",
+                "h4": "Flower",
+                "v4": "Solitary or clustered flowers. Star-shaped petals, light green outside and faintly red inside at the base. Long, tufted white stamens. Fragrant.",
+                "h5": "Fruit",
+                "v5": "Fleshy, spherical fruit with many seeds. Flattened, pillbox-shaped with a pointed tip. Ripe fruit is soft and aromatic."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中小型乔木，高6–15米树皮呈粉棕色或灰色，呈微小鳞片状剥落",
+                "h2": "根",
+                "v2": "具有直立的倒圆锥形呼吸根",
+                "h3": "叶",
+                "v3": "单叶，倒卵形，先端圆至微凹上面为绿色，下面有一层白霜状物",
+                "h4": "花",
+                "v4": "单生或簇生的花序星形花瓣外部为浅绿色，内部基部泛红雄蕊长且呈白色的流苏状，有香气",
+                "h5": "果",
+                "v5": "肉质球形果实，内含多粒种子呈扁平圆盒状，末端有尖突果实成熟后变软，散发香味"
+            }
+        },
+        "properties": {
+            "th": "แก้ปวดบวม เคล็ดขัดยอก ขับเสมหะ บรรเทาอาการท้องผูก",
+            "en": "Relieves swelling and sprains, expels phlegm, and alleviates constipation.",
+            "zh": "缓解肿痛、扭伤，化痰，缓解便秘"
+        },
+        "story": {
+            "th": "ลำพูทะเลคือ “ประทีปแห่งชายเลน” ผู้ไม่เปล่งแสงด้วยตัวเอง แต่สร้าง “แสงแห่งชีวิต” ให้ส่องสว่างทั่วผืนป่าในยามค่ำคืน เมื่อค่ำคืนมาถึง เขาจะกลายเป็นเวทีของหิ่งห้อยนับร้อยนับพัน ที่มารวมตัวกันบนกิ่งไม้ เกิดเป็นแสงระยิบระยับ ในความมืดสนิทเขาจึงกลายเป็น “ประทีปนำทางของธรรมชาติ” ดอกของเขาจะบานในเวลากลางคืน เกสรสีขาวพุ่งออกมาเป็นพู่ ดูเหมือน “พู่ประดับของราชา” กลิ่นหอมอ่อนๆ ดึงดูดค้างคาว และแมลงกลางคืน ให้มาช่วยสร้างชีวิตใหม่ และเมื่อเช้ามาถึงพู่สีขาวจะร่วงลงบนผิวน้ำเหมือน หิมะกลางป่าชายเลน",
+            "en": "The Mangrove Apple is the “Lantern of the Mangroves.” It doesn't emit light itself but provides the “light of life” that illuminates the forest at night. When night falls, it becomes a stage for thousands of fireflies swarming on its branches to create a twinkling spectacle. In complete darkness, it becomes “nature's guiding lantern.” Its flowers bloom at night, white stamens bursting out like “royal tassels.” Their soft scent attracts bats and nocturnal insects to aid in pollination. When morning arrives, the white tassels fall onto the water's surface like snow in the middle of a mangrove forest.",
+            "zh": "杯萼海桑是“红树林的明灯”他不自己发光，却在夜晚为整片森林创造出照亮黑夜的“生命之光”夜幕降临时，他成为成千上万只萤火虫的舞台，它们聚集在他的枝头，闪烁出迷人的光芒在漆黑的夜晚，他便成为了“指引大自然的明灯”他的花朵在夜间绽放，白色的花蕊如“国王的流苏”般伸展出来淡淡的香气吸引着蝙蝠和夜间昆虫，帮助繁育新生命当清晨到来时，白色的流苏会飘落在水面上，宛如红树林中下了一场雪"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งแสงในใจ",
+                "meaning": "“แม้เราไม่ได้เป็นแสง แต่เราสามารถสร้างแสงให้ผู้อื่นได้”",
+                "steps": [
+                    "🪑 ยืนหรือหยุดนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 ลองหลับตาและจินตนาการถึงแสงเล็กๆ ในใจ",
+                    "👉 “วันนี้เราจะเป็นแสงให้ใครได้บ้าง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Inner Light",
+                "meaning": "“Even if we are not the light, we can create light for others.”",
+                "steps": [
+                    "🪑 Stand or sit quietly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Close your eyes and imagine a small light in your heart.",
+                    "👉 “Who can I be a light for today?”"
+                ]
+            },
+            "zh": {
+                "title": "内心之光",
+                "meaning": "“即使我们本身不发光，也可以为他人带来光明”",
+                "steps": [
+                    "🪑 停下来静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 试着闭上眼睛，想象内心有一道微光",
+                    "👉 “今天我能成为谁的光？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 20,
+        "type": "flora",
+        "name": {
+            "th": "ใบพาย",
+            "en": "Club Mangrove",
+            "zh": "圆叶紫条木"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:686196-1",
+        "image_url": "../image/flora/f25_1.webp",
+        "sci_name": "<i>Aegialitis rotundifolia</i> Roxb.",
+        "family": "Plumbaginaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้พุ่มขนาดเล็ก สูง 1–2 เมตร ลำต้นอวบ เปลือกสีน้ำตาล เรียบถึงแตกเป็นร่องตื้น",
+                "h2": "ราก",
+                "v2": "มีรากหายใจคล้ายดินสอ แผ่กระจายอยู่รอบโคนต้น",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปไข่กว้าง ปลายทู่ ด้านบนสีเขียวเข้มเป็นมันวาว ด้านล่างสีเขียวหม่น มีต่อมขับเกลือกระจายทั่วแผ่นใบ",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ สีขาวขนาดเล็ก",
+                "h5": "ผล",
+                "v5": "ผลทรงกระบอก มี 5 เหลี่ยม และแตกเมื่อแก่"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small shrub, 1–2 meters tall. Fleshy stem. Brown bark, smooth or with shallow fissures.",
+                "h2": "Root",
+                "v2": "Has pencil-like pneumatophores spreading around the base.",
+                "h3": "Leaf",
+                "v3": "Simple, broadly ovate, blunt tip. Glossy dark green above, dull green below. Salt-excreting glands scattered across the leaf blade.",
+                "h4": "Flower",
+                "v4": "Small white flowers in clusters.",
+                "h5": "Fruit",
+                "v5": "Cylindrical, 5-sided fruit that splits open when mature."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "小型灌木，高1-2米茎部肉质树皮呈棕色，平滑或具浅裂纹",
+                "h2": "根",
+                "v2": "有铅笔状的呼吸根分布在树基周围",
+                "h3": "叶",
+                "v3": "单叶，阔卵形，先端钝上面呈有光泽的深绿色，下面为暗绿色叶面散布着排盐腺体",
+                "h4": "花",
+                "v4": "白色的簇生小花",
+                "h5": "果",
+                "v5": "圆柱形果实，具5个棱角，成熟时会裂开"
+            }
+        },
+        "properties": {
+            "th": "แก้ไข้ แก้พิษแมลง บรรเทาอาการตาแดง",
+            "en": "Reduces fever, treats insect bites, and relieves pink eye.",
+            "zh": "退热，解虫毒，缓解红眼病症状"
+        },
+        "story": {
+            "th": "ใบพาย คือ “ผู้เฝ้าความหวังแห่งชายหาด” ผู้ยืนอยู่ในพื้นที่โล่ง ท่ามกลางแดดและลม ดอกของเขาแปลกที่สุดในชายหาด เพราะกลีบดอกบานเพียงครึ่งวงกลม ราวกับ “หัวใจที่ยังไม่เต็ม” รอคอยอีกครึ่งมาเติมเต็ม เป็นสัญลักษณ์ของการรอคอยและความหวัง ใบของเขาอวบหนา เหมือน “ใบพายเรือ” มีต่อมขับเกลือ ช่วยให้สามารถอยู่รอดในสภาพแวดล้อมที่โหดร้าย เขาจึงเป็นผู้ที่ “อดทนและรอเวลาอย่างเงียบงัน” เขาเป็นพันธุ์ไม้ที่พบยากชนิดหนึ่ง พบในพื้นที่โล่ง มีแสงมาก ดินเป็นดินทรายหินปูน",
+            "en": "The Club Mangrove is the “Guardian of Hope on the Beach,” standing in open spaces amidst the sun and wind. Its flowers are the most peculiar on the beach, blooming only in a half-circle like a “half-hearted heart,” waiting for the other half to make it whole—a symbol of waiting and hope. Its thick, succulent leaves look like “boat paddles” and have salt-excreting glands, allowing it to survive harsh conditions. Thus, it is the one who endures and “waits silently for the right time.” It is a rare species found in open, high-light areas with sandy limestone soils.",
+            "zh": "圆叶紫条木是“海滩上的希望守望者”他站在开阔的地方，顶着烈日和海风他的花朵是海滩上最奇特的，因为花瓣只开成半圆，就像“尚未完整的心”，等待着另一半的填补这是等待和希望的象征他厚实多汁的叶片形似“船桨”，具有排盐腺体，帮助他在严酷的环境中生存因此，他是一位“默默忍耐并等待时机”的人这是一种罕见的植物，通常生长在光照充足、有沙质石灰岩土壤的开阔区域"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความหวัง",
+                "meaning": "“ความหวังคือพลังที่ทำให้เรายืนหยัด แม้ในวันที่ยังไม่สมบูรณ์”",
+                "steps": [
+                    "🪑 ยืนหรือหยุดนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 นึกถึงสิ่งที่เรากำลังรอคอย",
+                    "👉 “เรายังเชื่อในสิ่งนั้นอยู่หรือไม่”"
+                ]
+            },
+            "en": {
+                "title": "Point of Hope",
+                "meaning": "“Hope is the power that keeps us standing firm, even on incomplete days.”",
+                "steps": [
+                    "🪑 Stand or pause to sit quietly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Think of what you are waiting or hoping for.",
+                    "👉 “Do I still believe in it?”"
+                ]
+            },
+            "zh": {
+                "title": "希望之点",
+                "meaning": "“希望是一种力量，它能让我们在不完美的岁月里坚韧挺立”",
+                "steps": [
+                    "🪑 静静站立或停下坐好",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 想想你正在期盼的事情",
+                    "👉 “我依然相信那份期盼吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 21,
+        "type": "flora",
+        "name": {
+            "th": "รังกะแท้",
+            "en": "Kandelia / Candle Mangrove",
+            "zh": "秋茄树"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:719761-1",
+        "image_url": "../image/flora/f15_1.webp",
+        "sci_name": "<i>Kandelia candel</i> (L.) Druce",
+        "family": "Rhizophoraceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดเล็ก สูง 2–7 เมตร เปลือกเรียบ สีเทาอมแดง",
+                "h2": "ราก",
+                "v2": "มีรากค้ำยันสั้น นุ่ม",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปรี ปลายมนถึงเว้าบุ๋ม สีเขียวเป็นมันวาว",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ สีขาวขนาดเล็ก ตรงกลางมีเกสรคล้ายปลายพู่กัน",
+                "h5": "ผล",
+                "v5": "ผลรูปไข่กลับ ปกคลุมด้วยเกล็ดสีน้ำตาล งอกเป็นฝักเรียวยาว ค่อนข้างตรง ปลายแหลม ตั้งแต่อยู่บนต้น"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Small tree, 2–7 meters tall. Smooth, reddish-gray bark.",
+                "h2": "Root",
+                "v2": "Has short, soft stilt roots.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic, rounded to notched tip. Glossy green.",
+                "h4": "Flower",
+                "v4": "Small white flowers in clusters, with stamens in the center resembling a paintbrush tip.",
+                "h5": "Fruit",
+                "v5": "Obovate fruit covered in brown scales. Germinates into a long, straight, pointed hypocotyl while on the tree."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "小型乔木，高2-7米平滑，树皮呈红灰色",
+                "h2": "根",
+                "v2": "具有短而柔软的支柱根",
+                "h3": "叶",
+                "v3": "单叶，椭圆形，先端圆或微凹有光泽的绿色",
+                "h4": "花",
+                "v4": "小型白花簇生中间的花蕊形似毛笔尖",
+                "h5": "果",
+                "v5": "倒卵形果实，表面覆盖着棕色鳞片在树上即发芽成长为细长笔直且带有尖端的胚轴"
+            }
+        },
+        "properties": {
+            "th": "-",
+            "en": "-",
+            "zh": "-"
+        },
+        "story": {
+            "th": "รังกะแท้ คือ “นักเริ่มต้นแห่งผืนเลน” ผู้พร้อมเริ่มต้นชีวิตใหม่ในทุกพื้นที่ ฝักของเขาเรียวยาว ปลายแหลม ราวกับ “ดาบเล่มเล็ก” เมื่อร่วงลงและปักลงในดินเลนทันที เป็นการเริ่มต้นชีวิตใหม่อย่างมั่นคง ดอกสีขาวสะอาดของเขาเล็กและเรียบง่าย คล้าย “ดาวดวงเล็ก” ที่แต้มอยู่ตามกิ่งไม้ กลิ่นหอมอ่อนๆ ช่วยสร้างความสงบให้ผู้พบเห็น แม้เขาจะไม่ได้ขึ้นเป็นป่าทึบ แต่เขากลับยืนอยู่ได้อย่างมั่นคง เป็น “นักสู้ผู้รักสันโดษ” ที่เติบโตได้ด้วยตัวเอง",
+            "en": "The Candle Mangrove is the “Pioneer of the Mudflats,” ready to start a new life in any territory. Its hypocotyl is long and slender with a pointed tip, like a “small dagger.” When it drops and impales the mud, it immediately starts a stable new life. Its pure white flowers are small and simple, resembling “tiny stars” dotting the branches. The gentle fragrance brings peace to those who encounter it. Although it doesn't grow in dense forests, it stands steadfastly alone—a “Solitary Fighter” capable of thriving independently.",
+            "zh": "秋茄树是“泥滩上的起点开拓者”，随时准备在任何区域开启新生命它的胚轴细长且末端尖锐，犹如一把“短剑”当它掉落并径直刺入泥中时，便能稳稳地开始新的生命它那纯白的小花简单素雅，宛如点缀在枝头的“小星星”淡淡的香气能让看到它的人感到平静虽然它不会长成茂密的森林，但它却能坚定地站立，是一位能靠自己茁壮成长的“热爱独处的斗士”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการลงมือเริ่ม",
+                "meaning": "“ทุกการเริ่มต้น แม้เล็กน้อย ก็มีพลังเปลี่ยนแปลงชีวิต”",
+                "steps": [
+                    "🪑 ยืนตัวตรงอย่างมั่นคง",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 คิดถึงสิ่งที่อยากเริ่มต้น",
+                    "👉 “เราพร้อมก้าวแรกแล้วหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Initiation",
+                "meaning": "“Every beginning, no matter how small, has the power to change a life.”",
+                "steps": [
+                    "🪑 Stand straight and firmly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Think of something you want to start doing.",
+                    "👉 “Am I ready to take the first step?”"
+                ]
+            },
+            "zh": {
+                "title": "起步之点",
+                "meaning": "“每一次开始，无论多么微小，都拥有改变生命的力量”",
+                "steps": [
+                    "🪑 挺直身体，稳稳站立",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 想想自己渴望开始做的事",
+                    "👉 “我已经准备好迈出第一步了吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 22,
+        "type": "flora",
+        "name": {
+            "th": "หงอนไก่ใบเล็ก",
+            "en": "Small-leaf Looking-glass Tree",
+            "zh": "层孔银叶树"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:823560-1",
+        "image_url": "../image/flora/f16_1.webp",
+        "sci_name": "<i>Heritiera fomes</i> Banks",
+        "family": "Malvaceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นผลัดใบขนาดใหญ่ สูง 25–35 เมตร เปลือกเรียบสีน้ำตาลอม",
+                "h2": "ราก",
+                "v2": "มีรากพูพอนต่ำ แผ่เป็นครีบบิดไปมา และมีรากหายใจคล้ายหมุดจำนวนมาก",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปรี ปลายแหลมถึงมน ใบด้านบนเรียบสีเขียวเข้มเป็นมัน ด้านล่างสีเงินอมน้ำตาล มีขนรูดาวเล็กๆ ปกคลุม",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ รูปคล้ายระฆัง สีแดงอิฐ มีขนสีน้ำตาลอ่อนปกคลุม",
+                "h5": "ผล",
+                "v5": "ผลรูปไข่ ด้านล่างแบน ด้านบนโค้งขึ้น และมีสันตามยาว แผ่ออกไปทางปลายผล คล้ายครีบ สีเขียวหม่น เมื่อแก่มีสีน้ำตาลอมเขียว มักมี 1 เมล็ด"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Large deciduous tree, 25–35 meters tall. Smooth brownish bark.",
+                "h2": "Root",
+                "v2": "Has low buttress roots spreading into twisted fins, and numerous peg-like breathing roots.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic, pointed to rounded tip. Smooth, glossy dark green above. Silvery-brown below, covered with tiny star-shaped hairs.",
+                "h4": "Flower",
+                "v4": "Bell-shaped flowers in clusters. Brick red, covered with soft light-brown hairs.",
+                "h5": "Fruit",
+                "v5": "Oval fruit, flat at the bottom, curved upwards at the top with a longitudinal ridge extending towards the tip like a fin. Dull green, turning greenish-brown when mature. Usually contains 1 seed."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "大型落叶乔木，高25-35米树皮平滑，呈带棕色的色调",
+                "h2": "根",
+                "v2": "具有低矮的板根，呈鳍状扭曲延伸，并长有许多类似木栓的呼吸根",
+                "h3": "叶",
+                "v3": "单叶，椭圆形，先端尖或钝上面平滑，为有光泽的深绿色下面呈银棕色，覆盖着微小的星状毛",
+                "h4": "花",
+                "v4": "花簇生，呈钟形，砖红色，表面覆盖着浅棕色的细毛",
+                "h5": "果",
+                "v5": "果实呈卵形，底部扁平，上部向上弯曲，并有一条纵向的脊延伸至果实末端，形似鱼鳍暗绿色，成熟时变为绿棕色通常含1粒种子"
+            }
+        },
+        "properties": {
+            "th": "-",
+            "en": "-",
+            "zh": "-"
+        },
+        "story": {
+            "th": "หงอนไก่ใบเล็ก คือ “นักเดินเรือรุ่นเยาว์” ผู้สืบทอดการเดินทางจากผืนป่าสู่มหาสมุทร แม้ว่าเขาจะมีขนาดเล็กกว่ารุ่นใหญ่ แต่ผลของเขายังคงมีสันนูนคล้ายใบเรือ ช่วยให้ลอยน้ำและเดินทางไปได้ไกล เป็นการเริ่มต้นของชีวิตใหม่ที่ไม่ยอมแพ้ต่อกระแสน้ำ ใต้ใบของเขามีสีเงินวาวละเอียด เมื่อแสงแดดกระทบจะสะท้อนเป็นประกายอ่อนๆ ราวกับคลื่นแสงเล็กๆ ที่เคลื่อนไหวอยู่ในป่า เขาเป็นพันธุ์ไม้ที่พบได้ยาก และอยู่ในสถานะใกล้สูญพันธุ์ เขาเติบโตในพื้นที่เฉพาะ จึงเปรียบเหมือน “นักเดินทางที่มีคุณค่า” ที่ธรรมชาติเก็บรักษาไว้",
+            "en": "The Small-leaf Looking-glass Tree is the “Young Voyager,” inheriting the journey from the forest to the ocean. Although smaller than its bigger relative, its fruit still has a ridged sail-like crest that helps it float and travel far. This marks a new beginning for a life that refuses to yield to the currents. The underside of its leaves has a fine silvery sheen. When struck by sunlight, it reflects a soft glimmer like tiny light waves shifting in the forest. It is a rare species, currently endangered. It grows in highly specific areas, making it a “Valuable Traveler” carefully preserved by nature.",
+            "zh": "层孔银叶树是“年轻的航海家”，继承了从森林驶向海洋的旅程虽然它的体型比同属的大型树种小，但其果实依然带有类似船帆的凸起脊，帮助它漂浮并旅行到远方这是一个不向水流屈服的新生命的开端它的叶背带有细腻的银色光泽当阳光照射时，会折射出柔和的微光，仿佛森林中荡漾的细小光波它是一种罕见且濒危的树种它只生长在特定的区域，因此就像是大自然精心保存下来的“珍贵的旅行者”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการเติบโต",
+                "meaning": "“แม้จะเริ่มต้นเล็ก แต่ทุกการเดินทางมีคุณค่าในแบบของตัวเอง”",
+                "steps": [
+                    "🪑 ยืนหรือนั่งนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 นึกถึงเส้นทางชีวิตของตัวเอง",
+                    "👉 “เรากำลังเติบโตไปในทิศทางที่ต้องการหรือไม่”"
+                ]
+            },
+            "en": {
+                "title": "Point of Growth",
+                "meaning": "“Even small beginnings have their own unique value on the journey.”",
+                "steps": [
+                    "🪑 Stand or sit quietly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Reflect upon your life's path.",
+                    "👉 “Am I growing in the direction I desire?”"
+                ]
+            },
+            "zh": {
+                "title": "成长之点",
+                "meaning": "“即使起点微小，每一段旅程都有其独特的价值”",
+                "steps": [
+                    "🪑 静立或静坐",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 回想自己人生的轨迹",
+                    "👉 “我是否正在朝着自己渴望的方向成长？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 23,
+        "type": "flora",
+        "name": {
+            "th": "โกงกางใบใหญ่ (ต้นไม้ทรงปลูก)",
+            "en": "Loop-root Mangrove , Red Mangrove",
+            "zh": "红茄苳"
+        },
+        "qr_link": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:719830-1",
+        "image_url": "../image/flora/f18_1.webp",
+        "sci_name": "<i>Rhizophora mucronata</i> Poir.",
+        "family": "Rhizophoraceae",
+        "details": {
+            "th": {
+                "h1": "ลำต้น",
+                "v1": "เป็นไม้ยืนต้นขนาดกลาง-ใหญ่ สูง 25-30 เมตร เปลือกสีเทาดำ แตกเป็นร่องตามยาว-ตามขวาง ตื้นๆ",
+                "h2": "ราก",
+                "v2": "มีรากค้ำยันโค้งลงดิน",
+                "h3": "ใบ",
+                "v3": "ใบเดี่ยว รูปรี ปลายแหลม สีเขียวอมเหลือง เส้นกลางใบสีเขียวอ่อน มีจุดสีน้ำตาลเล็กๆ กระจายอยู่เต็มท้องใบ",
+                "h4": "ดอก",
+                "v4": "ดอกออกเป็นช่อ สีเหลืองอ่อนมีขนปกคลุมตามขอบ มีกลิ่นหอมอ่อน",
+                "h5": "ผล",
+                "v5": "ผลรูปไข่กลับ งอกเป็นฝักยาวปลายแหลมตั้งแต่ยังอยู่บนต้น เมื่อแก่จะหลุดปักลงดินเลนได้เอง"
+            },
+            "en": {
+                "h1": "Stem",
+                "v1": "Medium to large tree, 25-30 meters tall. Dark gray bark with shallow longitudinal and transverse fissures.",
+                "h2": "Root",
+                "v2": "Has stilt roots arching into the ground.",
+                "h3": "Leaf",
+                "v3": "Simple, elliptic, with a pointed tip. Yellowish-green, with a light green midrib and small brown spots scattered across the lower surface.",
+                "h4": "Flower",
+                "v4": "Flowers in clusters, light yellow with hairy margins, possessing a mild fragrance.",
+                "h5": "Fruit",
+                "v5": "Obovate fruit that germinates into a long, pointed hypocotyl while on the tree. When mature, it drops and plants itself in the mud."
+            },
+            "zh": {
+                "h1": "树干",
+                "v1": "中大型乔木，高25-30米树皮呈黑灰色，有浅的纵横交错裂纹",
+                "h2": "根",
+                "v2": "具有弯曲扎入土壤的支柱根",
+                "h3": "叶",
+                "v3": "单叶，椭圆形，先端尖呈黄绿色，中脉为浅绿色，叶底布满褐色小斑点",
+                "h4": "花",
+                "v4": "花簇生，呈淡黄色，边缘生有绒毛，带有淡淡的香气",
+                "h5": "果",
+                "v5": "果实倒卵形，在树上时便长出细长的尖头胚轴成熟后会自动脱落并直插泥中"
+            }
+        },
+        "properties": {
+            "th": "แก้ท้องร่วง คลื่นไส้ อาเจียน และบิดเรื้อรัง ช่วยสมานแผล ห้ามเลือด และป้องกันการติดเชื้อ",
+            "en": "Treats diarrhea, nausea, vomiting, and chronic dysentery. Helps heal wounds, stops bleeding, and prevents infections.",
+            "zh": "治疗腹泻、恶心、呕吐及慢性痢疾有助于伤口愈合、止血及预防感染"
+        },
+        "story": {
+            "th": "👑 ต้นไม้ทรงปลูก: สมเด็จพระกนิษฐาธิราชเจ้า กรมสมเด็จพระเทพรัตนราชสุดาฯ ทรงปลูกโกงกางใบใหญ่ต้นนี้ เมื่อวันที่ 19 พฤษภาคม 2560 ในโอกาสเสด็จพระราชดำเนินเปิดโครงการ “พลิกฟื้นคืนป่าชายเลนสู่ธรรมชาติ” ณ ป่าชายเลนบ้านเสม็ดงาม เพื่อเป็นสัญลักษณ์แห่งการฟื้นฟูผืนป่าเสื่อมโทรมให้กลับมาอุดมสมบูรณ์ และส่งเสริมการอนุรักษ์ทรัพยากรธรรมชาติ\n\nนอกจากนี้ โกงกางใบใหญ่ยังเปรียบเสมือน “ขุนพลร่างยักษ์แห่งพรมแดนสองโลก” ผู้ยืนอยู่แนวหน้ารับแรงคลื่นแทนทุกชีวิตที่อยู่ด้านหลัง เขาไม่ได้มีเพียงรากใต้ดิน แต่ส่ง “รากค้ำยัน” จำนวนมากโค้งลงสู่พื้นดิน ราวกับแขนขาของยักษ์ ที่ยึดผืนดินไว้ไม่ให้หลุดลอยไปกับคลื่น และใต้รากที่ซับซ้อนนี้กลายเป็นบ้านและสถานรับเลี้ยงสัตว์น้ำวัยอ่อน แม้ภายนอกเขาจะดูแข็งแกร่ง แต่ดอกของเขากลับมีขนปุยนุ่มสีขาวนวลปกคลุม เป็นความสมดุลระหว่าง “พลัง” และ “ความอ่อนโยน”",
+            "en": "👑 Royal Tree: On May 19, 2017, Her Royal Highness Princess Maha Chakri Sirindhorn planted this Large-Leaved Mangrove during the opening ceremony of the \"Restoring Mangroves to Nature\" project at Ban Samet Ngam. It serves as a living symbol of restoring degraded mangrove forests into abundant ecosystems and promoting natural resource conservation.\n\nIn nature, the Large-Leaved Mangrove acts as the “Giant Warlord of the Two Worlds' Border,” standing on the frontlines to take the impact of waves for all life behind him. He doesn't just have underground roots, but sends numerous “stilt roots” arching down to the ground, like the limbs of a giant holding the earth firmly to prevent it from washing away. Beneath these complex roots lies a home and nursery for young marine animals. Though he appears tough on the outside, his flowers are covered in soft, white fuzz, representing a perfect balance between “power” and “gentleness.”",
+            "zh": "👑 皇室御植之树: 2017年5月19日，诗琳通公主殿下在 Ban Samet Ngam 主持“回归自然红树林修复”项目开幕式时亲手栽种了这棵大叶红树它不仅标志着退化红树林向丰饶生态系统的重生，更是倡导保护自然资源的活象征\n\n在自然界中，大叶红树是“两个世界边界的巨型猛将”，他站在最前线，为身后的所有生命抵御海浪的冲击他不仅拥有地下根，还伸出许多向下弯曲的“支柱根”，犹如巨人的手脚，紧紧抓住大地，防止被波浪冲走在这错综复杂的根系之下，成为了幼小海洋动物的家园和庇护所虽然他外表坚韧粗犷，但其花朵却覆盖着一层洁白柔软的绒毛，完美诠释了“力量”与“温柔”的平衡"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งการปกป้อง",
+                "meaning": "“ความเข้มแข็งที่แท้จริง คือการปกป้องผู้อื่น โดยไม่สูญเสียความอ่อนโยนภายใน”",
+                "steps": [
+                    "🪑 ยืนตัวตรง วางเท้าให้มั่นคงกับพื้น",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 รับรู้ความมั่นคงและพลังในร่างกาย",
+                    "👉 “เรากำลังปกป้องสิ่งใด และดูแลตัวเองเพียงพอแล้วหรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Protection",
+                "meaning": "“True strength is protecting others without losing your inner gentleness.”",
+                "steps": [
+                    "🪑 Stand straight and plant your feet firmly.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Acknowledge the stability and power in your body.",
+                    "👉 “What am I protecting, and am I taking enough care of myself?”"
+                ]
+            },
+            "zh": {
+                "title": "守护之点",
+                "meaning": "“真正的坚强是保护他人的同时，不失内心的温柔”",
+                "steps": [
+                    "🪑 挺直站立，双脚稳稳踩在地面上",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 感受身体内部的稳固与力量",
+                    "👉 “我正在保护什么，我对自己照顾得足够吗？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 101,
+        "type": "fauna",
+        "name": {
+            "th": "เหยี่ยวแดง",
+            "en": "Brahminy Kite",
+            "zh": "栗鸢"
+        },
+        "qr_link": "https://ebird.org/species/brakit1",
+        "image_url": "../image/bird/b1_1.webp",
+        "sci_name": "<i>Haliastur indus</i>",
+        "family": "-",
+        "details": {
+            "th": {
+                "h1": "ลักษณะทั่วไป",
+                "v1": "เป็นนกล่าเหยื่อขนาดกลาง 43–51 ซม.",
+                "h2": "ลักษณะเด่น",
+                "v2": "หัว อก และคอสีขาว ลำตัวและปีกสีน้ำตาลแดง ปลายปีกสีดำ ปากงุ้มแหลม",
+                "h3": "ถิ่นอาศัย",
+                "v3": "พบตามชายฝั่งทะเล ป่าชายเลน แหล่งน้ำขนาดใหญ่",
+                "h4": "อาหาร",
+                "v4": "กินปลา กบ งู นกขนาดเล็ก และสัตว์หน้าดิน"
+            },
+            "en": {
+                "h1": "General",
+                "v1": "A medium-sized bird of prey, 43–51 cm long.",
+                "h2": "Feature",
+                "v2": "White head, breast, and neck. Reddish-brown body and wings. Black wingtips. Sharp, hooked beak.",
+                "h3": "Habitat",
+                "v3": "Found along coastlines, mangrove forests, and large bodies of water.",
+                "h4": "Diet",
+                "v4": "Feeds on fish, frogs, snakes, small birds, and benthic animals."
+            },
+            "zh": {
+                "h1": "总体特征",
+                "v1": "中型猛禽，体长43-51厘米",
+                "h2": "显著特征",
+                "v2": "头部、胸部和颈部为白色身体和翅膀呈红棕色翼尖为黑色喙呈尖锐的钩状",
+                "h3": "栖息地",
+                "v3": "栖息于海岸、红树林及大型水域",
+                "h4": "饮食",
+                "v4": "以鱼类、青蛙、蛇、小型鸟类及底栖动物为食"
+            }
+        },
+        "properties": {
+            "th": "-",
+            "en": "-",
+            "zh": "-"
+        },
+        "story": {
+            "th": "นกเหยี่ยวแดง คือ “ผู้พิทักษ์แห่งผืนนภา” เขาบินอยู่เหนือผืนป่าชายเลนอย่างสงบนิ่ง ไม่เร่งรีบ ไม่วุ่นวาย มองเห็นทุกสิ่งจากมุมสูง ราวกับเข้าใจความเคลื่อนไหวของโลกด้านล่าง เขาไม่ได้โฉบลงทุกครั้งที่มีโอกาส แต่เลือกจังหวะที่เหมาะสมที่สุด เพราะบางครั้งการ “มองให้ชัด” สำคัญกว่าการ “ลงมือทันที”",
+            "en": "The Brahminy Kite is the “Guardian of the Skies.” It soars peacefully over the mangrove forest, never rushing, never chaotic, seeing everything from high above as if understanding the movements of the world below. It doesn't swoop down at every opportunity; rather, it waits for the perfect moment. Because sometimes, “seeing things clearly” is more important than “acting immediately.”",
+            "zh": "栗鸢是“天空的守护者”他在红树林上空平静地翱翔，不慌不忙，也不喧闹，从高处俯瞰一切，仿佛洞察着下方世界的变化他不会一有机会就猛扑下去，而是选择最合适的时机因为有时候，“看清局势”远比“贸然行动”更重要"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งมุมมอง",
+                "meaning": "“การถอยขึ้นมามองภาพรวมช่วยให้เราเลือกทางที่ดีที่สุดในชีวิต”",
+                "steps": [
+                    "🪑 ยืนมองไกลๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "👀 มองภาพกว้างรอบตัว",
+                    "👉 “เรากำลังมองชีวิตแคบเกินไปหรือเปล่า”"
+                ]
+            },
+            "en": {
+                "title": "Point of Perspective",
+                "meaning": "“Stepping back to see the big picture helps us choose the best path in life.”",
+                "steps": [
+                    "🪑 Stand and gaze into the distance.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "👀 Observe the broad panorama around you.",
+                    "👉 “Am I looking at life too narrowly right now?”"
+                ]
+            },
+            "zh": {
+                "title": "视角之点",
+                "meaning": "“退一步审视全局，有助于我们在人生中做出最佳选择”",
+                "steps": [
+                    "🪑 站立并眺望远方",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "👀 纵览周围广阔的景色",
+                    "👉 “我现在看待生活的眼光是不是太狭隘了？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 102,
+        "type": "fauna",
+        "name": {
+            "th": "นกกินเปี้ยว",
+            "en": "Collared Kingfisher",
+            "zh": "白领翡翠"
+        },
+        "qr_link": "https://ebird.org/species/colkin1",
+        "image_url": "../image/bird/b2_1.webp",
+        "sci_name": "<i>Todiramphus chloris</i>",
+        "family": "-",
+        "details": {
+            "th": {
+                "h1": "ลักษณะทั่วไป",
+                "v1": "เป็นนกประจำถิ่นขนาดเล็ก 24–26 ซม.",
+                "h2": "ลักษณะเด่น",
+                "v2": "ปากแหลมสีดำ โคนปากล่างสีชมพูอ่อน คิ้วสั้นสีขาว หัวสีฟ้า รอบคอสีขาว ลำตัวสีฟ้าเขียว ตัดกับอกสีขาว แข้งและตีนสีเทา",
+                "h3": "ถิ่นอาศัย",
+                "v3": "พบตามหาดเลน ป่าชายเลน และแหล่งน้ำใกล้ป่าชายเลน พื้นที่เลี้ยงสัตว์น้ำ",
+                "h4": "อาหาร",
+                "v4": "กินปลา กุ้ง ปู แมลง และสัตว์ขนาดเล็ก"
+            },
+            "en": {
+                "h1": "General",
+                "v1": "A small resident bird, 24–26 cm long.",
+                "h2": "Feature",
+                "v2": "Sharp black beak with a pale pink lower base. Short white eyebrows, blue head, white collar. Blue-green body contrasting with a white breast. Gray legs and feet.",
+                "h3": "Habitat",
+                "v3": "Found in mudflats, mangrove forests, water sources near mangroves, and aquaculture ponds.",
+                "h4": "Diet",
+                "v4": "Eats fish, shrimp, crabs, insects, and small animals."
+            },
+            "zh": {
+                "h1": "总体特征",
+                "v1": "小型留鸟，体长24-26厘米",
+                "h2": "显著特征",
+                "v2": "尖锐的黑喙，下喙基部为浅粉色短白的眉纹，蓝色的头部，脖子周围有一圈白领蓝绿色的身体与白色的胸部形成对比腿和脚呈灰色",
+                "h3": "栖息地",
+                "v3": "分布于泥滩、红树林、红树林附近的水域及水产养殖区",
+                "h4": "饮食",
+                "v4": "以鱼、虾、蟹、昆虫及小型动物为食"
+            }
+        },
+        "properties": {
+            "th": "-",
+            "en": "-",
+            "zh": "-"
+        },
+        "story": {
+            "th": "นกกินเปี้ยว คือ “นักล่าแห่งความนิ่ง” เขาไม่ได้บินวุ่นวาย ไม่ไล่ตามทุกสิ่งที่เคลื่อนไหว แต่เลือก “หยุดนิ่ง” บนกิ่งไม้ เฝ้ามอง…อย่างตั้งใจ เมื่อถึงจังหวะที่ใช่ เขาจะพุ่งลงเพียงครั้งเดียวแต่แม่นยำ ไม่เสียแรง ไม่พลาดเป้า ในโลกที่เต็มไปด้วยความเร่งรีบเขาเลือกใช้ “ความนิ่ง” เป็นพลัง",
+            "en": "The Collared Kingfisher is the “Hunter of Stillness.” It doesn't fly frantically chasing after everything that moves, but chooses to “sit still” on a branch, watching intently. When the perfect moment arrives, it dives only once with absolute precision—wasting no energy and never missing its mark. In a world full of rush, it chooses to use “stillness” as its power.",
+            "zh": "白领翡翠是“静止的猎手”他不会到处乱飞去追逐所有移动的物体，而是选择“静静地停在”树枝上，专注地观察……当时机成熟，他只会俯冲一次，并且精确无误，既不浪费体力也不会偏离目标在一个充满喧嚣和匆忙的世界里，他选择将“静止”转化为力量"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งความนิ่ง",
+                "meaning": "“ความนิ่ง ไม่ใช่การหยุด แต่คือการเตรียมพร้อมสำหรับจังหวะที่ใช่”",
+                "steps": [
+                    "🪑 ยืนนิ่งๆ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "👀 เลือกโฟกัสสิ่งหนึ่งที่อยู่ตรงหน้า",
+                    "👉 “เรากำลังรีบ…หรือกำลังรอจังหวะที่ใช่”"
+                ]
+            },
+            "en": {
+                "title": "Point of Stillness",
+                "meaning": "“Stillness is not stopping, but preparing for the right moment.”",
+                "steps": [
+                    "🪑 Stand completely still.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "👀 Choose to focus on one thing in front of you.",
+                    "👉 “Am I rushing... or waiting for the right moment?”"
+                ]
+            },
+            "zh": {
+                "title": "静止之点",
+                "meaning": "“静止不是停止，而是为了迎接正确时机的到来做准备”",
+                "steps": [
+                    "🪑 保持静立",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "👀 选择专注凝视正前方的一样事物",
+                    "👉 “我是在匆忙赶路……还是在等待合适的时机？”"
+                ]
+            }
+        }
+    },
+    {
+        "id": 201,
+        "type": "sacred",
+        "name": {
+            "th": "พระพุทธศรีรัตนาสมุทราภิรักษ์",
+            "en": "Phra Phuttha Sri Rattana Samutharaphirak",
+            "zh": "护海明珠大佛 (Phra Phuttha Sri Rattana Samutharaphirak)"
+        },
+        "qr_link": "",
+        "image_url": "../image/stations/well1/s2_2.webp",
+        "sci_name": "-",
+        "family": "-",
+        "details": {
+            "th": {
+                "h1": "ลักษณะทั่วไป",
+                "v1": "พระพุทธรูปปางปฐมเทศนา ขนาดหน้าตัก 36 นิ้ว เป็นพระพุทธรูปประจำกรมทรัพยากรทางทะเลและชายฝั่ง",
+                "h2": "องค์พระ",
+                "v2": "ประดับด้วยพลอยสีเขียว ซึ่งเป็นสีประจำวันพุธ (วันก่อตั้งกรมฯ) สื่อถึงความร่มเย็นและสมดุลของธรรมชาติ",
+                "h3": "ซุ้มเรือนแก้ว",
+                "v3": "ออกแบบให้มีลักษณะคล้ายรากของต้นโกงกาง",
+                "h4": "ฐานพระ",
+                "v4": "ออกแบบเป็นเกลียวคลื่นทะเล ผสานลวดลายสัตว์ทะเล หมุนเวียนเป็นทักษิณาวรรต"
+            },
+            "en": {
+                "h1": "General",
+                "v1": "A Buddha image in the First Sermon posture (Pang Pathom Thetsana) with a lap width of 36 inches. It is the official Buddha image of the Department of Marine and Coastal Resources.",
+                "h2": "The Buddha Image",
+                "v2": "Adorned with green gems, the color for Wednesday (the founding day of the Department), symbolizing peace and the balance of nature.",
+                "h3": "The Arch (Sum Ruen Kaew)",
+                "v3": "Designed to resemble the stilt roots of mangrove trees.",
+                "h4": "The Base",
+                "v4": "Designed as ocean waves intertwined with marine animal motifs, spiraling in a clockwise direction (Thaksinawat)."
+            },
+            "zh": {
+                "h1": "总体特征",
+                "v1": "一尊呈初转法轮印（Pang Pathom Thetsana）的佛像，膝宽36英寸是泰国海洋与海岸资源部的官方代表佛像",
+                "h2": "佛像",
+                "v2": "镶嵌着绿色宝石，绿色代表星期三（该部的成立日），象征着宁静与大自然的平衡",
+                "h3": "佛龛（Sum Ruen Kaew）",
+                "v3": "设计灵感来源于红树林的支柱根",
+                "h4": "底座",
+                "v4": "设计成海浪的形状，融合了海洋动物的图案，并呈顺时针方向（Thaksinawat）旋转"
+            }
+        },
+        "properties": {
+            "th": "-",
+            "en": "-",
+            "zh": "-"
+        },
+        "story": {
+            "th": "พระพุทธศรีรัตนาสมุทราภิรักษ์ เปรียบเสมือน “องค์แห่งความสงบและการคุ้มครอง” ที่ประทับอยู่ท่ามกลางผืนป่าชายเลน ท่ามกลางความเคลื่อนไหวของธรรมชาติ ทั้งลม คลื่น และสายน้ำ องค์พระยังคงนิ่ง สงบ และมั่นคง เปรียบเหมือนจิตใจที่ตั้งมั่นไม่หวั่นไหว สถานที่แห่งนี้จึงไม่ใช่เพียงจุดสักการะ แต่เป็น “พื้นที่แห่งพลังศรัทธา” ที่เชื่อมโยงศาสนา ธรรมชาติ และความหวังของผู้คน เข้าด้วยกันอย่างกลมกลืน",
+            "en": "Phra Phuttha Sri Rattana Samutharaphirak represents the “Icon of Peace and Protection” residing amidst the mangrove forest. Amidst the constant movement of nature—the wind, waves, and water—the Buddha image remains still, peaceful, and steadfast, much like an unwavering mind. This site is not merely a place of worship, but a “Space of Faithful Energy” that harmoniously connects religion, nature, and people's hopes.",
+            "zh": "护海明珠大佛象征着红树林中的“宁静与庇护之神”在大自然风、浪、水流的不断变幻中，佛像始终保持静谧、祥和与稳固，宛如一颗坚定不移的心这里不仅是礼佛之所，更是将宗教、自然与人们的希望和谐相连的“信仰能量场”"
+        },
+        "wellness": {
+            "th": {
+                "title": "จุดแห่งสติและความนิ่งภายใน",
+                "meaning": "“สติและความสงบภายใน คือพลังที่ช่วยให้เรามั่นคงท่ามกลางความเปลี่ยนแปลง และมองเห็นหนทางของชีวิตได้อย่างชัดเจน”",
+                "steps": [
+                    "🪑 นั่งหรือยืนอย่างสงบหน้าพระพุทธรูป",
+                    "🙏 ตั้งจิตให้ผ่อนคลาย ไม่ต้องเร่งรีบ",
+                    "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                    "💭 สังเกตลมหายใจ และความรู้สึกของตัวเองในขณะนี้",
+                    "✨ ปล่อยวางความวุ่นวาย และกลับมาอยู่กับปัจจุบัน",
+                    "👉 “ตอนนี้ใจของเรานิ่งพอที่จะมองเห็นสิ่งที่สำคัญจริงๆ หรือยัง”"
+                ]
+            },
+            "en": {
+                "title": "Point of Mindfulness and Inner Stillness",
+                "meaning": "“Mindfulness and inner peace are the powers that keep us steady amidst change and help us clearly see our life's path.”",
+                "steps": [
+                    "🪑 Sit or stand peacefully in front of the Buddha image.",
+                    "🙏 Relax your mind, there is no need to rush.",
+                    "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                    "💭 Observe your breath and your current feelings.",
+                    "✨ Let go of the chaos and return to the present moment.",
+                    "👉 “Is my mind still enough right now to see what truly matters?”"
+                ]
+            },
+            "zh": {
+                "title": "正念与内心宁静之点",
+                "meaning": "“正念与内心的平静是让我们在变化中保持稳固，并清晰看清人生道路的力量”",
+                "steps": [
+                    "🪑 在佛像前平静地坐下或站立",
+                    "🙏 放松心神，不必匆忙",
+                    "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                    "💭 观察自己的呼吸和此刻的感受",
+                    "✨ 放下纷扰，回归当下",
+                    "👉 “现在我的心足够平静，能看清真正重要的事情了吗？”"
+                ]
+            }
+        }
+    },
+    {
+    "id": 202,
+    "type": "sacred",
+    "name": {
+        "th": "หลวงปู่แบน ธนากโร",
+        "en": "Luang Pu Baen Thanākaro",
+        "zh": "龙普本·塔纳卡罗 (Luang Pu Baen Thanākaro)"
+    },
+    "qr_link": "",
+    "image_url": "../image/stations/spirit2/s3_1.webp",
+    "sci_name": "-",
+    "family": "-",
+    "details": {
+        "th": {
+            "h1": "ประวัติทั่วไป",
+            "v1": "เป็นพระเกจิอาจารย์ผู้เป็นที่เคารพศรัทธาของชาวจังหวัดจันทบุรี จำพรรษาและปฏิบัติธรรม ณ วัดเสม็ดงาม อำเภอเมือง จังหวัดจันทบุรี",
+            "h2": "วัตรปฏิบัติ",
+            "v2": "เป็นพระที่มีเมตตา เรียบง่าย และเคร่งครัดในพระธรรมวินัย ดำรงตนเป็นแบบอย่างแห่งความสงบและความพอเพียง",
+            "h3": "ความศรัทธา",
+            "v3": "ประชาชนเลื่อมใสศรัทธาและเชื่อว่าบารมีของท่านช่วยคุ้มครอง นำความเป็นสิริมงคลและความร่มเย็นมาสู่ผู้ที่มากราบสักการะ"
+        },
+        "en": {
+            "h1": "Background",
+            "v1": "A highly revered monk among the people of Chanthaburi. He resided and practiced Dhamma at Wat Samet Ngam, Mueang District, Chanthaburi.",
+            "h2": "Practices",
+            "v2": "Known for his compassion, simplicity, and strict adherence to monastic discipline, he served as an exemplar of peace and self-sufficiency.",
+            "h3": "Faith and Belief",
+            "v3": "People revere him and believe that his merit provides protection, bringing prosperity and tranquility to those who pay their respects."
+        },
+        "zh": {
+            "h1": "生平简介",
+            "v1": "尖竹汶府备受尊崇的高僧，曾在尖竹汶府直辖县的 Wat Samet Ngam 寺庙常住并修行佛法",
+            "h2": "修行与品德",
+            "v2": "以慈悲、简朴和严格遵守戒律而闻名，是宁静与知足的典范",
+            "h3": "信仰与庇佑",
+            "v3": "民众对他深信不疑，相信他的功德能带来庇护，为前来朝拜的人带来吉祥与安宁"
+        }
+    },
+    "properties": {
+        "th": "-",
+        "en": "-",
+        "zh": "-"
+    },
+    "story": {
+        "th": "ศาลาหลวงปู่แบนแห่งนี้ เกิดขึ้นจากแรงศรัทธาของชุมชนที่ต้องการระลึกถึงพระเกจิผู้เป็นศูนย์รวมจิตใจของคนในพื้นที่ ผู้มาเยือนสามารถหยุดพัก กราบสักการะ และใช้ช่วงเวลาสั้น ๆ เพื่อทบทวนจิตใจ ท่ามกลางความสงบของป่าชายเลน สถานที่แห่งนี้จึงไม่ใช่เพียงจุดสักการะ แต่เป็น “พื้นที่แห่งความสงบ” ที่เชื่อมโยง ธรรมชาติ ศาสนา และวิถีชีวิตของชุมชน เข้าด้วยกันอย่างกลมกลืน",
+        "en": "The Luang Pu Baen Pavilion was built through the faith of the community to honor the revered monk who serves as the spiritual center for the locals. Visitors can stop to rest, pay their respects, and take a brief moment for self-reflection amidst the tranquility of the mangrove forest. This place is not merely a shrine, but a “Space of Serenity” that harmoniously connects nature, religion, and the community's way of life.",
+        "zh": "龙普本亭（Luang Pu Baen Pavilion）是由当地社区出于信仰而建，旨在纪念这位作为当地人精神支柱的高僧访客可以在此驻足休息、朝拜，并在红树林的宁静中度过片刻的内省时光这里不仅是朝拜之地，更是一个将自然、宗教和社区生活方式和谐相连的“宁静空间”"
+    },
+    "wellness": {
+        "th": {
+            "title": "จุดแห่งศรัทธาและความสงบ",
+            "meaning": "“ความศรัทธาและความสงบภายใน คือพลังที่ช่วยเยียวยาใจ และนำทางชีวิตให้มั่นคง”",
+            "steps": [
+                "🪑 นั่งหรือยืนอย่างสงบหน้าศาลา",
+                "🙏 หลับตา ตั้งจิตระลึกถึงสิ่งศักดิ์สิทธิ์หรือสิ่งที่ยึดเหนี่ยวใจ",
+                "🌬️ หายใจเข้า 4 วินาที– หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                "💭 ปล่อยวางความกังวล และตั้งจิตให้สงบ",
+                "👉 “สิ่งใดในใจที่เราควรวางลง และสิ่งใดที่ควรรักษาไว้”"
+            ]
+        },
+        "en": {
+            "title": "Point of Faith and Tranquility",
+            "meaning": "“Faith and inner peace are the powers that heal the mind and guide life steadily.”",
+            "steps": [
+                "🪑 Sit or stand peacefully in front of the pavilion.",
+                "🙏 Close your eyes and focus on the sacred or what anchors your heart.",
+                "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                "💭 Let go of worries and calm your mind.",
+                "👉 “What in my heart should I let go of, and what should I keep?”"
+            ]
+        },
+        "zh": {
+            "title": "信仰与宁静之点",
+            "meaning": "“信仰和内心的平静是治愈心灵、指引生活稳步向前的力量”",
+            "steps": [
+                "🪑 在亭前平静地坐下或站立",
+                "🙏 闭上双眼，在心中默念神圣之物或心灵的寄托",
+                "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                "💭 放下焦虑，让心灵归于平静",
+                "👉 “我心里有什么是应该放下的，又有什么是应该保留的？”"
+            ]
+        }
+    }
+},
+{
+    "id": 301,
+    "type": "landmark",
+    "name": {
+        "th": "หอชมวิว",
+        "en": "Observation Tower",
+        "zh": "观景塔"
+    },
+    "qr_link": "",
+    "image_url": "../image/stations/well1/s3_1.webp",
+    "sci_name": "-",
+    "family": "-",
+    "details": {
+        "th": {
+            "h1": "ลักษณะทั่วไป",
+            "v1": "หอชมวิว 360 องศา ที่เปิดมุมมองให้สามารถมองเห็นได้ทั่วทั้งผืนป่าชายเลน",
+            "h2": "จุดเด่น",
+            "v2": "เปิดโอกาสให้ผู้มาเยือนได้สัมผัสรายละเอียดของธรรมชาติจากมุมสูงอย่างใกล้ชิด"
+        },
+        "en": {
+            "h1": "General",
+            "v1": "A 360-degree observation tower offering a panoramic view of the entire mangrove forest.",
+            "h2": "Highlight",
+            "v2": "Provides visitors the opportunity to intimately experience the details of nature from a high vantage point."
+        },
+        "zh": {
+            "h1": "总体特征",
+            "v1": "一座360度观景塔，可俯瞰整片红树林",
+            "h2": "亮点",
+            "v2": "让访客有机会从高处近距离感受大自然的细节"
+        }
+    },
+    "properties": {
+        "th": "-",
+        "en": "-",
+        "zh": "-"
+    },
+    "story": {
+        "th": "หอชมวิว 360 องศา เสมือน “ดวงตาแห่งผืนป่า” ที่เปิดมุมมองให้เราได้มองเห็นป่าชายเลนในมิติที่กว้างขึ้น สามารถมองเห็นได้ทั่วทั้งผืนป่า และสัมผัสรายละเอียดของธรรมชาติจากมุมสูงอย่างใกล้ชิด",
+        "en": "The 360-degree observation tower acts as the “Eyes of the Forest,” opening up a wider dimension to view the mangroves. It allows visitors to see the entire forest and intimately experience the details of nature from a high vantage point.",
+        "zh": "360度观景塔宛如“森林之眼”，为我们打开了更广阔的视角，去观赏红树林它让访客能够俯瞰整片森林，并从高处近距离感受大自然的细节"
+    },
+    "wellness": {
+        "th": {
+            "title": "จุดแห่งมุมมองและการมองให้ชัด",
+            "meaning": "“การมองจากมุมที่สูงขึ้น ช่วยให้เราเข้าใจชีวิตได้กว้างขึ้น และตัดสินใจได้อย่างมีสติ”",
+            "steps": [
+                "🪑 ยืนหรือพักสายตาบนหอชมวิว",
+                "🔭 ลองใช้กล้องส่อง มองไปยังจุดไกล ๆ",
+                "🌬️ หายใจเข้า 4 วินาที – หายใจออก 4 วินาที (ทำ 3–5 รอบ)",
+                "👀 มองภาพกว้างของธรรมชาติ แล้วสังเกตรายละเอียดเล็ก ๆ",
+                "💭 เปรียบเทียบ “มุมมองใกล้” และ “มุมมองไกล”",
+                "👉 “วันนี้เรากำลังมองชีวิตแคบเกินไปหรือเปล่า”"
+            ]
+        },
+        "en": {
+            "title": "Point of Perspective and Clear Vision",
+            "meaning": "“Looking from a higher perspective helps us understand life more broadly and make mindful decisions.”",
+            "steps": [
+                "🪑 Stand or rest your eyes at the observation tower.",
+                "🔭 Try using binoculars to look at distant points.",
+                "🌬️ Inhale for 4 seconds – exhale for 4 seconds (repeat 3–5 times).",
+                "👀 Look at the broad picture of nature, then observe the tiny details.",
+                "💭 Compare the “close-up view” with the “distant view.”",
+                "👉 “Am I looking at life too narrowly today?”"
+            ]
+        },
+        "zh": {
+            "title": "视角与清晰认知之点",
+            "meaning": "“从更高的视角去看待，有助于我们更宽广地理解生活，并做出明智的决定”",
+            "steps": [
+                "🪑 站在观景塔上，让眼睛休息片刻",
+                "🔭 尝试使用望远镜，眺望远方",
+                "🌬️ 吸气4秒 – 呼气4秒（重复3-5次）",
+                "👀 纵览大自然的广阔画面，然后观察微小的细节",
+                "💭 对比“近景”与“远景”",
+                "👉 “今天我看待生活的眼光是不是太狭隘了？”"
+            ]
+        }
+    }
+}
+]

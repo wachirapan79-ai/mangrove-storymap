@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลพันธ์ุไม้</title>
+    <link rel="preload" href="https://fonts.gstatic.com/s/prompt/v10/-W__XJnvUD7dzB2Ky_E.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="../image/icon-192x192.png">
+    <style>
+        /* ========================================= */
+        /* PLANT INFO CARD STYLES                 */
+        /* ========================================= */
+        @font-face {
+            font-family: 'SimSun';
+            src: url('../fonts/simsun/SIMSUN.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            background-color: #00000022;
+            font-family: 'Prompt', 'SimSun', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .plant-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .plant-img-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            height: clamp(200px, 35vw, 300px);
+            background-color: #e9ecef;
+        }
+
+        .plant-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: #000000 0px 0px 5px 1px;
+        }
+
+        .plant-content {
+            padding: clamp(15px, 4vw, 30px);
+
+        }
+
+        .plant-title {
+            font-size: clamp(20px, 4vw, 26px);
+            font-weight: 600;
+            color: #27ae60;
+            margin: 0 0 5px 0;
+            line-height: 1.3;
+        }
+
+        .plant-scientific {
+            font-size: clamp(13px, 2vw, 15px);
+            color: #666;
+            margin: 0 0 20px 0;
+            line-height: 1.5;
+        }
+
+        .section-box {
+            margin-bottom: 25px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: clamp(16px, 2.5vw, 18px);
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 0.2px solid #4e4d4d52;
+        }
+
+        .plant-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: clamp(13px, 2.2vw, 15px);
+            line-height: 1.6;
+        }
+
+        .plant-table th,
+        .plant-table td {
+            padding: 10px;
+            border: #27ae5f7c 0.5px solid;
+            vertical-align: top;
+
+        }
+
+        .plant-table th {
+            background-color: rgba(7, 83, 39, 0.1);
+            color: #1e8449;
+            width: 80px;
+            text-align: left;
+            font-weight: 500;
+
+        }
+
+        .plant-table td {
+            color: #4a5568;
+        }
+
+        .plant-paragraph {
+            font-size: clamp(14px, 2.5vw, 15.5px);
+            line-height: 1.7;
+            color: #4a5568;
+            margin: 0;
+        }
+
+        .wellness-box {
+            background: rgba(39, 174, 96, 0.08);
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+        }
+
+        .wellness-box p {
+            margin: 0 0 8px 0;
+        }
+
+        .wellness-box p:last-child {
+            margin-bottom: 0;
+            font-weight: 600;
+            color: #1e8449;
+        }
+
+        /* --- โค้ดสำหรับ Skeleton Loading --- */
+        #skeleton-container {
+            padding-top: 10px;
+        }
+
+        .skeleton-title,
+        .skeleton-text,
+        .skeleton-box {
+            background-color: #b0b0b0;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            /* แอนิเมชันให้สีกะพริบสลับเทาอ่อน-เทาเข้ม */
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        .skeleton-title {
+            height: 30px;
+            width: 60%;
+            margin-bottom: 20px;
+        }
+
+        .skeleton-text {
+            height: 15px;
+            width: 100%;
+        }
+
+        .skeleton-text.short {
+            width: 40%;
+        }
+
+        .skeleton-box {
+            height: 120px;
+            /* ความสูงจำลองกล่องข้อมูลเนื้อหา */
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* ========================================= */
+        /* 7. IMAGE MODAL / LIGHTBOX                 */
+        /* ========================================= */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 999999;
+            display: none;
+            /* ← สำคัญ! */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .image-modal.show {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            /* ← เพิ่มบรรทัดนี้ */
+        }
+
+        /* Close Button */
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000001;
+            /* ← สูงกว่า modal */
+            transition: all 0.3s;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            pointer-events: auto;
+            /* ← สำคัญ! */
+        }
+
+        .close-modal:hover {
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            transform: scale(1.15);
+        }
+
+        .close-modal:active {
+            transform: scale(0.95);
+        }
+
+        /* Main Image */
+        .modal-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+            /* ← ให้คลิกทะลุผ่านไปที่ background */
+            user-select: none;
+        }
+
+        .image-modal.show .modal-content {
+            transform: scale(1);
+        }
+
+
+        /* Prevent body scroll */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .close-modal {
+                top: 10px;
+                right: 15px;
+                font-size: 35px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+
+        .timeline-img,
+        .popup-img-item,
+        .card-img-wrapper img {
+            cursor: pointer;
+        }
+
+        .plant-img {
+            cursor: pointer;
+            /* เพิ่มให้เปลี่ยนเป็นรูปนิ้วตอนชี้ */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="plant-card">
+        <div class="plant-img-container">
+            <!-- Skeleton สำหรับรูปภาพ (แสดงตอนโหลด) -->
+            <div id="image-skeleton" class="skeleton-box" style="height: 100%; margin: 0;"></div>
+
+            <!-- รูปภาพจริง (ซ่อนไว้ก่อน และลบ loading="lazy" ออกตามที่เคยแนะนำ) -->
+            <img id="pt-image" src="" alt="" class="plant-img" style="display: none;"
+                onclick="openImageModal(this.src)">
+        </div>
+
+        <div class="plant-content">
+            <!-- กล่อง Skeleton Loading (จะโชว์ตอนกำลังโหลด) -->
+            <div id="skeleton-container">
+                <div class="skeleton-title"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+                <div class="skeleton-box"></div>
+                <div class="skeleton-box"></div>
+            </div>
+
+            <!-- กล่องเนื้อหาจริง (ซ่อนไว้ก่อน โชว์ตอนโหลดเสร็จ) -->
+            <div id="actual-content" style="display: none;">
+                <h1 class="plant-title" id="pt-title">กำลังโหลดข้อมูล...</h1>
+                <p class="plant-scientific">
+                    <!-- บรรทัดชื่อวิทยาศาสตร์ -->
+                    <span id="row-sci">
+                        <b id="label-sci">ชื่อวิทยาศาสตร์</b><b>:</b> <span id="pt-sci-name">-</span><br>
+                    </span>
+                    <!-- บรรทัดวงศ์ -->
+                    <span id="row-family">
+                        <b id="label-fam">วงศ์</b><b>:</b> <span id="pt-family">-</span>
+                    </span>
+                </p>
+
+                <div class="section-box">
+                    <div class="section-header">✨ ข้อมูลน่ารู้</div>
+                    <table class="plant-table">
+                    </table>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-header">💊 สรรพคุณทางยา</div>
+                    <p class="plant-paragraph" id="pt-properties" style="text-indent: 30px;">-</p>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-header">📜 เรื่องเล่า (Story)</div>
+                    <p class="plant-paragraph" id="pt-story" style="text-indent: 30px;">-</p>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-header">💚 Wellness Stop : <span id="pt-well-title"></span></div>
+                    <div class="wellness-box plant-paragraph" id="pt-well-box">
+                    </div>
+                </div>
+                <div class="section-box">
+                    <p class="plant-paragraph" id="pt-more-info">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- กล่องสำหรับดูรูปเต็มจอ -->
+    <div id="image-modal" class="image-modal">
+
+        <!-- Close Button -->
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+
+        <!-- Main Image -->
+        <img class="modal-content" id="full-image" src="" alt="Full size">
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const plantId = parseInt(urlParams.get('id')) || 1;
+        const langParam = urlParams.get('lang');
+        const lang = ['th', 'en', 'zh'].includes(langParam) ? langParam : 'th';
+
+        const uiLabels = {
+            th: {
+                sci: "ชื่อวิทยาศาสตร์", fam: "วงศ์", info: "ข้อมูลน่ารู้",
+                med: "สรรพคุณทางยา", story: "เรื่องเล่า",
+                well: "Wellness Stop", spirit: "Spiritual Stop", view: "Sightseeing Stop",
+                meaning: "ความหมาย", btn_more: "ดูข้อมูลจากแหล่งอ้างอิง"
+            },
+            en: {
+                sci: "Scientific Name", fam: "Family", info: "Fun Facts",
+                med: "Medicinal Uses", story: "Story",
+                well: "Wellness Stop", spirit: "Spiritual Stop", view: "Sightseeing Stop",
+                meaning: "Meaning", btn_more: "View Source Info"
+            },
+            zh: {
+                sci: "学名", fam: "科", info: "趣味知识",
+                med: "药用价值", story: "故事",
+                well: "康养站", spirit: "信仰之点", view: "观景点",
+                meaning: "健康意义", btn_more: "查看参考资料"
+            }
+        };
+
+        // แสดงข้อความเมื่อโหลดข้อมูลไม่สำเร็จ
+        // (เดิมข้อความไปอยู่ในกล่องที่ซ่อนอยู่ ผู้ใช้จึงเห็นแต่ Skeleton ค้างอยู่)
+        function showLoadError(message) {
+            document.getElementById('pt-title').innerText = message;
+            document.getElementById('skeleton-container').style.display = 'none';
+            document.getElementById('image-skeleton').style.display = 'none';
+            document.getElementById('actual-content').style.display = 'block';
+            document.querySelectorAll('#actual-content > *:not(.plant-title)').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+
+        async function loadPlantData() {
+            try {
+                const response = await fetch('../storage/plants.json');
+                const plants = await response.json();
+                const plant = plants.find(p => p.id === plantId);
+                const ptImage = document.getElementById('pt-image');
+                if (plant) {
+                    ptImage.onload = function () {
+                        document.getElementById('image-skeleton').style.display = 'none'; // ซ่อนกระดูกรูป
+                        ptImage.style.display = 'block'; // โชว์รูปจริง
+                    };
+                    ptImage.onerror = function () {
+                        document.getElementById('image-skeleton').style.display = 'none'; // รูปโหลดไม่ได้ ไม่ให้ Skeleton ค้าง
+                    };
+                    ptImage.src = plant.image_url;
+                }
+                if (plant) {
+                    const labels = uiLabels[lang];
+                    const data = plant.details[lang];
+
+                    // --- 1. ชื่อและหัวข้อ ---
+                    document.title = plant.name[lang];
+                    document.getElementById('pt-title').innerText = plant.name[lang];
+                    document.getElementById('pt-image').src = plant.image_url;
+
+                    // --- 2. ชื่อวิทยาศาสตร์และวงศ์ (ซ่อนถ้าไม่มีข้อมูล) ---
+                    const sciElem = document.getElementById('pt-sci-name');
+                    const famElem = document.getElementById('pt-family');
+
+                    // เช็คชื่อวิทยาศาสตร์
+                    if (!plant.sci_name || plant.sci_name === "-") {
+                        sciElem.parentElement.style.display = 'none'; // ซ่อนทั้ง <p> หรือส่วนที่เกี่ยวข้อง
+                    } else {
+                        document.getElementById('label-sci').innerText = labels.sci;
+                        sciElem.innerHTML = plant.sci_name;
+                    }
+
+                    // เช็ควงศ์ (ถ้าชื่อวิทย์ซ่อนไปแล้ว อาจจะต้องเช็คการแสดงผลบรรทัดใหม่ด้วย)
+                    if (!plant.family || plant.family === "-") {
+                        // ถ้าจะซ่อนแยกเฉพาะบรรทัดวงศ์
+                        const famLine = document.querySelector('.plant-scientific');
+                        // ในกรณีนี้ถ้าไม่มีทั้งคู่ ให้ซ่อนทั้งก้อน .plant-scientific
+                        if ((!plant.sci_name || plant.sci_name === "-") && (!plant.family || plant.family === "-")) {
+                            famLine.style.display = 'none';
+                        } else {
+                            // ซ่อนเฉพาะ Text วงศ์ (ถ้าต้องการซ่อนแค่บรรทัดเดียวใน <p>)
+                            famElem.previousElementSibling.style.display = 'none'; // ซ่อน <b>วงศ์</b>
+                            famElem.style.display = 'none';
+                        }
+                    } else {
+                        document.getElementById('label-fam').innerText = labels.fam;
+                        famElem.innerText = plant.family;
+                    }
+
+                    // --- 3. ข้อมูลน่ารู้ (สร้างตารางเฉพาะที่มีข้อมูล) ---
+                    let tableHTML = "";
+                    for (let i = 1; i <= 5; i++) {
+                        const h = data[`h${i}`];
+                        const v = data[`v${i}`];
+                        // ถ้า h หรือ v ไม่ใช่ undefined และไม่เป็น "-"
+                        if (h && v && h !== "-" && v !== "-") {
+                            tableHTML += `<tr><th>${h}</th><td>${v}</td></tr>`;
+                        }
+                    }
+
+                    const infoBox = document.querySelectorAll('.section-box')[0];
+                    if (tableHTML === "") {
+                        infoBox.style.display = 'none';
+                    } else {
+                        infoBox.style.display = 'block';
+                        infoBox.querySelector('.section-header').innerText = `✨ ${labels.info}`;
+                        document.querySelector('.plant-table').innerHTML = tableHTML;
+                    }
+
+                    // --- 4. สรรพคุณทางยา (ซ่อนถ้าไม่มี) ---
+                    const propBox = document.querySelectorAll('.section-box')[1];
+                    const propText = plant.properties[lang];
+                    if (!propText || propText === "-") {
+                        propBox.style.display = 'none';
+                    } else {
+                        propBox.style.display = 'block';
+                        propBox.querySelector('.section-header').innerText = `💊 ${labels.med}`;
+                        document.getElementById('pt-properties').innerText = propText;
+                    }
+
+                    // --- 5. เรื่องเล่า (ซ่อนถ้าไม่มี) ---
+                    const storyBox = document.querySelectorAll('.section-box')[2];
+                    const storyText = plant.story[lang];
+                    if (!storyText || storyText === "-") {
+                        storyBox.style.display = 'none';
+                    } else {
+                        storyBox.style.display = 'block';
+                        storyBox.querySelector('.section-header').innerText = `📜 ${labels.story}`;
+                        document.getElementById('pt-story').innerText = storyText;
+                    }
+
+                    // --- 6. Wellness Box ---
+                    const wellBox = document.querySelectorAll('.section-box')[3];
+                    const wellData = plant.wellness[lang];
+
+                    if (!wellData || !wellData.title || wellData.title === "-") {
+                        wellBox.style.display = 'none';
+                    } else {
+                        wellBox.style.display = 'block';
+
+                        let sectionTitle = labels.well;
+                        let sectionIcon = "💚";
+
+                        if (plantId >= 301) {
+                            sectionTitle = labels.view;
+                            sectionIcon = "📸";
+                        } else if (plantId >= 201) {
+                            sectionTitle = labels.spirit;
+                            sectionIcon = "🙏";
+                        }
+
+                        wellBox.querySelector('.section-header').innerText = `${sectionIcon} ${sectionTitle} : ${wellData.title}`;
+                        // ----------------------------------------------
+
+                        let wellnessHTML = `<p><b>${labels.meaning}:</b> ${wellData.meaning}</p>`;
+                        wellData.steps.forEach(step => {
+                            if (step && step !== "-") wellnessHTML += `<p>${step}</p>`;
+                        });
+                        document.getElementById('pt-well-box').innerHTML = wellnessHTML;
+                    }
+                    // --- ส่วนจัดการชื่อวิทยาศาสตร์ ---
+                    const sciRow = document.getElementById('row-sci');
+                    if (!plant.sci_name || plant.sci_name === "-" || plant.sci_name === "") {
+                        sciRow.style.display = 'none';
+                    } else {
+                        sciRow.style.display = 'block';
+                        document.getElementById('label-sci').innerText = labels.sci;
+                        document.getElementById('pt-sci-name').innerHTML = plant.sci_name;
+                    }
+
+                    // --- ส่วนจัดการวงศ์ (ลาก่อนคำว่า วงศ์ ที่ลืมซ่อน) ---
+                    const famRow = document.getElementById('row-family');
+                    if (!plant.family || plant.family === "-" || plant.family === "") {
+                        famRow.style.display = 'none';
+                    } else {
+                        famRow.style.display = 'block';
+                        document.getElementById('label-fam').innerText = labels.fam;
+                        document.getElementById('pt-family').innerText = plant.family;
+                    }
+
+                    // เช็คเพิ่มเติม: ถ้าซ่อนทั้งคู่ ให้ซ่อนตัวแผง <p> ไปเลย
+                    if (sciRow.style.display === 'none' && famRow.style.display === 'none') {
+                        document.querySelector('.plant-scientific').style.display = 'none';
+                    }
+                    const moreInfoBox = document.getElementById('pt-more-info').parentElement;
+                    const qrLink = plant.qr_link;
+
+                    if (!qrLink || qrLink === "-" || qrLink === "") {
+                        // ถ้าไม่มีลิงก์ ให้ซ่อนทั้งกล่อง
+                        moreInfoBox.style.display = 'none';
+                    } else {
+                        moreInfoBox.style.display = 'block';
+                        // อัปเดตหัวข้อตามภาษา
+                        // สร้างปุ่มลิงก์
+                        document.getElementById('pt-more-info').innerHTML = `
+    <a href="${qrLink}" target="_blank" 
+        onmouseover="this.style.backgroundColor='#2e7d32'; this.style.color='white';" 
+        onmouseout="this.style.backgroundColor='#f1f8f5'; this.style.color='#2e7d32';"
+        style="
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #f1f8f5;
+            color: #2e7d32;
+            text-decoration: none;
+            border: 1px solid #2e7d32;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+        ">
+        <i class="fa-solid fa-external-link-alt"></i> ${labels.btn_more}
+    </a>
+`;
+                    }
+                    document.getElementById('skeleton-container').style.display = 'none'; // ซ่อนกระดูก
+                    document.getElementById('actual-content').style.display = 'block'; // โชว์เนื้อหาจริง
+                } else {
+                    showLoadError("ไม่พบข้อมูล");
+                }
+
+            } catch (e) {
+                console.error("Error loading data:", e);
+                showLoadError("เกิดข้อผิดพลาด");
+            }
+        }
+
+        loadPlantData();
+        // =========================================
+        // ฟังก์ชันดูรูปเต็ม (Image Modal)
+        // =========================================
+        /**
+ * เปิด Modal แสดงรูปเดียว
+ * @param {string} imgSrc - URL ของรูป
+ */
+        function openImageModal(imgSrc) {
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("full-image");
+
+            if (!modal || !modalImg) {
+                console.error("❌ Modal elements not found");
+                return;
+            }
+
+            console.log("📸 Opening image:", imgSrc);
+
+            // แสดงรูป
+            modalImg.src = imgSrc;
+            modal.classList.remove("hidden");
+            modal.classList.add("show");
+
+            // ป้องกัน scroll body
+            document.body.style.overflow = "hidden";
+        }
+
+        /**
+         * ปิด Modal
+         */
+        function closeImageModal() {
+            const modal = document.getElementById("image-modal");
+
+            if (!modal) return;
+
+            console.log("❌ Closing modal");
+
+            modal.classList.add("hidden");
+            modal.classList.remove("show");
+
+            // คืนค่า scroll body
+            document.body.style.overflow = "";
+        }
+
+        // Event Listeners
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. ESC key เพื่อปิด
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeImageModal();
+                }
+            });
+
+            // 2. คลิกพื้นหลังเพื่อปิด
+            const modal = document.getElementById("image-modal");
+            if (modal) {
+                modal.addEventListener("click", function (e) {
+                    // ปิดเมื่อคลิกพื้นหลัง (ไม่ใช่รูป)
+                    if (e.target === modal || e.target.classList.contains("image-modal")) {
+                        closeImageModal();
+                    }
+                });
+            }
+
+            // 3. คลิกปุ่ม X เพื่อปิด
+            const closeBtn = document.querySelector(".close-modal");
+            if (closeBtn) {
+                closeBtn.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    closeImageModal();
+                });
+            }
+        });
+    </script>
+<script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js').catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>

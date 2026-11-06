@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Field Logger</title>
+<style>
+:root{--bg:#f6f7f5;--card:#fff;--ink:#1f2937;--mut:#6b7280;--g:#2f7d4f;--gl:#e6f2ea;--a:#d98a00;--r:#c0392b;--b:#1d6fd1;--ln:#e2e5e0}
+@media (prefers-color-scheme:dark){:root{--bg:#14181a;--card:#1d2326;--ink:#e8ecea;--mut:#9aa5a0;--g:#5fbf84;--gl:#1f3328;--a:#f0b44a;--r:#ef6f60;--b:#6aa9f0;--ln:#2d3639}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Sarabun","Noto Sans Thai",sans-serif;padding:12px 14px calc(24px + env(safe-area-inset-bottom))}
+h1{font-size:18px;margin:0 0 2px}.sub{color:var(--mut);font-size:13px;margin-bottom:10px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:12px;margin-bottom:10px}
+label{display:block;font-size:13px;color:var(--mut);margin:8px 0 3px}
+select,input[type=text]{width:100%;font-size:16px;padding:10px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--ink)}
+.row{display:flex;gap:8px}.row>*{flex:1}
+button{font:inherit;font-weight:600;padding:12px 10px;border-radius:10px;border:1px solid var(--ln);background:var(--card);color:var(--ink);min-height:48px}
+button.pri{background:var(--g);border-color:var(--g);color:#fff}button.dan{background:var(--r);border-color:var(--r);color:#fff}
+button:disabled{opacity:.45}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}.k{color:var(--mut);font-size:12px}.v{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:13px;font-weight:600;background:var(--gl);color:var(--g)}
+.pill.warn{background:#fdf0d5;color:#8a5a00}.pill.bad{background:#fbe3df;color:var(--r)}.pill.dr{background:#e3f1fd;color:var(--b)}
+.st{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;margin-bottom:6px}
+.st small{color:var(--mut);font-weight:400}.hold{border-color:var(--g);background:var(--gl)}
+details summary{cursor:pointer;font-weight:600}ol,ul{margin:6px 0 0;padding-left:20px;font-size:14px}
+.msg{font-size:13px;color:var(--mut);min-height:18px}
+</style>
+</head>
+<body>
+<h1>ตัวบันทึกภาคสนาม</h1>
+<div class="sub">เปิดแยกจากแอปหลัก ใช้ตัวกรอง GPS ชุดเดียวกับระบบจริง · ไม่แก้ไขโค้ดเดิม</div>
+
+<div class="card">
+  <label for="dev">ชื่อเครื่อง (เช่น Pixel7-Chrome, iPhone13-Safari)</label>
+  <input type="text" id="dev" placeholder="ชื่อเครื่อง/เบราว์เซอร์">
+  <label for="route">เส้นทางที่จะเดิน</label>
+  <select id="route"></select>
+  <div class="msg" id="dataMsg">กำลังโหลดข้อมูลเส้นทาง…</div>
+  <div id="fileFallback" hidden>
+    <label for="jsonFile">โหลดอัตโนมัติไม่ได้: เลือกไฟล์ info.json เอง</label>
+    <input type="file" id="jsonFile" accept=".json,application/json">
+  </div>
+  <div class="row" style="margin-top:10px">
+    <button class="pri" id="btnStart" disabled>เริ่มบันทึก</button>
+    <button class="dan" id="btnStop" disabled>หยุด</button>
+  </div>
+</div>
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+    <b>สถานะ</b><span class="pill" id="state">ยังไม่เริ่ม</span>
+  </div>
+  <div class="grid">
+    <div><div class="k">accuracy ล่าสุด</div><div class="v" id="vAcc">–</div></div>
+    <div><div class="k">ดิบ → ที่แอปแสดง</div><div class="v" id="vDiff">–</div></div>
+    <div><div class="k">จำนวนแถวที่บันทึก</div><div class="v" id="vRows">0</div></div>
+    <div><div class="k">เวลาตั้งแต่พิกัดดีล่าสุด</div><div class="v" id="vGap">–</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <b>ช่วงสัญญาณขาด (จำลองในแอป)</b>
+  <div class="msg">กดแล้วระบบจะไม่รับพิกัดตามเวลาที่เลือก ให้เดินต่อตามปกติ แล้วกดจุดแวะพักที่ใกล้ที่สุดเมื่อครบเวลา</div>
+  <div class="row" style="margin-top:6px">
+    <select id="outSec"><option value="6">6 วินาที</option><option value="10">10 วินาที</option><option value="15">15 วินาที</option></select>
+    <button id="btnOut" disabled>เริ่มช่วงขาด</button>
+  </div>
+  <div class="msg" id="outMsg"></div>
+</div>
+
+<div class="card">
+  <b>กดเมื่อยืนอยู่ที่จุดแวะพัก</b>
+  <div class="msg">ยืนนิ่ง 10–15 วินาที แล้วกดชื่อจุด (เรียงตามลำดับเส้นทาง จุดที่ใกล้ที่สุดมีกรอบสีน้ำเงิน) ระบบติดป้ายจุดนั้นให้พิกัดที่ได้ใน 15 วินาทีถัดไป</div>
+  <div id="stList" style="margin-top:6px"></div>
+</div>
+
+<div class="card">
+  <b>ส่งออก</b>
+  <div class="row" style="margin-top:6px">
+    <button id="btnCsv" disabled>ดาวน์โหลด CSV</button>
+    <button id="btnShare" disabled>แชร์ไฟล์</button>
+  </div>
+  <div class="row" style="margin-top:8px">
+    <button id="btnCopy" disabled>คัดลอก CSV</button>
+    <button id="btnClear" disabled>ล้างข้อมูล</button>
+  </div>
+  <div class="msg" id="expMsg"></div>
+</div>
+
+<details class="card">
+  <summary>วิธีใช้ (ย่อ)</summary>
+  <ol>
+    <li>เปิดตอนมีเน็ต ให้ข้อมูลเส้นทางโหลดครบ แล้วเลือกเส้นทาง กดเริ่มบันทึก อนุญาตตำแหน่ง</li>
+    <li>เดินตามเส้นทาง ถึงจุดแวะพักให้ยืนนิ่ง 10–15 วินาที แล้วกดชื่อจุด</li>
+    <li>ทดสอบสัญญาณขาด: กดเริ่มช่วงขาด เดินต่อ แล้วกดจุดแวะพักที่ใกล้ที่สุดเมื่อครบเวลา</li>
+    <li>จบแล้วกดหยุด และดาวน์โหลด CSV ก่อนปิดหน้า (ข้อมูลเก็บสำรองในเครื่องอัตโนมัติ)</li>
+  </ol>
+  <ul>
+    <li>วางเครื่องในท่าที่ใช้จริง (ถือหรือใส่กระเป๋า) และจดไว้ ทำซ้ำหลายรอบ ต่างช่วงเวลา</li>
+    <li>ปิดโหมดประหยัดพลังงานและเปิดหน้านี้ค้างไว้ ระบบขอไม่ให้จอดับ แต่บางเครื่องอาจไม่รองรับ</li>
+  </ul>
+</details>
+
+<script>
+"use strict";
+/* ===== ส่วนเอนจิน: คัดลอกจาก js/mangrove.js ตรงๆ (สร้างอัตโนมัติ ห้ามแก้ด้วยมือ) ===== */
+let db = {};
+let kf = null;
+let drState = null;
+let snapCache = { src: null, routes: {} };
+let currentSubRoute = "wellness1";
+const SNAP_ROUTE_KEYS = ["wellness1", "wellness2", "spiritual1", "spiritual2"];
+const GPS_CFG = {
+  MAX_ACCURACY: 100, // ทิ้งพิกัดที่คลาดเคลื่อนเกิน 100 ม. (ส่วนมากเป็นพิกัดจาก Wi-Fi/เสา)
+  MAX_SPEED: 8, // ม./วินาที เกินนี้ถือว่ากระโดด (คนเดินปกติ ~1.4)
+  Q_METERS_PER_SEC: 3, // ความไวของ Kalman: ยิ่งมาก ยิ่งตามเร็วแต่สั่นมากขึ้น
+  DEADBAND_M: 1.5, // ขยับน้อยกว่านี้ไม่อัปเดตจุด (กันจุดสั่นตอนยืนนิ่ง)
+  FOLLOW_THRESHOLD_M: 8, // เลื่อนแผนที่ตามเมื่อจุดห่างจากกลางจอเกินนี้
+  STALE_MS: 30000, // ไม่มีข้อมูลเกินนี้ถึงจะ restart watch
+  SNAP_ENABLED: true, // เปิด/ปิด snap-to-route
+  SNAP_MIN_M: 12, // รัศมี snap ขั้นต่ำ (ม.)
+  SNAP_MAX_M: 30, // รัศมี snap สูงสุด (ม.) ไกลกว่านี้ถือว่าออกนอกเส้นทาง
+  DR_ENABLED: true, // เปิด/ปิดโหมดเดินต่อเองตอนสัญญาณหาย
+  DR_START_MS: 3000, // ไม่มีพิกัดดีเกินนี้ ถือว่าสัญญาณหาย แล้วเริ่มเดินต่อเอง
+  DR_MAX_MS: 20000, // เดินต่อเองได้นานสุด (หลังจากนั้นหยุดรอสัญญาณ)
+  DR_MAX_M: 25, // เดินต่อเองได้ไกลสุด (ม.)
+  DR_SPEED_FACTOR: 0.6, // เดินช้ากว่าความเร็วจริงที่ประเมินได้ (0.6 = 60%)
+  DR_MAX_SPEED: 1.0, // เพดานความเร็วตอนเดินต่อเอง (ม./วินาที)
+  DR_MIN_SPEED: 0.4, // ถ้าก่อนสัญญาณหายเดินช้ากว่านี้ ถือว่ายืนอยู่ ไม่เดินต่อ
+};
+function kalmanUpdate(lat, lng, accuracy, ts) {
+  const acc = Math.max(accuracy, 1);
+  if (!kf) {
+    kf = { lat, lng, variance: acc * acc, ts };
+    return kf;
+  }
+  const dt = ts - kf.ts;
+  if (dt > 0) {
+    kf.variance += (dt * GPS_CFG.Q_METERS_PER_SEC * GPS_CFG.Q_METERS_PER_SEC) / 1000;
+    kf.ts = ts;
+  }
+  const K = kf.variance / (kf.variance + acc * acc);
+  kf.lat += K * (lat - kf.lat);
+  kf.lng += K * (lng - kf.lng);
+  kf.variance = (1 - K) * kf.variance;
+  return kf;
+}
+function metersBetween(alat, alng, blat, blng) {
+  const mLat = 110540;
+  const mLng = 111320 * Math.cos((((alat + blat) / 2) * Math.PI) / 180);
+  return Math.hypot((blng - alng) * mLng, (blat - alat) * mLat);
+}
+function buildRoute(key) {
+  if (snapCache.src !== db) snapCache = { src: db, routes: {} };
+  if (snapCache.routes[key]) return snapCache.routes[key];
+  const pts = (db && db[key]) || [];
+  const paths = [];
+  const segs = [];
+  let cur = null;
+  for (let i = 0; i < pts.length; i++) {
+    const p = pts[i];
+    if (p.lat == null || p.lng == null) {
+      cur = null;
+      continue;
+    }
+    if (!cur || p.isNewPath) {
+      cur = { pts: [[p.lat, p.lng]], cum: [0] };
+      paths.push(cur);
+      continue;
+    }
+    const prev = cur.pts[cur.pts.length - 1];
+    const len = metersBetween(prev[0], prev[1], p.lat, p.lng);
+    const cumStart = cur.cum[cur.cum.length - 1];
+    segs.push([prev[0], prev[1], p.lat, p.lng, paths.length - 1, cumStart, len]);
+    cur.pts.push([p.lat, p.lng]);
+    cur.cum.push(cumStart + len);
+  }
+  return (snapCache.routes[key] = { segs, paths });
+}
+function pointAtS(path, s) {
+  const { pts, cum } = path;
+  s = Math.max(0, Math.min(s, cum[cum.length - 1]));
+  for (let i = 1; i < cum.length; i++) {
+    if (s <= cum[i]) {
+      const len = cum[i] - cum[i - 1];
+      const t = len > 0 ? (s - cum[i - 1]) / len : 0;
+      return [
+        pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * t,
+        pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * t,
+      ];
+    }
+  }
+  return pts[pts.length - 1];
+}
+function nearestOnSegments(lat, lng, segs) {
+  const mLat = 110540;
+  const mLng = 111320 * Math.cos((lat * Math.PI) / 180);
+  let best = null;
+  for (const [alat, alng, blat, blng, pathIdx, cumStart, segLen] of segs) {
+    const ax = (alng - lng) * mLng,
+      ay = (alat - lat) * mLat;
+    const bx = (blng - lng) * mLng,
+      by = (blat - lat) * mLat;
+    const dx = bx - ax,
+      dy = by - ay;
+    const len2 = dx * dx + dy * dy;
+    let t = len2 > 0 ? -(ax * dx + ay * dy) / len2 : 0;
+    t = Math.max(0, Math.min(1, t));
+    const px = ax + t * dx,
+      py = ay + t * dy;
+    const d = Math.hypot(px, py);
+    if (!best || d < best.d) {
+      best = {
+        d,
+        lat: lat + py / mLat,
+        lng: lng + px / mLng,
+        pathIdx,
+        along: cumStart + t * segLen,
+      };
+    }
+  }
+  return best;
+}
+function snapToRoute(lat, lng, accuracy) {
+  if (!GPS_CFG.SNAP_ENABLED || !db) return { lat, lng, snapped: false };
+  const radius = Math.min(
+    Math.max(accuracy * 1.5, GPS_CFG.SNAP_MIN_M),
+    GPS_CFG.SNAP_MAX_M,
+  );
+  // ลองเส้นทางปัจจุบันก่อน (กันกระโดดไปเส้นขนาน) แล้วค่อยลองเส้นอื่น
+  const keys = [
+    currentSubRoute,
+    ...SNAP_ROUTE_KEYS.filter((k) => k !== currentSubRoute),
+  ];
+  for (const key of keys) {
+    const segs = buildRoute(key).segs;
+    if (!segs.length) continue;
+    const n = nearestOnSegments(lat, lng, segs);
+    if (n && n.d <= radius) {
+      const strength = n.d <= radius * 0.5 ? 1 : (radius - n.d) / (radius * 0.5);
+      return {
+        lat: lat + (n.lat - lat) * strength,
+        lng: lng + (n.lng - lng) * strength,
+        snapped: true,
+        dist: n.d,
+        key,
+        pathIdx: n.pathIdx,
+        along: n.along,
+      };
+    }
+  }
+  return { lat, lng, snapped: false };
+}
+function updateDrState(sn, ts) {
+  if (!sn.snapped) {
+    drState = null;
+    return;
+  }
+  if (
+    drState &&
+    drState.key === sn.key &&
+    drState.pathIdx === sn.pathIdx &&
+    ts > drState.fixTs
+  ) {
+    const dt = (ts - drState.fixTs) / 1000;
+    if (dt >= 0.5) {
+      const inst = (sn.along - drState.fixS) / dt;
+      drState.v = 0.7 * drState.v + 0.3 * Math.max(-2, Math.min(2, inst));
+      drState.fixS = sn.along;
+      drState.fixTs = ts;
+    }
+  } else {
+    drState = { key: sn.key, pathIdx: sn.pathIdx, fixS: sn.along, fixTs: ts, v: 0 };
+  }
+  drState.s = sn.along;
+  drState.drDist = 0;
+}
+/* ===== จบส่วนเอนจิน ===== */
+
+const $ = (id) => document.getElementById(id);
+const COLS = ["session","device","route","seq","type","t_iso","t_ms","raw_lat","raw_lng","acc","speed","status","kal_lat","kal_lng","snap_lat","snap_lng","snapped","shown_lat","shown_lng","dr_dist","station_idx","station_name","station_lat","station_lng","note"];
+const HOLD_MS = 15000, LS_KEY = "mangrove_logger_v1";
+
+let routeKeys = [];
+let session = null, rows = [], seq = 0, watchId = null, drTimer = null, uiTimer = null, wakeLock = null;
+let lastRaw = null, shown = null, lastAccepted = null, spikeCount = 0, drMoved = false;
+let lastFixAcceptedAt = 0, lastAcc = 10, signalLost = false, outageUntil = 0;
+let activeStation = null, activeUntil = 0;
+
+function iso(ms) { return new Date(ms).toISOString(); }
+function round(x, n) { return x == null || isNaN(x) ? "" : Number(x.toFixed(n)); }
+function dist(a, b) { return metersBetween(a[0], a[1], b[0], b[1]); }
+function stations() {
+  const arr = (db[$("route").value] || []);
+  const out = [];
+  arr.forEach((p, i) => { if (p && p.th && p.th.t && p.lat != null) out.push({ idx: i, name: String(p.th.t).replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim(), lat: p.lat, lng: p.lng }); });
+  return out;
+}
+
+function log(type, o) {
+  o = o || {};
+  const now = Date.now();
+  const st = (activeStation && now < activeUntil && type === "fix") ? activeStation : null;
+  const r = {
+    session: session.id, device: session.device, route: session.route, seq: ++seq, type,
+    t_iso: iso(now), t_ms: now,
+    raw_lat: o.raw ? round(o.raw.lat, 7) : "", raw_lng: o.raw ? round(o.raw.lng, 7) : "",
+    acc: o.raw ? round(o.raw.acc, 1) : "", speed: o.speed != null ? round(o.speed, 2) : "",
+    status: o.status || "", kal_lat: o.kal ? round(o.kal.lat, 7) : "", kal_lng: o.kal ? round(o.kal.lng, 7) : "",
+    snap_lat: o.sn ? round(o.sn.lat, 7) : "", snap_lng: o.sn ? round(o.sn.lng, 7) : "", snapped: o.sn ? (o.sn.snapped ? 1 : 0) : "",
+    shown_lat: shown ? round(shown[0], 7) : "", shown_lng: shown ? round(shown[1], 7) : "",
+    dr_dist: o.drDist != null ? round(o.drDist, 1) : "",
+    station_idx: (o.station || st) ? (o.station || st).idx : "", station_name: (o.station || st) ? (o.station || st).name : "",
+    station_lat: (o.station || st) ? (o.station || st).lat : "", station_lng: (o.station || st) ? (o.station || st).lng : "",
+    note: o.note || ""
+  };
+  rows.push(r);
+  if (rows.length % 20 === 0) save();
+  return r;
+}
+
+function save() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify({ session, rows })); } catch (e) {}
+}
+function restore() {
+  try {
+    const s = JSON.parse(localStorage.getItem(LS_KEY) || "null");
+    if (s && s.rows && s.rows.length) { session = s.session; rows = s.rows; seq = rows[rows.length - 1].seq || rows.length; $("expMsg").textContent = "พบข้อมูลที่ยังไม่ได้ส่งออกจากรอบก่อน (" + rows.length + " แถว) ดาวน์โหลดได้เลย"; }
+  } catch (e) {}
+}
+
+/* ---------- ประมวลผลพิกัดทุกครั้ง (เลียนแบบ handleGpsFix) ---------- */
+function onFix(pos) {
+  const c = pos.coords, ts = pos.timestamp || Date.now();
+  const raw = { lat: c.latitude, lng: c.longitude, acc: c.accuracy, ts };
+  lastRaw = raw;
+  let status = "ok", kal = null, sn = null;
+
+  if (Date.now() < outageUntil) status = "outage_dropped";
+  else if (c.accuracy > GPS_CFG.MAX_ACCURACY) status = "rej_acc";
+  else if (lastAccepted && (function () {
+    const d = dist([c.latitude, c.longitude], [lastAccepted.lat, lastAccepted.lng]);
+    const dt = Math.max((ts - lastAccepted.ts) / 1000, 0.5);
+    return d / dt > GPS_CFG.MAX_SPEED && d > c.accuracy * 2 && spikeCount < 3;
+  })()) { spikeCount++; status = "rej_spike"; }
+  else {
+    spikeCount = 0;
+    lastFixAcceptedAt = Date.now(); lastAcc = c.accuracy; signalLost = false;
+    kal = kalmanUpdate(c.latitude, c.longitude, c.accuracy, ts);
+    sn = snapToRoute(kal.lat, kal.lng, c.accuracy);
+    updateDrState(sn, ts);
+    let deadband = false;
+    if (lastAccepted && !drMoved) {
+      deadband = dist([sn.lat, sn.lng], [lastAccepted.lat, lastAccepted.lng]) < GPS_CFG.DEADBAND_M;
+    }
+    if (deadband) status = "deadband";
+    else { drMoved = false; lastAccepted = { lat: sn.lat, lng: sn.lng, ts }; shown = [sn.lat, sn.lng]; }
+  }
+  log("fix", { raw, speed: c.speed, status, kal, sn });
+}
+
+/* ---------- Dead reckoning (เลียนแบบ drTick) ---------- */
+function drTick() {
+  if (!session || watchId == null) return;
+  const gap = Date.now() - lastFixAcceptedAt;
+  if (!lastAccepted || gap < GPS_CFG.DR_START_MS) return;
+  signalLost = true;
+  if (!drState || Math.abs(drState.v) < GPS_CFG.DR_MIN_SPEED) return;
+  if (gap > GPS_CFG.DR_MAX_MS || drState.drDist >= GPS_CFG.DR_MAX_M) return;
+  const path = buildRoute(drState.key).paths[drState.pathIdx];
+  if (!path) return;
+  const fade = Math.max(0, 1 - (gap - GPS_CFG.DR_START_MS) / (GPS_CFG.DR_MAX_MS - GPS_CFG.DR_START_MS));
+  const speed = Math.min(Math.abs(drState.v) * GPS_CFG.DR_SPEED_FACTOR, GPS_CFG.DR_MAX_SPEED) * fade;
+  const step = Math.sign(drState.v) * speed * 0.5;
+  const total = path.cum[path.cum.length - 1];
+  const next = Math.max(0, Math.min(total, drState.s + step));
+  if (next === drState.s) return;
+  drState.drDist += Math.abs(next - drState.s);
+  drState.s = next;
+  const pt = pointAtS(path, next);
+  shown = [pt[0], pt[1]]; drMoved = true;
+  log("dr", { status: "dr_step", drDist: drState.drDist });
+}
+
+/* ---------- ควบคุม ---------- */
+function resetEngine() {
+  kf = null; drState = null; lastAccepted = null; spikeCount = 0; drMoved = false;
+  lastFixAcceptedAt = 0; signalLost = false; outageUntil = 0; shown = null; lastRaw = null; activeStation = null;
+  snapCache = { src: null, routes: {} };
+}
+async function start() {
+  if (!navigator.geolocation) { alert("เบราว์เซอร์นี้ไม่รองรับ Geolocation"); return; }
+  if (session && rows.length && watchId == null) { if (!confirm("มีข้อมูลรอบก่อนค้างอยู่ จะเริ่มรอบใหม่และทับข้อมูลเดิม ใช่หรือไม่? (ดาวน์โหลดก่อนได้)")) return; }
+  resetEngine(); rows = []; seq = 0;
+  currentSubRoute = $("route").value;
+  session = { id: "S" + Date.now().toString(36), device: $("dev").value.trim() || "unknown", route: currentSubRoute, ua: navigator.userAgent };
+  try { localStorage.setItem("mangrove_logger_dev", session.device); } catch (e) {}
+  log("start", { note: "ua=" + session.ua.replace(/[,\n]/g, " ") });
+  watchId = navigator.geolocation.watchPosition(onFix, (e) => { log("error", { note: "code" + e.code + " " + e.message }); setState("GPS ผิดพลาด: " + e.message, "bad"); }, { enableHighAccuracy: true, maximumAge: 0, timeout: 20000 });
+  drTimer = setInterval(drTick, 500);
+  uiTimer = setInterval(refreshUI, 500);
+  try { if (navigator.wakeLock) wakeLock = await navigator.wakeLock.request("screen"); } catch (e) {}
+  setButtons(true); renderStations(); refreshUI(); save();
+}
+function stop() {
+  if (watchId != null) navigator.geolocation.clearWatch(watchId);
+  watchId = null; clearInterval(drTimer); clearInterval(uiTimer);
+  try { if (wakeLock) wakeLock.release(); } catch (e) {}
+  if (session) log("stop", {});
+  save(); setButtons(false); setState("หยุดแล้ว", "warn"); $("expMsg").textContent = "บันทึก " + rows.length + " แถว ดาวน์โหลด CSV ได้เลย";
+}
+function startOutage() {
+  const sec = +$("outSec").value;
+  outageUntil = Date.now() + sec * 1000;
+  log("outage_start", { note: sec + "s" });
+  $("outMsg").textContent = "เริ่มช่วงขาด " + sec + " วินาที เดินต่อ แล้วกดจุดแวะพักเมื่อครบเวลา";
+  setTimeout(() => { if (session && watchId != null) { log("outage_end", { note: sec + "s" }); $("outMsg").textContent = "ครบเวลาแล้ว กดจุดแวะพักที่ใกล้ที่สุดตอนนี้"; } }, sec * 1000 + 50);
+}
+function markStation(s) {
+  log("mark", { raw: lastRaw, station: s, status: "station_mark" });
+  activeStation = s; activeUntil = Date.now() + HOLD_MS;
+  $("expMsg").textContent = "ติดป้าย: " + s.name;
+}
+
+/* ---------- UI ---------- */
+function setState(t, cls) { const e = $("state"); e.textContent = t; e.className = "pill" + (cls ? " " + cls : ""); }
+function setButtons(on) {
+  $("btnStart").disabled = on || !Object.keys(db).length; $("btnStop").disabled = !on; $("btnOut").disabled = !on;
+  const has = rows.length > 0; ["btnCsv", "btnShare", "btnCopy", "btnClear"].forEach((i) => ($(i).disabled = on ? i !== "btnCsv" && i !== "btnCopy" ? true : false : !has));
+  $("route").disabled = on; $("dev").disabled = on;
+}
+function refreshUI() {
+  if (watchId == null) return;
+  const now = Date.now(), gap = lastFixAcceptedAt ? (now - lastFixAcceptedAt) / 1000 : null;
+  $("vRows").textContent = rows.length;
+  $("vAcc").textContent = lastRaw ? round(lastRaw.acc, 0) + " ม." : "–";
+  $("vGap").textContent = gap == null ? "–" : gap.toFixed(0) + " วิ";
+  $("vDiff").textContent = lastRaw && shown ? round(dist([lastRaw.lat, lastRaw.lng], shown), 1) + " ม." : "–";
+  if (now < outageUntil) setState("จำลองสัญญาณขาด " + Math.ceil((outageUntil - now) / 1000) + " วิ", "warn");
+  else if (signalLost && gap > GPS_CFG.DR_START_MS / 1000) setState("เดินต่อเอง (DR)", "dr");
+  else if (!lastRaw) setState("รอพิกัดแรก…", "warn");
+  else if (lastRaw.acc > GPS_CFG.MAX_ACCURACY) setState("accuracy แย่ ทิ้งพิกัด", "bad");
+  else setState("กำลังบันทึก", "");
+  if (now >= outageUntil && $("outMsg").textContent.startsWith("เริ่ม")) { /* คงข้อความจนครบเวลา */ }
+  updateStations();
+}
+let stBtns = [];
+function renderStations() {
+  const box = $("stList");
+  const ss = stations();
+  box.innerHTML = ""; stBtns = [];
+  if (!ss.length) { box.textContent = "ไม่พบจุดแวะพักของเส้นทางนี้"; return; }
+  ss.forEach((s) => {
+    const b = document.createElement("button");
+    b.className = "st"; b.disabled = watchId == null;
+    const n = document.createElement("span"); n.textContent = s.name;
+    const m = document.createElement("small");
+    b.append(n, m); b.onclick = () => markStation(s); box.appendChild(b);
+    stBtns.push({ s, b, m });
+  });
+  updateStations();
+}
+function updateStations() {
+  if (!stBtns.length) return;
+  const ref = shown || (lastRaw ? [lastRaw.lat, lastRaw.lng] : null);
+  const now = Date.now();
+  let near = -1, nd = Infinity;
+  stBtns.forEach((x, i) => { x.d = ref ? dist(ref, [x.s.lat, x.s.lng]) : null; if (x.d != null && x.d < nd) { nd = x.d; near = i; } });
+  stBtns.forEach((x, i) => {
+    x.b.disabled = watchId == null;
+    x.m.textContent = x.d == null ? "" : Math.round(x.d) + " ม." + (i === near ? " · ใกล้สุด" : "");
+    const held = activeStation && activeStation.idx === x.s.idx && now < activeUntil;
+    x.b.className = "st" + (held ? " hold" : "");
+    x.b.style.outline = i === near && watchId != null ? "2px solid var(--b)" : "";
+  });
+}
+
+/* ---------- ส่งออก ---------- */
+function toCsv() {
+  const esc = (v) => { v = String(v == null ? "" : v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+  return "﻿" + COLS.join(",") + "\n" + rows.map((r) => COLS.map((c) => esc(r[c])).join(",")).join("\n") + "\n";
+}
+function fname() { return "fieldlog_" + (session ? session.device.replace(/[^\w-]+/g, "_") : "x") + "_" + (session ? session.route : "") + "_" + new Date().toISOString().slice(0, 16).replace(/[:T]/g, "") + ".csv"; }
+function dl() {
+  const blob = new Blob([toCsv()], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = fname(); document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+async function share() {
+  try {
+    const f = new File([toCsv()], fname(), { type: "text/csv" });
+    if (navigator.canShare && navigator.canShare({ files: [f] })) await navigator.share({ files: [f], title: "Field log" });
+    else $("expMsg").textContent = "เครื่องนี้แชร์ไฟล์ไม่ได้ ใช้ดาวน์โหลดหรือคัดลอกแทน";
+  } catch (e) { $("expMsg").textContent = "ยกเลิกหรือแชร์ไม่สำเร็จ"; }
+}
+async function copy() {
+  try { await navigator.clipboard.writeText(toCsv()); $("expMsg").textContent = "คัดลอกแล้ว วางในแชตหรือโน้ตได้"; }
+  catch (e) { $("expMsg").textContent = "คัดลอกไม่ได้ ใช้ดาวน์โหลดแทน"; }
+}
+function clearAll() {
+  if (!confirm("ล้างข้อมูลที่บันทึกไว้ทั้งหมด? ย้อนกลับไม่ได้")) return;
+  rows = []; seq = 0; try { localStorage.removeItem(LS_KEY); } catch (e) {} $("expMsg").textContent = "ล้างแล้ว"; setButtons(false); $("vRows").textContent = 0;
+}
+
+/* ---------- โหลดข้อมูลเส้นทาง ---------- */
+function useData(j) {
+  db = j; routeKeys = SNAP_ROUTE_KEYS.filter((k) => Array.isArray(db[k]));
+  const sel = $("route"); sel.innerHTML = "";
+  const names = { wellness1: "สุขภาพ 1", wellness2: "สุขภาพ 2", spiritual1: "สายมู 1", spiritual2: "สายมู 2" };
+  routeKeys.forEach((k) => { const o = document.createElement("option"); o.value = k; o.textContent = names[k] || k; sel.appendChild(o); });
+  $("dataMsg").textContent = routeKeys.length ? "โหลดข้อมูลแล้ว: " + routeKeys.length + " เส้นทาง" : "ไฟล์นี้ไม่มีเส้นทางที่รองรับ";
+  $("fileFallback").hidden = true; setButtons(false); renderStations();
+}
+async function loadData() {
+  try {
+    const r = await fetch("../storage/info.json?t=" + Date.now());
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    useData(await r.json());
+  } catch (e) { $("dataMsg").textContent = "โหลดอัตโนมัติไม่ได้ (" + e.message + ")"; $("fileFallback").hidden = false; }
+}
+$("jsonFile").onchange = async (e) => { const f = e.target.files[0]; if (!f) return; try { useData(JSON.parse(await f.text())); } catch (err) { $("dataMsg").textContent = "อ่านไฟล์ไม่ได้: " + err.message; } };
+$("route").onchange = renderStations;
+$("btnStart").onclick = start; $("btnStop").onclick = stop; $("btnOut").onclick = startOutage;
+$("btnCsv").onclick = dl; $("btnShare").onclick = share; $("btnCopy").onclick = copy; $("btnClear").onclick = clearAll;
+try { $("dev").value = localStorage.getItem("mangrove_logger_dev") || ""; } catch (e) {}
+restore(); loadData().then(() => setButtons(false));
+</script>
+</body>
+</html>

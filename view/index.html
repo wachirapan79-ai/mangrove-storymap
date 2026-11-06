@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <link rel="preconnect" href="https://server.arcgisonline.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">Mangrove StoryMap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/index.css?v=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="../image/icon-192x192.png">
+</head>
+
+<body>
+    <div id="loading-screen" class="loading-overlay hidden">
+        <div class="loader"></div>
+        <h3 style="font-weight: 500; font-size: 1.1rem; margin: 0;">กำลังเตรียมข้อมูล...</h3>
+    </div>
+
+    <div id="welcome-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="popup-icon"><i class="fa-solid fa-tree" style="font-size: 0.7em; color: #4E8A63;"></i></div>
+            <h2 data-i18n="popupTitle">ยินดีต้อนรับสู่<br>Mangrove Smart StoryMap</h2>
+            <p data-i18n="popupDesc">​​สัมผัสความงดงามและความอุดมสมบูรณ์ของ <br>"สวนพฤกษศาสตร์ป่าชายเลนนานาชาติ
+                รัชกาลที่ ๙"
+                สวนพฤกษศาสตร์ป่าชายเลนนานาชาติแห่งแรกของโลก ณ บ้านเสม็ดงาม ผ่านแผนที่นำทางอัจฉริยะ 2 รูปแบบ</p>
+            <button class="btn btn-primary" style="width: 100%; border-radius: 10px;" onclick="closePopup()"
+                data-i18n="popupBtn">เริ่มต้นใช้งาน</button>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <header>
+        <!-- แถวที่ 1: โลโก้ และ เปลี่ยนภาษา -->
+        <div class="header-top-row">
+            <div class="logo" id="header-logo" onclick="window.location.href='../view/intro.html'">
+                <i class="fa-solid fa-leaf logo-icon"></i>
+                <a href="../view/intro.html" onclick="event.stopPropagation();" class="logo-text">
+                    Mangrove Smart StoryMap
+                </a>
+            </div>
+
+            <div class="lang-switcher">
+                <!-- ข้อสังเกต: ใช้ changeLanguage ตามโค้ดต้นฉบับของคุณ -->
+                <button class="lang-btn" id="btn-th" onclick="changeLanguage('th')">TH</button>
+                <button class="lang-btn" id="btn-en" onclick="changeLanguage('en')">EN</button>
+                <button class="lang-btn" id="btn-zh" onclick="changeLanguage('zh')">CH</button>
+            </div>
+        </div>
+
+        <!-- 🎯 แถวที่ 2: แสดงตำแหน่ง (Location) -->
+        <div class="header-controls">
+            <a href="../view/manual.html?from=index" class="btn-read-pdf">
+                <i class="fa-solid fa-book" data-i18n="manual"></i>
+            </a>
+            <span id="header-location" data-i18n="findlocation">📍 กำลังหาตำแหน่ง...</span>
+        </div>
+        <!-- ปุ่มเปิดอ่านไฟล์ PDF -->
+
+    </header>
+    <button class="toggle-sidebar-btn" onclick="toggleSidebar()">
+        <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="dashboard-ui">
+
+        <div class="stats-panel glass-panel">
+            <div class="stats-grid" id="stats-skeleton">
+                <div class="skeleton-stat-item"></div>
+                <div class="skeleton-stat-item"></div>
+                <div class="skeleton-stat-item"></div>
+            </div>
+            <div id="actual-stats" style="display: none;">
+                <div class="stats-title" data-i18n="statsTitle" style="text-align: center;">Combined Statistics Stats
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <i class="fas fa-arrows-alt-h stat-icon"></i>
+                        <div class="gauge active"><span class="gauge-value" id="ui-dist">1.5 <span
+                                    style="font-size: 0.7rem">km</span></span></div>
+                        <div class="stat-label" data-i18n="dist">Distance</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="far fa-clock stat-icon"></i>
+                        <div class="gauge active"><span class="gauge-value" id="ui-time">~~22 <span
+                                    style="font-size: 0.7rem">mins</span></span></div>
+                        <div class="stat-label" data-i18n="time">Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-fire stat-icon"></i>
+                        <div class="gauge active"><span class="gauge-value" id="ui-cal">~110 <span
+                                    style="font-size: 0.7rem">kcal</span></span></div>
+                        <div class="stat-label" data-i18n="cal">calories</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="path-details glass-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 id="path-details-title" class="section-title" data-i18n="pathTitle" style="margin: 0;">
+                    จุดแวะพักบนเส้นทาง</h3>
+
+                <button class="btn-toggle-path" onclick="togglePathDetails()"
+                    style="background: none; border: none; cursor: pointer; color: #27ae60; font-size: 1.2rem; padding: 0;">
+                    <i class="fa-solid fa-chevron-up"></i>
+                </button>
+            </div>
+
+            <div id="timeline-container">
+            </div>
+        </div>
+
+        <div class="bottom-section">
+
+            <div class="cards-wrapper" style="position: relative; display: flex; align-items: center; width: 100%;">
+                <div class="cards-container" id="cards-skeleton">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+                <div class="cards-container" id="actual-cards" style="display: none;">
+                    <div class="card wellness active" onclick="selectRoute(this, 'wellness')">
+                        <div class="card-header">
+                            <span data-i18n="c1Title">
+                                <i class="fa-solid fa-person-walking" style="font-size: 0.7em;"></i> เส้นทางสุขภาพ
+                            </span>
+                            <input type="checkbox" class="route-cb" checked>
+                        </div>
+                        <img src="../image/stations/well1/s1_1.webp" class="card-img" alt="Wellness" loading="lazy">
+                        <div class="card-body">
+                            <div class="card-desc" data-i18n="c1Desc">
+                                เน้นการเดิน หรือปั่นจักรยานรอบป่าชายเลนเพื่อการออกกำลังกาย
+                            </div>
+                        </div>
+                        <div class="story-inline-content">
+                            <div class="story-inline-desc" data-i18n="wellnessDesc">
+                                ㅤสัมผัสบรรยากาศของป่าชายเลน
+                                และสูดอากาศบริสุทธิ์ในปอดแห่งใหม่ที่ใหญ่ที่สุดของเมืองจันท์
+                            </div>
+                            <ul class="story-inline-features">
+                                <li><i class="fa-solid fa-wind"></i> จุดพักฝึกลมหายใจ</li>
+                                <!-- เปลี่ยนจากจุดวัดอัตราการเต้นหัวใจ เป็นเส้นทางออกกำลังกาย -->
+                                <li><i class="fa-solid fa-person-running"></i> เส้นทางออกกำลังกายเชิงนิเวศ</li>
+                            </ul>
+                            <div class="route-info-badges">
+                                <span class="route-badge b-wellness" onclick="selectSubRoute('wellness1', event)"
+                                    data-i18n="well1DescMini">
+                                    <i class="fa-solid fa-route"></i> เส้นทางที่ 1
+                                </span>
+                                <!-- เพิ่มไอคอนจักรยานเพื่อบอกว่าเส้นทางที่ 2 ปั่นจักรยานได้ -->
+                                <span class="route-badge b-wellness" onclick="selectSubRoute('wellness2', event)"
+                                    data-i18n="well2DescMini">
+                                    <i class="fa-solid fa-bicycle"></i> เส้นทางที่ 2
+                                </span>
+                            </div>
+                            <button class="btn-start-inline" onclick="goToMap('wellness')"
+                                data-i18n="btnStartInline">เริ่มการเดินทาง</button>
+                        </div>
+                    </div>
+
+                    <div class="card spiritual" onclick="selectRoute(this, 'spiritual')">
+                        <div class="card-header"><span data-i18n="c2Title">🙏 เส้นทางสายมู</span> <input type="checkbox"
+                                class="route-cb"></div>
+                        <img src="../image/stations/well1/s2_1.webp" class="card-img" alt="Spiritual" loading="lazy">
+                        <div class="card-body">
+                            <div class="card-desc" data-i18n="c2Desc">แวะสักการะจุดสำคัญทางวัฒนธรรม</div>
+                        </div>
+                        <div class="story-inline-content">
+                            <div class="story-inline-desc" data-i18n="spiritualDesc">
+                                ㅤตามรอยความเชื่อและจิตวิญญาณแห่งบ้านเสม็ดงาม
+                                สัมผัสความขลังของผืนป่าที่มีตำนานเล่าขาน
+                            </div>
+                            <ul class="story-inline-features">
+                                <li><i class="fa-solid fa-hands-praying"></i> จุดขอพร</li>
+                                <li><i class="fa-solid fa-gopuram"></i> จุดศักดิ์สิทธิ์</li>
+                            </ul>
+                            <div class="route-info-badges">
+                                <span class="route-badge b-spiritual" onclick="selectSubRoute('spiritual1', event)"
+                                    data-i18n="well1DescMini">
+                                    <i class="fa-solid fa-route"></i> เส้นทางที่ 1
+                                </span>
+                                <span class="route-badge b-spiritual" onclick="selectSubRoute('spiritual2', event)"
+                                    data-i18n="well2DescMini">
+                                    <i class="fa-solid fa-route"></i> เส้นทางที่ 2
+                                </span>
+                            </div>
+                            <button class="btn-start-inline" onclick="goToMap('spiritual')"
+                                data-i18n="btnStartInline">เริ่มการเดินทาง</button>
+
+                        </div>
+                    </div>
+
+                    <div class="card sightseeing" onclick="selectRoute(this, 'sightseeing')">
+                        <div class="card-header"><span data-i18n="c3Title"><i class="fa-solid fa-camera-retro"
+                                    style="font-size: 0.7em; color: #5D8AA8;"></i> จุดชมวิว</span> <input
+                                type="checkbox" class="route-cb"></div>
+                        <img src="../image/views/v0_1.webp" class="card-img" alt="Sightseeing" loading="lazy">
+                        <div class="card-body">
+                            <div class="card-desc" data-i18n="c3Desc">เน้นจุดถ่ายรูปและหอชมวิว</div>
+                        </div>
+                        <div class="story-inline-content">
+                            <div class="story-inline-desc" data-i18n="sightseeingDesc">
+                                ㅤเส้นทางสำหรับผู้รักการถ่ายภาพและการชมทัศนียภาพอันงดงามของป่าชายเลน</div>
+                            <ul class="story-inline-features">
+                                <li><i class="fa-solid fa-camera"></i> จุดถ่ายภาพ</li>
+                                <li><i class="fa-solid fa-binoculars"></i> จุดชมทัศนียภาพ</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="image-modal" class="image-modal">
+
+        <!-- Close Button -->
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+
+        <!-- Main Image -->
+        <img class="modal-content" id="full-image" src="" alt="Full size">
+
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/index.js?v=1"></script>
+    <script>
+        function fixBrokenImagesAndEvents(scopeElement) {
+                if (!scopeElement) return;
+                const images = scopeElement.querySelectorAll('img');
+                images.forEach(img => {
+                    // 1. ดักจับถ้ารูปโหลดไม่ผ่าน ให้เปลี่ยนไปใช้ภาพ Placeholder แทนทันทีโดยไม่พัง
+                    img.onerror = function() {
+                        this.onerror = null; 
+                        this.src = 'https://via.placeholder.com/200x150?text=Not+Found';
+                    };
+                    // 2. ดักฟังการคลิกเปิด Modal รูปใหญ่แทนคำสั่ง onclick ตัวเดิม
+                    img.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (typeof openImageModal === 'function') {
+                            openImageModal(this.src);
+                        }
+                    });
+                });
+            }
+    </script>
+<script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js').catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>

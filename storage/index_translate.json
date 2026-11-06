@@ -1,0 +1,125 @@
+{
+  "th": {
+    "logo": "Mangrove Smart StoryMap",
+    "popupTitle": "ยินดีต้อนรับสู่<br>Mangrove Smart StoryMap",
+    "popupDesc": "สัมผัสความงดงามและความอุดมสมบูรณ์ของ \"สวนพฤกษศาสตร์ป่าชายเลนนานาชาติ รัชกาลที่ ๙\" สวนพฤกษศาสตร์ป่าชายเลนนานาชาติแห่งแรกของโลก ณ บ้านเสม็ดงาม ผ่านแผนที่นำทางอัจฉริยะ 2 รูปแบบ",
+    "popupBtn": "เริ่มต้นการเดินทาง",
+    "statsTitle": "สถิติรวมของการเดินทาง",
+    "dist": "ระยะทาง",
+    "time": "เวลา",
+    "cal": "การเผาผลาญ",
+    "manual": "⠀คู่มือการใช้งาน",
+    "findlocation": "📍 กำลังหาตำแหน่ง...",
+    "pathTitle": "จุดแวะพักบนเส้นทาง",
+    "btnStart": "เริ่มการเดินทาง",
+    "btnSkip": "ดูแผนที่เส้นทาง",
+    "c1Title": "<i class=\"fa-solid fa-person-walking\" style=\"font-size: 0.7em; color: #4E8A63;\"></i> เส้นทางสุขภาพ",
+    "c1Desc": "เดินหรือปั่นจักรยานรอบป่าชายเลนเพื่อการออกกำลังกาย",
+    "c2Title": "<i class=\"fa-solid fa-hands-praying\" style=\"font-size: 0.7em; color: #F5A623;\"></i> เส้นทางสายมู",
+    "c2Desc": "กราบขอพรสิ่งศักดิ์สิทธิ์ที่ชาวบ้านศรัทธา",
+    "c3Title": "<i class=\"fa-solid fa-camera-retro\" style=\"font-size: 0.7em; color: #2196F3;\"></i> จุดชมวิว",
+    "c3Desc": "เก็บภาพแสงสีทองยามเย็นที่สะท้อนเรื่องราววิถีชีวิตแห่งป่าชายเลน",
+    "btnStartInline": "เริ่มการเดินทาง",
+    "locationError": "ระบุชื่อเมืองไม่ได้",
+    "locationOff": "ปิดการเข้าถึงตำแหน่ง",
+    "wellnessDesc": "สัมผัสบรรยากาศของป่าชายเลน และสูดอากาศบริสุทธิ์ในพื้นที่ปอดสีเขียวแห่งใหม่ที่ใหญ่ที่สุดของเมืองจันท์",
+    "spiritualDesc": "ตามรอยความเชื่อและจิตวิญญาณแห่งบ้านเสม็ดงาม และสัมผัสพลังของธรรมชาติตามรอย๙ เพื่อความเป็นศิริมงคล",
+    "sightseeingDesc": "จุดชมวิวสำหรับผู้ที่รักการถ่ายภาพและชมทัศนียภาพอันงดงามของป่าชายเลน",
+    "feature1": [
+      "จุดพักฝึกลมหายใจ",
+      "เส้นทางออกกำลังกายเพื่อสุขภาพ"
+    ],
+    "feature2": [
+      "จุดขอพร",
+      "เส้นทางมงคล"
+    ],
+    "feature3": [
+      "จุดถ่ายภาพ",
+      "จุดชมทัศนียภาพ"
+    ],
+    "well1DescMini": "<i class='fa-solid fa-route'></i> เส้นทางที่ 1",
+    "well2DescMini": "<i class='fa-solid fa-bicycle'></i> เส้นทางที่ 2"
+  },
+  "en": {
+    "logo": "Mangrove Smart StoryMap",
+    "popupTitle": "Welcome to<br>Mangrove Smart StoryMap",
+    "popupDesc": "Experience the beauty and abundance of the \"Rama IX International Mangrove Botanical Garden,\" the world's first mangrove botanical garden at Ban Samet Ngam, through 2 smart map navigation formats.",
+    "popupBtn": "Start Exploring",
+    "statsTitle": "Combined Exploration Statistics",
+    "dist": "Distance",
+    "time": "Time",
+    "cal": "Calories Burned",
+    "manual": "⠀Manual",
+    "findlocation": "📍 Finding location...",
+    "pathTitle": "Route Insights and POIs",
+    "btnStart": "Start Journey",
+    "btnSkip": "View Route Map",
+    "c1Title": "<i class=\"fa-solid fa-person-walking\" style=\"font-size: 0.7em; color: #4E8A63;\"></i> Wellness Route",
+    "c1Desc": "Walk or cycle around the mangrove forest for exercise.",
+    "c2Title": "<i class=\"fa-solid fa-hands-praying\" style=\"font-size: 0.7em; color: #F5A623;\"></i> Spiritual Route",
+    "c2Desc": "Pay homage and seek blessings from the sacred entities revered by the villagers.",
+    "c3Title": "<i class=\"fa-solid fa-camera-retro\" style=\"font-size: 0.7em; color: #2196F3;\"></i> Viewpoint",
+    "c3Desc": "Capture the golden evening light that reflects the traditional way of life in the mangrove forest.",
+    "btnStartInline": "Start Exploring",
+    "locationError": "Cannot determine city name",
+    "locationOff": "Location access disabled",
+    "wellnessDesc": "Experience the atmosphere of the mangrove forest and breathe in fresh air at Chanthaburi's largest new green lung.",
+    "spiritualDesc": "Follow the beliefs and spirituality of Ban Samet Ngam and feel the power of nature along the King Rama IX trail for good fortune.",
+    "sightseeingDesc": "A viewpoint for photography enthusiasts and those who love admiring the beautiful scenery of the mangrove forest.",
+    "feature1": [
+      "Breathing practice resting points",
+      "Healthy exercise trail"
+    ],
+    "feature2": [
+      "Blessing spots",
+      "Auspicious route"
+    ],
+    "feature3": [
+      "Photo spots",
+      "Scenic viewpoints"
+    ],
+    "well1DescMini": "<i class='fa-solid fa-route'></i> Route 1",
+    "well2DescMini": "<i class='fa-solid fa-bicycle'></i> Route 2"
+  },
+  "zh": {
+    "logo": "Mangrove Smart StoryMap",
+    "popupTitle": "欢迎来到<br>红树林智能地图",
+    "popupDesc": "通过两种智能导航地图形式，体验位于 Ban Samet Ngam 的世界首个红树林植物园——“拉玛九世国际红树林植物园”的美丽与丰富生态",
+    "popupBtn": "开始探索",
+    "statsTitle": "综合探索统计",
+    "dist": "距离",
+    "time": "时长",
+    "cal": "消耗卡路里",
+    "manual": "⠀用户手册",
+    "findlocation": "📍 正在查找位置...",
+    "pathTitle": "路线见解与兴趣点",
+    "btnStart": "开始旅程",
+    "btnSkip": "查看路线图",
+    "c1Title": "<i class=\"fa-solid fa-person-walking\" style=\"font-size: 0.7em; color: #4E8A63;\"></i> 康养路线",
+    "c1Desc": "在红树林周围漫步或骑自行车锻炼身体",
+    "c2Title": "<i class=\"fa-solid fa-hands-praying\" style=\"font-size: 0.7em; color: #F5A623;\"></i> 信仰路线",
+    "c2Desc": "向村民们敬仰的神圣实体祈福",
+    "c3Title": "<i class=\"fa-solid fa-camera-retro\" style=\"font-size: 0.7em; color: #2196F3;\"></i> 观景点",
+    "c3Desc": "捕捉倒映红树林传统生活方式的金色夕阳",
+    "btnStartInline": "开始探索",
+    "locationError": "无法确定城市名称",
+    "locationOff": "定位访问已关闭",
+    "wellnessDesc": "体验红树林的氛围，在尖竹汶府最大的新绿肺中呼吸新鲜空气",
+    "spiritualDesc": "追随 Ban Samet Ngam 的信仰与精神，沿着拉玛九世的足迹感受自然的力量，祈求好运",
+    "sightseeingDesc": "专为摄影爱好者和喜欢欣赏红树林美景的人设计的观景点",
+    "feature1": [
+      "呼吸练习休息点",
+      "健康运动步道"
+    ],
+    "feature2": [
+      "祈福点",
+      "吉祥路线"
+    ],
+    "feature3": [
+      "摄影点",
+      "观景点"
+    ],
+    "well1DescMini": "<i class='fa-solid fa-route'></i> 路线 1",
+    "well2DescMini": "<i class='fa-solid fa-bicycle'></i> 路线 2"
+  }
+}

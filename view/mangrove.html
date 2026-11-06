@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <link rel="preconnect" href="https://server.arcgisonline.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Mangrove Route</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/mangrove.css?v=1">
+    <link rel="manifest" href="../manifest.json"><!-- ใส่ไว้ใน <head> ของ intro.html, index.html ฯลฯ -->
+    <link rel="icon" type="image/png" href="../image/icon-192x192.png">
+</head>
+
+<body>
+
+    <header>
+        <!-- แถวที่ 1: โลโก้ และ เปลี่ยนภาษา -->
+        <div class="header-top-row">
+            <div class="logo" id="header-logo" onclick="window.location.href='../view/intro.html'">
+                <i class="fa-solid fa-leaf logo-icon"></i>
+                <a href="../view/intro.html" onclick="event.stopPropagation();" class="logo-text">
+                    Mangrove Smart StoryMap
+                </a>
+            </div>
+
+            <div class="lang-switcher">
+                <button class="lang-btn" id="btn-th" onclick="changeLang('th')">TH</button>
+                <button class="lang-btn" id="btn-en" onclick="changeLang('en')">EN</button>
+                <button class="lang-btn" id="btn-zh" onclick="changeLang('zh')">CH</button>
+            </div>
+        </div>
+
+        <!-- 🎯 แถวที่ 2: เวลา (ซ้าย) + แคลอรี่ (ขวา) -->
+        <div class="header-controls">
+            <a href="../view/manual.html?from=mangrove" class="btn-read-pdf">
+                <i class="fa-solid fa-book" data-i18n="manual"></i>
+            </a>
+            <span class="header-stat">
+                <i class="fa-solid fa-fire kcal-icon"></i>
+                <span id="lbl-total-kcal">เผาผลาญ</span>:
+                <b id="total-kcal-display">0.0</b> <span id="lbl-unit-kcal">kcal</span>
+            </span>
+
+        </div>
+
+    </header>
+
+    <div id="main-container">
+
+        <div class="map-controls-left">
+            <button class="map-btn" data-i18n-title="mapLayer" onclick="toggleMapLayer()" title="สลับชั้นแผนที่">
+                <i class="fa-solid fa-layer-group"></i>
+            </button>
+            <button class="map-btn gps-btn" data-i18n-title="useRealGPS" onclick="recenterGPS()" title="ใช้ GPS จริง">
+                <i class="fa-solid fa-location-arrow"></i>
+            </button>
+            <button class="map-btn compass-btn" data-i18n-title="toggleCompass" onclick="toggleCompass()"
+                title="เปิด/ปิดเข็มทิศ">
+                <i class="fa-solid fa-compass"></i>
+            </button>
+            <button class="map-btn" data-i18n-title="zoomIn" onclick="map.setZoom(map.getZoom() + 1)" title="ซูมเข้า">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <button class="map-btn" data-i18n-title="zoomOut" onclick="map.setZoom(map.getZoom() - 1)" title="ซูมออก">
+                <i class="fa-solid fa-minus"></i>
+            </button>
+        </div>
+
+
+
+        <div id="map"></div>
+
+        <aside id="story-panel">
+            <!-- <div class="layer-toggles"
+                style="position: absolute; bottom: 40px; left: 20px; z-index: 1000; display: flex; flex-direction: row; gap: 10px;">
+                <button id="btn-toggle-vp" onclick="toggleViewpoints()"
+                    style="background: white; border: 2px solid #007bff; border-radius: 8px; padding: 8px 12px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 12px; height: 12px; background: #007bff; border-radius: 50%;"></div>
+                    <span style="font-weight: 600; color: #333;">จุดชมวิว</span>
+                </button>
+
+                <button id="btn-toggle-flora" onclick="toggleFlora()"
+                    style="background: white; border: 2px solid #27ae60; border-radius: 8px; padding: 8px 12px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 12px; height: 12px; background: #27ae60; border-radius: 50%;"></div>
+                    <span style="font-weight: 600; color: #333;">พันธ์ุไม้</span>
+                </button>
+            </div> -->
+            <div class="toggle-sidebar-btn" onclick="toggleSidebar()">
+                <i></i>
+            </div>
+            <div class="panel-content">
+                <div class="sticky-header">
+                    <div id="time-advisory" class="advisory">
+                        <span id="adv-text">กำลังโหลด...</span>
+                    </div>
+                    <div class="route-tabs">
+                        <button class="tab-btn active wellness" id="tab-wellness" onclick="setRoute('wellness')">
+                            <i class="fa-solid fa-heart-pulse"></i> <span id="tab-w-text">Wellness</span>
+                        </button>
+                        <button class="tab-btn spiritual" id="tab-spiritual" onclick="setRoute('spiritual')">
+                            <i class="fa-solid fa-hands-praying"></i> <span id="tab-f-text">Spiritual</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="story-list">
+                    <div class="skeleton-card-sidebar">
+                        <div class="skeleton-img-sidebar"></div>
+                        <div class="skeleton-content-sidebar">
+                            <div class="skeleton-line-sidebar"></div>
+                            <div class="skeleton-line-sidebar short"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-card-sidebar">
+                        <div class="skeleton-img-sidebar"></div>
+                        <div class="skeleton-content-sidebar">
+                            <div class="skeleton-line-sidebar"></div>
+                            <div class="skeleton-line-sidebar short"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton-card-sidebar">
+                        <div class="skeleton-img-sidebar"></div>
+                        <div class="skeleton-content-sidebar">
+                            <div class="skeleton-line-sidebar"></div>
+                            <div class="skeleton-line-sidebar short"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-rotate@0.2.0/dist/leaflet-rotate-src.js"></script>
+    <script src="../js/mangrove.js?v=1"></script>
+
+    <div id="route-selection-modal" class="route-modal-overlay" style="display: none;">
+        <div class="route-modal-content">
+            <h2 style="text-align: center; margin-bottom: 5px; color: #333;">
+                <i class="fa-solid fa-person-walking" style="font-size: 0.7em; color: #252525;"></i> <span
+                    data-i18n="modalTitle">เลือกระยะทาง</span>
+            </h2>
+            <p data-i18n="modalDesc" style="text-align: center; color: #666; margin-bottom: 20px; font-size: 0.9rem;">
+                กรุณาเลือกเส้นทางย่อยที่คุณต้องการเดินทาง (กดเพื่อดูรายละเอียด)
+            </p>
+
+            <div id="group-wellness" class="route-group" style="display: none;">
+                <h3
+                    style="color: #27ae60; font-size: 1.1rem; border-bottom: 2px solid #27ae60; padding-bottom: 5px; margin-bottom: 10px;">
+                    <i class="fa-solid fa-heart-pulse"></i> <span data-i18n="groupWellness">เส้นทางสุขภาพ</span>
+                </h3>
+                <div class="route-cards">
+
+                    <div class="route-card accordion-card">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div>
+                                <h4 data-i18n="well1Title" style="color:#333; margin:0 0 4px 0;">เส้นทางที่ 1</h4>
+                                <span data-i18n="well1Desc" style="font-size: 0.85rem; color:#666;">~1.85 km | ~28
+                                    mins</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p data-i18n="well1Feature"><strong>เอกลักษณ์:</strong>
+                                เส้นทางเดินลัดเลาะป่าโกงกางดึกดำบรรพ์ที่สมบูรณ์ที่สุด ร่มรื่นตลอดสาย
+                                เหมาะสำหรับการออกกำลังกายรับโอโซนบริสุทธิ์เต็มปอด</p>
+                            <p style="margin-bottom: 5px;" data-i18n="floraLbl"><strong>พันธ์ุไม้เด่น:</strong></p>
+                            <ul>
+                                <li data-i18n="well1Flora1"><strong>ต้นไม้ทรงปลูก (รังกะแท้):</strong> ไม้ยืนต้นป่าชายเลนที่มีระบบรากค้ำยันแข็งแรง ช่วยยึดเกาะชายฝั่งและป้องกันการกัดเซาะของคลื่นลม เป็นต้นไม้ทรงปลูกในพิธีวางศิลาฤกษ์สวนพฤกษศาสตร์ฯ เมื่อวันที่ 22 ตุลาคม 2561</li>
+                                <li data-i18n="well1Flora2"><strong>ต้นไม้ทรงปลูก (หงอนไก่ใบเล็ก):</strong> พันธุ์ไม้ป่าชายเลนหายาก มีจุดเด่นที่ผลรูปทรงคล้ายหงอนไก่ เนื้อไม้มีความทนทานและนิยมใช้ประโยชน์ในงานชุมชน เป็นต้นไม้ทรงปลูกในพิธีวางศิลาฤกษ์สวนพฤกษศาสตร์ฯ เมื่อวันที่ 22 ตุลาคม 2561</li>
+                            </ul>
+                            <button class="btn-start-route" onclick="startJourney('wellness', 'wellness1')"><span
+                                    data-i18n="startRouteBtn">เริ่มต้นเส้นทางนี้</span> <i
+                                    class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="route-card accordion-card">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div>
+                                <h4 data-i18n="well2Title" style="color:#333; margin:0 0 4px 0;">เส้นทางที่ 2</h4>
+                                <span data-i18n="well2Desc" style="font-size: 0.85rem; color:#666;">~1.45 km | ~22
+                                    mins</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p data-i18n="well2Feature"><strong>เอกลักษณ์:</strong> เส้นทางเดินชิลล์ริมน้ำ
+                                ใช้เวลาเดินสั้นๆ เหมาะสำหรับครอบครัวและผู้สูงอายุ แวะถ่ายรูปสบายๆ</p>
+                            <p style="margin-bottom: 5px;" data-i18n="floraLbl"><strong>พันธ์ุไม้เด่น:</strong></p>
+                            <ul>
+                                <li data-i18n="well2Flora1"><strong>หินมหานที (๙ ตามรอยพ่อ):</strong> จุดเช็คอินและแลนด์มาร์กสำคัญภายในสวนพฤกษศาสตร์ป่าชายเลนนานาชาติ ร.9 ที่ดึงดูดให้นักท่องเที่ยวมาถ่ายภาพและสัมผัสบรรยากาศธรรมชาติ</li>
+                                <li data-i18n="well2Flora2"><strong>ต้นไม้ทรงปลูก (ต้นโกงกางใบใหญ่):</strong> ต้นไม้ประวัติศาสตร์ที่พระบาทสมเด็จพระบรมชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร ทรงปลูกไว้ ณ อ.ปราณบุรี จ.ประจวบคีรีขันธ์ โดยสวนพฤกษศาสตร์ฯ ได้นำต้นกล้ามาขยายพันธุ์ปลูกเพื่อถวายเป็นพระราชานุสรณ์ และเป็นแหล่งเรียนรู้ตามพระปณิธานของสมเด็จพระเจ้าลูกเธอ เจ้าฟ้าสิริวัณณวรี นารีรัตนราชกุมารี</li>
+                            </ul>
+                            <button class="btn-start-route" onclick="startJourney('wellness', 'wellness2')"><span
+                                    data-i18n="startRouteBtn">เริ่มต้นเส้นทางนี้</span> <i
+                                    class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="group-spiritual" class="route-group" style="display: none;">
+                <h3
+                    style="color: #b8860b; font-size: 1.1rem; border-bottom: 2px solid #b8860b; padding-bottom: 5px; margin-bottom: 10px;">
+                    <i class="fa-solid fa-hands-praying"></i> <span data-i18n="groupSpiritual">เส้นทางจิตวิญญาณ</span>
+                </h3>
+                <div class="route-cards">
+
+                    <div class="route-card accordion-card spiritual-card">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div>
+                                <h4 data-i18n="spiritual1Title" style="color:#333; margin:0 0 4px 0;">เส้นทางที่ 1</h4>
+                                <span data-i18n="spiritual1Desc" style="font-size: 0.85rem; color:#666;">~1.5 km | ~23
+                                    mins</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p data-i18n="spiritual1Feature"><strong>เอกลักษณ์:</strong> ตามรอยศรัทธา
+                                แวะสักการะสิ่งศักดิ์สิทธิ์และศาลหลวงปู่แบน</p>
+                            <p style="margin-bottom: 5px;" data-i18n="floraLbl"><strong>พันธ์ุไม้เด่น:</strong></p>
+                            <ul>
+                                <li data-i18n="spiritual1Flora1"><strong>หินมหานที (๙ ตามรอยพ่อ):</strong> จุดเช็คอินและแลนด์มาร์กสำคัญภายในสวนพฤกษศาสตร์ป่าชายเลนนานาชาติ ร.9 ที่ดึงดูดให้นักท่องเที่ยวมาถ่ายภาพและสัมผัสบรรยากาศธรรมชาติ</li>
+                            </ul>
+                            <button class="btn-start-route spiritual-btn"
+                                onclick="startJourney('spiritual', 'spiritual1')"><span
+                                    data-i18n="startRouteBtn">เริ่มต้นเส้นทางนี้</span> <i
+                                    class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="route-card accordion-card spiritual-card">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div>
+                                <h4 data-i18n="spiritual2Title" style="color:#333; margin:0 0 4px 0;">เส้นทางที่ 2</h4>
+                                <span data-i18n="spiritual2Desc" style="font-size: 0.85rem; color:#666;">~0.8 km | ~12
+                                    mins</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p data-i18n="spiritual2Feature"><strong>เอกลักษณ์:</strong> เส้นทางสายสั้นที่สงบเงียบ
+                                เหมาะแก่การเดินทำสมาธิและซึมซับพลังงานบวกจากธรรมชาติ</p>
+                            <p style="margin-bottom: 5px;" data-i18n="floraLbl"><strong>พันธ์ุไม้เด่น:</strong></p>
+                            <ul>
+                                <li data-i18n="spiritual2Flora1"><strong>หลวงปู่แบน:</strong> ศูนย์รวมจิตใจที่พุทธศาสนิกชนนิยมมาสักการะบูชาเพื่อขอพรให้เกิดความสิริมงคลในชีวิต ประสบความร่มเย็นเป็นสุข และเสริมสร้างสติปัญญาในการดำเนินชีวิตตามแนวทางปฏิบัติธรรม"</li>
+                                <li data-i18n="spiritual2Flora2"><strong>ต้นไม้ทรงปลูก (ใบพาย):</strong> พันธุ์ไม้ป่าชายเลนหายากที่มีใบคล้ายใบพายเรือและเนื้อไม้แข็งแรง เป็นต้นไม้ทรงปลูกในพิธีวางศิลาฤกษ์สวนพฤกษศาสตร์ฯ เมื่อวันที่ 22 ตุลาคม 2561</li>
+                            </ul>
+                            <button class="btn-start-route spiritual-btn"
+                                onclick="startJourney('spiritual', 'spiritual2')"><span
+                                    data-i18n="startRouteBtn">เริ่มต้นเส้นทางนี้</span> <i
+                                    class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="image-modal" class="image-modal">
+
+        <!-- Close Button -->
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+
+        <!-- Previous Button -->
+        <button id="modal-prev-btn" class="modal-nav-btn modal-prev" onclick="prevModalImage()"
+            aria-label="ภาพก่อนหน้า">
+            &#8249;
+        </button>
+
+        <!-- Main Image -->
+        <img class="modal-content" id="full-image" src="" alt="Full size">
+
+        <!-- Next Button -->
+        <button id="modal-next-btn" class="modal-nav-btn modal-next" onclick="nextModalImage()" aria-label="ภาพถัดไป">
+            &#8250;
+        </button>
+
+        <!-- Counter -->
+        <div id="modal-counter" class="modal-counter">1 / 1</div>
+
+    </div>
+    <button id="btn-request-compass" onclick="requestCompassPermission()" style="display:none;">เปิดใช้เข็มทิศ</button>
+    <style>
+        .accordion-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: default !important;
+            /* ป้องกันการคลิกทั้งการ์ด */
+            padding: 0 !important;
+        }
+
+        .accordion-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafafa;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #f0f8f5;
+            /* อ่อนๆ ให้รู้ว่ากดได้ */
+        }
+
+        .spiritual-card .accordion-header:hover {
+            background: #fff8eb;
+            /* สีทองอ่อนๆ สำหรับสายมู */
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease;
+            color: #888;
+        }
+
+        .accordion-card.open .accordion-icon {
+            transform: rotate(180deg);
+            color: #333;
+        }
+
+        .accordion-body {
+            text-align: left;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 0.85rem;
+            color: #444;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        .accordion-card.open .accordion-body {
+            padding: 20px;
+            max-height: 600px;
+            /* เผื่อพื้นที่ให้ข้อความกางออก */
+            border-top: 1px solid #eee;
+        }
+
+        .accordion-body ul {
+
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .accordion-body li {
+
+            margin-bottom: 8px;
+        }
+
+        .btn-start-route {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Prompt', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn-start-route:active {
+            transform: scale(0.98);
+        }
+
+        .btn-start-route.spiritual-btn {
+            background: #b8860b;
+        }
+    </style>
+
+    <script>
+        function toggleAccordion(header) {
+            const card = header.parentElement;
+            const isCurrentlyOpen = card.classList.contains('open');
+
+            // ปิดการ์ดทั้งหมดก่อน (ให้เปิดได้ทีละอันเพื่อความสะอาดตา)
+            document.querySelectorAll('.accordion-card').forEach(c => {
+                c.classList.remove('open');
+            });
+
+            // ถ้าการ์ดที่กดยังไม่เปิด ให้สั่งเปิด
+            if (!isCurrentlyOpen) {
+                card.classList.add('open');
+            }
+        }
+    </script>
+<script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js').catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>

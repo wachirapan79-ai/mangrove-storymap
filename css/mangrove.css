@@ -1,0 +1,1395 @@
+/* =========================================
+   1. CSS RESET & VARIABLES
+   ========================================= */
+:root {
+  --primary: #1a4d2e;
+  --wellness: #27ae60;
+  --spiritual: #b8860b;
+  --warning: #ff9800;
+  --bg: #f4f7f6;
+  --white: #ffffff;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+@font-face {
+  font-family: "SimSun";
+  src: url("../fonts/simsun/SIMSUN.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Prompt", "SimSun", sans-serif;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Segoe UI", "SimSun", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  overflow: hidden;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   2. HEADER SECTION (อิงจาก Intro 2 แถว)
+   ========================================= */
+header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 77, 46, 0.95) 0%,
+    rgba(20, 90, 50, 0.95) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.header-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#header-logo {
+  cursor: pointer;
+  position: relative;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  pointer-events: auto !important;
+  font-size: clamp(0.85rem, 4vw, 1.2rem) !important;
+}
+
+.logo-icon {
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  text-decoration: none;
+  color: inherit;
+  pointer-events: auto;
+  font-weight: 600;
+  white-space: normal;
+  line-height: 1.2;
+  display: block;
+  word-break: break-word;
+  transition: opacity 0.2s;
+}
+
+.logo-text:hover {
+  translate: 0px -3px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.header-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  font-size: 0.85rem;
+  padding-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.kcal-icon {
+  color: #ff9800;
+}
+
+#weight-input {
+  width: 60px;
+  text-align: center;
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Prompt", "SimSun", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.lang-btn:hover {
+  opacity: 1;
+  background: #ffffff4f;
+  color: #52a665;
+}
+
+.lang-btn.active {
+  background: #52a665;
+  color: var(--white);
+  opacity: 1;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-read-pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: "Prompt", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.btn-read-pdf:hover {
+  background-color: #4da553;
+  transform: translateY(-2px);
+  border-color: #4da553;
+}
+
+/* =========================================
+   3. MAIN LAYOUT & MAP
+   ========================================= */
+#main-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.leaflet-tile-container {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+}
+.leaflet-popup-content .carousel-counter {
+  right: auto !important;
+  left: 10px !important;
+}
+/* =========================================
+   4. MAP CONTROLS
+   ========================================= */
+.map-controls-left {
+  position: absolute;
+  padding-top: 50px;
+  bottom: 30px;
+  left: 20px;
+  z-index: 10000 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.map-btn {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.324);
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.map-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.map-btn:active {
+  transform: scale(0.95);
+}
+
+.gps-btn.active {
+  background: linear-gradient(135deg, #60d591 0%, var(--wellness)) !important;
+  box-shadow: 0 4px 15px var(--wellness) !important;
+  color: var(--wellness);
+}
+
+.compass-btn {
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.compass-btn.active {
+  background: linear-gradient(135deg, #60d591 0%, var(--wellness)) !important;
+  box-shadow: 0 4px 15px var(--wellness) !important;
+}
+
+.compass-btn i {
+  color: #333;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-block;
+}
+
+.compass-btn.active i,
+.gps-btn.active i {
+  color: white !important;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* =========================================
+   5. SIDEBAR PANEL
+   ========================================= */
+#story-panel {
+  width: 420px;
+  min-width: 420px;
+  position: fixed;
+  top: 120px;
+  right: 0;
+  height: calc(100vh - 60px);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(15px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: visible !important;
+  transition: transform 0.3s ease;
+  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.1);
+}
+
+#story-panel.sidebar-hidden {
+  transform: translateX(420px);
+}
+.panel-content {
+  padding: 0 15px 15px 15px;
+  overflow-y: auto;
+  flex: 1;
+  height: 90%;
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.35);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+.panel-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.panel-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.331);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1px 0 10px 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.toggle-sidebar-btn {
+  position: absolute;
+  left: -45px;
+  top: 40px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(5px);
+  width: 45px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px 0 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: none;
+  color: var(--wellness);
+  font-size: 20px;
+  z-index: 9000;
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+/* =========================================
+   6. ADVISORY & TABS
+   ========================================= */
+.advisory {
+  background: linear-gradient(
+    340deg,
+    rgba(245, 190, 149, 0.8) -100%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  backdrop-filter: blur(5px);
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: #0000004d 0px 0px 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(211, 84, 0, 0.324);
+}
+
+.route-tabs {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(158, 157, 157, 0.584);
+  gap: 2px;
+  background: rgba(221, 221, 221, 0.4);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 14px 12px;
+  border: none;
+  cursor: pointer;
+  background: rgba(245, 245, 245, 0.5);
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #444;
+}
+
+.tab-btn.active.wellness {
+  background: linear-gradient(
+    135deg,
+    rgba(39, 174, 96, 0.9) 0%,
+    rgba(30, 132, 73, 0.9) 100%
+  );
+  color: var(--white);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tab-btn.active.spiritual {
+  background: linear-gradient(
+    135deg,
+    rgba(184, 134, 11, 0.9) 0%,
+    rgba(109, 76, 15, 0.9) 100%
+  );
+  color: var(--white);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   7. STATION CARDS
+   ========================================= */
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  scroll-margin: 20px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--wellness);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.badge-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 5px 12px;
+  font-size: 11px;
+  border-radius: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(5px);
+}
+
+.badge-route {
+  background: rgba(232, 248, 245, 0.8);
+  color: #27ae60;
+  border: 1px solid rgba(39, 174, 96, 0.5);
+}
+
+.badge-shade {
+  background: rgba(234, 250, 241, 0.8);
+  color: #1e8449;
+  border: 1px solid rgba(169, 223, 191, 0.5);
+}
+
+.badge-kcal {
+  background: rgba(235, 245, 251, 0.8);
+  color: #2980b9;
+  border: 1px solid rgba(133, 193, 233, 0.5);
+}
+
+.card-title {
+  font-size: 17px;
+  margin: 0;
+  color: #222;
+  font-weight: 700;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   8. POPUP STYLES 
+   ========================================= */
+.leaflet-popup-content-wrapper {
+  background: rgba(255, 255, 255, 0.85) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+  border-radius: 16px;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.leaflet-popup-tip {
+  background: rgba(255, 255, 255, 0.85) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: none;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+  min-width: 220px;
+  max-width: 350px;
+}
+
+.leaflet-popup-content img,
+.leaflet-popup-content .card-carousel {
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 16px 16px 0 0 !important;
+  display: block;
+}
+
+.leaflet-popup-close-button {
+  top: 8px !important;
+  right: 8px !important;
+  font-size: 40px !important;
+  color: var(--white) !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(4px);
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  z-index: 100;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content-padding {
+  padding: 12px 16px 16px 16px;
+  text-align: center;
+}
+.popup-content-padding {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.popup-content-padding::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.popup-title {
+  margin: 0 0 6px 0;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.popup-desc {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* =========================================
+   9. CUSTOM USER ICONS
+   ========================================= */
+.custom-user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-dot {
+  width: 20px;
+  height: 20px;
+  background: #d10c0c;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transition: transform 0.3s ease-out;
+}
+
+.user-dot::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid #d10c0c;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.permission-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 10005;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.permission-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.perm-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.permission-card h2 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.permission-card p {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.btn-confirm-perm {
+  background: linear-gradient(135deg, var(--wellness) 0%, #1e8449 100%);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+/* ========================================= */
+/* CSS สำหรับ Modal เลือกเส้นทางตอนเริ่ม */
+/* ========================================= */
+.route-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.route-modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+.route-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.route-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fafafa;
+  text-align: center;
+}
+
+.route-card:hover {
+  border-color: #27ae60;
+  background: #f0fdf4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.2);
+}
+
+.route-card.spiritual-card:hover {
+  border-color: #b8860b;
+  background: #fffbf0;
+  box-shadow: 0 5px 15px rgba(184, 134, 11, 0.2);
+}
+
+.route-card h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.route-card span {
+  font-size: 0.8rem;
+  color: #777;
+  background: #eee;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.flora-pulse {
+  animation: floraPulsate 2s ease-out infinite;
+  transform-origin: center;
+}
+.viewpoint-pulse {
+  animation: vpPulsate 2s ease-out infinite;
+  transform-origin: center;
+}
+@keyframes floraPulsate {
+  0% {
+    stroke-width: 2px;
+    stroke-opacity: 1;
+    fill-opacity: 1;
+  }
+  50% {
+    stroke-width: 12px;
+    stroke-opacity: 0.5;
+    fill-opacity: 0.8;
+  }
+  100% {
+    stroke-width: 2px;
+    stroke-opacity: 1;
+    fill-opacity: 1;
+  }
+}
+
+@keyframes vpPulsate {
+  0% {
+    stroke-width: 2px;
+    stroke-opacity: 1;
+  }
+  50% {
+    stroke-width: 12px;
+    stroke-opacity: 0.4;
+  }
+  100% {
+    stroke-width: 2px;
+    stroke-opacity: 1;
+  }
+}
+.popup-btn-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.169);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================================
+   10. MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+  /* --- Mobile Header --- */
+  header {
+    padding: 12px 15px;
+    gap: 10px;
+  }
+
+  .header-logo,
+  .logo {
+    width: auto !important;
+    text-align: left !important;
+    line-height: 1.3;
+  }
+
+  .header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap !important;
+  }
+
+  .header-controls {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .lang-switcher {
+    gap: 2px !important;
+    padding: 2px !important;
+  }
+
+  .lang-btn {
+    padding: 4px 10px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .btn-read-pdf {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* --- Mobile Sidebar --- */
+  .tab-btn {
+    padding: 10px 8px !important;
+    font-size: 12px !important;
+    gap: 5px !important;
+  }
+
+  .tab-btn i {
+    font-size: 14px !important;
+  }
+  #time-advisory {
+    margin-bottom: 5px !important;
+    padding: 8px 12px !important;
+  }
+  .route-tabs {
+    margin-top: 0 !important;
+  }
+
+  .advisory {
+    min-height: auto !important;
+    font-size: 12px !important;
+  }
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.331);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1px 0 3px 0;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  #story-panel {
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 47vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: auto;
+    border-radius: 25px 25px 0 0;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9995;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-content {
+    overflow-y: auto !important;
+    flex: 1;
+    border-radius: 25px 25px 0 0;
+  }
+  .card-title {
+    font-size: 15px;
+  }
+
+  #story-panel.sidebar-hidden {
+    transform: translateY(calc(100% - 60px));
+    margin-right: 0;
+  }
+
+  .toggle-sidebar-btn {
+    position: absolute;
+    top: -35px;
+    left: 85% !important;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 35px;
+    border-radius: 20px 20px 0 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    color: var(--wellness);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: none;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .map-controls-left {
+    bottom: auto;
+    top: 20px;
+    left: 10px;
+    gap: 8px;
+    top: 85px !important;
+    z-index: 9 !important;
+  }
+
+  /* ย่อขนาด Popup มือถือ */
+  .leaflet-popup-content {
+    min-width: 200px;
+    max-width: 350px;
+  }
+  .popup-content-padding {
+    padding: 10px 12px 14px 12px !important;
+  }
+  .popup-img {
+    height: 110px !important;
+  }
+  .popup-title {
+    font-size: 14px !important;
+    margin-bottom: 4px !important;
+  }
+  .popup-desc {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+  }
+  .leaflet-popup-close-button {
+    top: 7px !important;
+    right: 7px !important;
+    font-size: 30px !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(4px);
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    transition: all 0.2s ease;
+  }
+  .route-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-controls span {
+    font-size: 14px;
+  }
+  #weight-input {
+    width: 40px;
+  }
+  .map-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+  .route-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   11. IMAGE CAROUSEL IN CARD
+   ========================================= */
+.card-carousel {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #000;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.carousel-img.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.card-carousel:hover .carousel-btn {
+  opacity: 1;
+}
+
+.leaflet-popup-content .carousel-btn {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .carousel-btn {
+    opacity: 0.8;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel-prev {
+  left: 8px;
+}
+.carousel-next {
+  right: 8px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.indicator.active {
+  background: white;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.carousel-counter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- Skeleton Sidebar Animation --- */
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.skeleton-card-sidebar {
+  background-color: #b0b0b0;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 240px;
+  animation: skeleton-pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-img-sidebar {
+  width: 100%;
+  height: 160px;
+  background-color: #b0b0b0;
+}
+
+.skeleton-content-sidebar {
+  padding: 16px;
+}
+
+.skeleton-line-sidebar {
+  height: 15px;
+  background-color: #b0b0b0;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  width: 80%;
+}
+
+.skeleton-line-sidebar.short {
+  width: 40%;
+}
+
+/* ========================================= */
+/* 7. IMAGE MODAL / LIGHTBOX                 */
+/* ========================================= */
+/* Modal Base */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 999999;
+  display: none; /* ← สำคัญ! */
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-modal.show {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; /* ← เพิ่มบรรทัดนี้ */
+}
+
+/* Close Button */
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000001; /* ← สูงกว่า modal */
+  transition: all 0.3s;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: auto; /* ← สำคัญ! */
+}
+
+.close-modal:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  transform: scale(1.15);
+}
+
+.close-modal:active {
+  transform: scale(0.95);
+}
+
+/* Main Image */
+.modal-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none; /* ← ให้คลิกทะลุผ่านไปที่ background */
+  user-select: none;
+}
+
+.image-modal.show .modal-content {
+  transform: scale(1);
+}
+
+/* Navigation Buttons */
+.modal-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000001; /* ← สูงกว่า modal */
+  transition: all 0.3s;
+  user-select: none;
+  pointer-events: auto; /* ← สำคัญ! */
+}
+
+.modal-nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.15);
+}
+
+.modal-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.modal-prev {
+  left: 20px;
+}
+
+.modal-next {
+  right: 20px;
+}
+
+/* Counter */
+.modal-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 500;
+  z-index: 1000001;
+  user-select: none;
+  pointer-events: none; /* ← ให้คลิกทะลุผ่าน */
+}
+
+/* Prevent body scroll */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .close-modal {
+    top: 10px;
+    right: 15px;
+    font-size: 35px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .modal-nav-btn {
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .modal-prev {
+    left: 10px;
+  }
+  
+  .modal-next {
+    right: 10px;
+  }
+  
+  .modal-counter {
+    bottom: 10px;
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+
+.timeline-img,
+.popup-img-item,
+.card-img-wrapper img {
+  cursor: pointer;
+}

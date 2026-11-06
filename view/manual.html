@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual - Mangrove Smart StoryMap</title>
+    <link rel="preload" href="https://fonts.gstatic.com/s/prompt/v10/-W__XJnvUD7dzB2Ky_E.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../image/icon-192x192.png">
+    <style>
+        /* ========================================= */
+        /* MANUAL PAGE STYLES                        */
+        /* ========================================= */
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Prompt', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .manual-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .manual-header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .manual-title {
+            margin: 0;
+            font-size: clamp(22px, 5vw, 28px);
+            font-weight: 600;
+        }
+
+        .manual-subtitle {
+            margin: 5px 0 0 0;
+            font-size: clamp(14px, 3vw, 16px);
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .manual-content {
+            padding: clamp(15px, 4vw, 30px);
+        }
+
+        .section-box {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .sub-header {
+            font-size: clamp(16px, 2.5vw, 18px);
+            font-weight: 500;
+            color: #333;
+            margin: 20px 0 10px 0;
+            border-left: 4px solid #4caf50;
+            padding-left: 10px;
+        }
+
+        .manual-paragraph {
+            font-size: clamp(14px, 2.5vw, 16px);
+            line-height: 1.7;
+            color: #4a5568;
+            margin: 0 0 15px 0;
+        }
+
+        .manual-img-container {
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #e9ecef;
+            text-align: center;
+        }
+
+        .manual-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .img-caption {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* ========================================= */
+        /* 7. IMAGE MODAL / LIGHTBOX                 */
+        /* ========================================= */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 999999;
+            display: none;
+            /* ← สำคัญ! */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .image-modal.show {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            /* ← เพิ่มบรรทัดนี้ */
+        }
+
+        /* Close Button */
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000001;
+            /* ← สูงกว่า modal */
+            transition: all 0.3s;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            pointer-events: auto;
+            /* ← สำคัญ! */
+        }
+
+        .close-modal:hover {
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            transform: scale(1.15);
+        }
+
+        .close-modal:active {
+            transform: scale(0.95);
+        }
+
+        /* Main Image */
+        .modal-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+            /* ← ให้คลิกทะลุผ่านไปที่ background */
+            user-select: none;
+        }
+
+        .image-modal.show .modal-content {
+            transform: scale(1);
+        }
+
+
+        /* Prevent body scroll */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .close-modal {
+                top: 10px;
+                right: 15px;
+                font-size: 35px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+
+        .timeline-img,
+        .popup-img-item,
+        .card-img-wrapper img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="manual-card">
+
+        <div class="manual-header">
+            <h1 class="manual-title" data-i18n="manual_title">คู่มือการใช้งาน</h1>
+            <p class="manual-subtitle" data-i18n="manual_subtitle">ระบบแผนที่นำทางอัจฉริยะ <br>Mangrove Smart StoryMap
+            </p>
+        </div>
+
+        <div class="manual-content">
+
+            <div class="section-box" id="sec-intro">
+                <div class="section-header"><i class="fa-solid fa-house"></i> <span data-i18n="sec1_title">1.
+                        หน้าเริ่มต้นการใช้งาน</span></div>
+                <p class="manual-paragraph" data-i18n="sec1_desc">
+                    หน้าต่างแรกสำหรับต้อนรับนักท่องเที่ยวและแสดงภาพรวมของสถานที่</p>
+
+                <h3 class="sub-header" data-i18n="sec1_sub1_title">การเปลี่ยนภาษา</h3>
+                <p class="manual-paragraph" data-i18n="sec1_sub1_desc">มุมขวาบนของหน้าจอ
+                    สามารถกดปุ่มเพื่อเลือกภาษาที่ต้องการใช้งานได้ 3 ภาษา ได้แก่ ภาษาไทย (TH), ภาษาอังกฤษ (EN),
+                    และภาษาจีน (CH)</p>
+                <div class="manual-img-container">
+                    <img src="../image/manual/m1_1.webp" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="การเปลี่ยนภาษา">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec1_sub2_title">ปุ่มเริ่มต้น</h3>
+                <p class="manual-paragraph" data-i18n="sec1_sub2_desc">กดที่ปุ่ม "เริ่มต้นการเดินทางเลย"
+                    บริเวณกลางหน้าจอ เพื่อเข้าสู่หน้าแนะนำและเลือกเส้นทาง</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m2" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="ปุ่มเริ่มต้น">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec1_sub3_title">ข้อมูลสถานที่</h3>
+                <p class="manual-paragraph" data-i18n="sec1_sub3_desc">
+                    เลื่อนอ่านรายละเอียดเกี่ยวกับเส้นทางท่องเที่ยวเชิงนิเวศเบื้องต้น ซึ่งแบ่งออกเป็น เส้นทางสุขภาพ,
+                    เส้นทางสายมู, และจุดชมวิว สามารถกดเพื่อเข้าสู่หน้าแนะนำและเลือกเส้นทาง</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m3" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="ข้อมูลสถานที่">
+                </div>
+            </div>
+
+            <div class="section-box" id="sec-index">
+                <div class="section-header"><i class="fa-solid fa-list-ul"></i> <span data-i18n="sec2_title">2.
+                        หน้าแนะนำและเลือกเส้นทาง</span></div>
+                <p class="manual-paragraph" data-i18n="sec2_desc">
+                    หน้าต่างสำหรับดูสถิติและเลือกเส้นทางย่อยที่ต้องการเดินเดินทาง</p>
+
+                <h3 class="sub-header" data-i18n="sec2_sub1_title">แผนที่ภาพรวม</h3>
+                <p class="manual-paragraph" data-i18n="sec2_sub1_desc1">แผนที่แสดงเส้นทางเดินทั้งหมด
+                    เพื่อให้ผู้ใช้เห็นภาพรวมของพื้นที่ ซึ่งแผนที่สามารถเลื่อน ซูมเข้า-ออก
+                    และกดตรงจุดเพื่อดูรายละเอียดแต่ละจุดแวะพักบนเส้นทาง</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m4" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="แผนที่ภาพรวม">
+                </div>
+                <p class="manual-paragraph" data-i18n="sec2_sub1_desc2">สามารถกดปุ่มลูกศรเพื่อพับเก็บหรือกางแถบข้อมูลนี้
+                    เพื่อเพิ่มพื้นที่ในการมองเห็นแผนที่</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m5" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="พับเก็บแผงข้อมูล">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec2_sub2_title">แผงสถิติรวม</h3>
+                <p class="manual-paragraph" data-i18n="sec2_sub2_desc">เมื่อคลิกเลือกเส้นทาง
+                    ระบบจะแสดงข้อมูลสถิติที่คำนวณไว้ ดังนี้: ระยะทาง (km), เวลา (mins), การเผาผลาญ (kcal)</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m6" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="แผงสถิติรวม">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec2_sub3_title">การ์ดหมวดหมู่เส้นทาง</h3>
+                <p class="manual-paragraph" data-i18n="sec2_sub3_desc1">แถบด้านล่างจะแสดงหมวดหมู่เส้นทางหลัก
+                    โดยสามารถเลื่อนเพื่อดูรายละเอียดแต่ละหมวดหมู่</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m7" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="การ์ดหมวดหมู่เส้นทาง">
+                </div>
+                <p class="manual-paragraph" data-i18n="sec2_sub3_desc2">เมื่อกดจะขยายรายละเอียดออก</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m8" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="การขยายการ์ด">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec2_sub4_title">รายละเอียดเส้นทางย่อย</h3>
+                <p class="manual-paragraph" data-i18n="sec2_sub4_desc">ภายในกล่องการ์ดที่กางออก
+                    จะระบุจุดเด่นของเส้นทางนั้นๆ และสามารถกดเลือกดูเส้นทางย่อยที่ต้องการ</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m9" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="รายละเอียดเส้นทางย่อย">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec2_sub5_title">จุดแวะพักบนเส้นทาง</h3>
+                <p class="manual-paragraph" data-i18n="sec2_sub5_desc">แสดงรายชื่อจุดแวะพักตามลำดับ พร้อมรูปภาพประกอบ
+                    ซึ่งสามารถกดที่รูปภาพเพื่อขยายดูขนาดเต็ม</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m10" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="จุดแวะพักบนเส้นทาง">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec2_sub6_title">ปุ่มยืนยันเส้นทาง</h3>
+                <p class="manual-paragraph" data-i18n="sec2_sub6_desc">เมื่อตัดสินใจได้แล้ว ให้กดปุ่ม "เริ่มการเดินทาง"
+                    ด้านล่างสุดของการ์ด เพื่อเข้าหน้าแผนที่นำทาง</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m11" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="ปุ่มยืนยันเส้นทาง">
+                </div>
+            </div>
+
+            <div class="section-box" id="sec-mangrove">
+                <div class="section-header"><i class="fa-solid fa-map-location-dot"></i> <span data-i18n="sec3_title">3.
+                        หน้าแผนที่นำทาง</span></div>
+                <p class="manual-paragraph" data-i18n="sec3_desc">หน้าจอหลักสำหรับการนำทางระหว่างการเดินเดินทาง</p>
+
+                <h3 class="sub-header" data-i18n="sec3_sub1_title">แผนที่อินเทอร์แอคทีฟ</h3>
+                <p class="manual-paragraph" data-i18n="sec3_sub1_desc">แสดงเส้นทางที่ต้องเดิน
+                    แสดงตำแหน่งปัจจุบันของผู้ใช้แบบเรียลไทม์ มีไอคอนจุดแวะพักต่างๆ บนแผนที่ สามารถเลื่อน
+                    ซูมเข้า-ออกแผนที่ และขยับย้ายตำแหน่งตัวแสดงตำแหน่งผู้ใช้</p>
+                <div class="manual-img-container">
+                    <img src="../image/manual/m12_1.webp" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="แผนที่อินเทอร์แอคทีฟ">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec3_sub2_title">เครื่องมือควบคุมแผนที่</h3>
+                <p class="manual-paragraph" data-i18n="sec3_sub2_desc">แถบปุ่มกดด้านซ้ายของหน้าจอซึ่งประกอบด้วย:</p>
+                <ul class="manual-paragraph">
+                    <li data-i18n="sec3_sub2_li1"><b>เลเยอร์แผนที่:</b> สลับรูปแบบการแสดงผลแผนที่</li>
+                    <li data-i18n="sec3_sub2_li2"><b>ปุ่ม GPS:</b> ดึงหน้าจอแผนที่กลับมายังตำแหน่งปัจจุบัน</li>
+                    <li data-i18n="sec3_sub2_li3"><b>เข็มทิศ:</b> เปิด/ปิด เข็มทิศบอกทิศทาง</li>
+                    <li data-i18n="sec3_sub2_li4"><b>ปุ่ม +/-:</b> ซูมเข้าและซูมออกแผนที่</li>
+                </ul>
+                <div class="manual-img-container">
+                    <img src="../image/manual/m13_1.webp" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="เครื่องมือควบคุมแผนที่">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec3_sub3_title">หน้าต่างข้อมูลจุดแวะพัก</h3>
+                <p class="manual-paragraph" data-i18n="sec3_sub3_desc">เมื่อเดินไปถึงหรือกดที่ไอคอนจุดแวะพักบนแผนที่
+                    จะมีกล่องข้อความเด้งขึ้นมาแสดงข้อมูลสถานที่ และสามารถกดที่รูปภาพเพื่อขยายเต็มจอ</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m14" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="หน้าต่างข้อมูลจุดแวะพัก">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec3_sub4_title">แถบข้อมูล</h3>
+                <p class="manual-paragraph" data-i18n="sec3_sub4_desc">แสดงรายการจุดแวะพักทั้งหมดในเส้นทาง
+                    สามารถกดปุ่มลูกศรเพื่อพับเก็บหรือกางแถบข้อมูลนี้ เพื่อเพิ่มพื้นที่ในการมองเห็นแผนที่</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m15" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="แถบข้อมูล">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec3_sub5_title">ปุ่มอ่านข้อมูลเพิ่มเติม</h3>
+                <p class="manual-paragraph" data-i18n="sec3_sub5_desc">
+                    สามารถกดได้จากทั้งในแถบเครื่องมือและในหน้าต่างข้อมูล จะเข้าสู่หน้าข้อมูลที่จะมีรายละเอียดต่างๆ ทั้ง
+                    ข้อมูล เรื่องเล่า กิจกรรมตามแต่ละจุดแวะพัก</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m16" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="ปุ่มอ่านข้อมูลเพิ่มเติม">
+                </div>
+
+                <h3 class="sub-header" data-i18n="sec3_sub6_title">ปุ่มเปลี่ยนเส้นทาง</h3>
+                <p class="manual-paragraph" data-i18n="sec3_sub6_desc1">สามารถกดที่ปุ่มเพื่อเปลี่ยนเป็นเส้นทางในหมวดอื่น
+                </p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m17" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="ปุ่มเปลี่ยนเส้นทาง">
+                </div>
+                <p class="manual-paragraph" data-i18n="sec3_sub6_desc2">ถ้ากดซ้ำที่ปุ่มที่กำลังทำงาน
+                    จะทำการเปลี่ยนเป็นอีกเส้นทางในหมวดเดิม</p>
+                <div class="manual-img-container">
+                    <img data-img-base="../image/manual/m18" class="manual-img" onclick="openImageModal(this.src)"
+                        alt="การเปลี่ยนเส้นทางในหมวดเดิม">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="image-modal" class="image-modal">
+
+        <!-- Close Button -->
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+
+        <!-- Main Image -->
+        <img class="modal-content" id="full-image" src="" alt="Full size">
+
+    </div>
+
+    <script>
+        /**
+ * เปิด Modal แสดงรูปเดียว
+ * @param {string} imgSrc - URL ของรูป
+ */
+function openImageModal(imgSrc) {
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("full-image");
+
+  if (!modal || !modalImg) {
+    console.error("❌ Modal elements not found");
+    return;
+  }
+
+  console.log("📸 Opening image:", imgSrc);
+
+  // แสดงรูป
+  modalImg.src = imgSrc;
+  modal.classList.remove("hidden");
+  modal.classList.add("show");
+  
+  // ป้องกัน scroll body
+  document.body.style.overflow = "hidden";
+}
+
+/**
+ * ปิด Modal
+ */
+function closeImageModal() {
+  const modal = document.getElementById("image-modal");
+  
+  if (!modal) return;
+
+  console.log("❌ Closing modal");
+
+  modal.classList.add("hidden");
+  modal.classList.remove("show");
+  
+  // คืนค่า scroll body
+  document.body.style.overflow = "";
+}
+
+// Event Listeners
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. ESC key เพื่อปิด
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      closeImageModal();
+    }
+  });
+
+  // 2. คลิกพื้นหลังเพื่อปิด
+  const modal = document.getElementById("image-modal");
+  if (modal) {
+    modal.addEventListener("click", function(e) {
+      // ปิดเมื่อคลิกพื้นหลัง (ไม่ใช่รูป)
+      if (e.target === modal || e.target.classList.contains("image-modal")) {
+        closeImageModal();
+      }
+    });
+  }
+
+  // 3. คลิกปุ่ม X เพื่อปิด
+  const closeBtn = document.querySelector(".close-modal");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      closeImageModal();
+    });
+  }
+});
+    </script>
+    <script>
+        // 1. นำข้อมูลแปลภาษาทั้งหมดมาไว้ในไฟล์นี้เลย (เหมือน uiLabels ในหน้า plant_info)
+        const manualTranslations = {
+            "manual_title": {
+                "th": "คู่มือการใช้งาน",
+                "en": "User Manual",
+                "zh": "使用手册"
+            },
+            "manual_subtitle": {
+                "th": "ระบบแผนที่นำทางอัจฉริยะ <br>Mangrove Smart StoryMap",
+                "en": "Interactive Navigation Map <br>Mangrove Smart StoryMap",
+                "zh": "智能导航地图 <br>Mangrove Smart StoryMap"
+            },
+            "sec1_title": {
+                "th": "1. หน้าเริ่มต้นการใช้งาน",
+                "en": "1. Getting Started",
+                "zh": "1. 开始使用"
+            },
+            "sec1_desc": {
+                "th": "หน้าต่างแรกสำหรับต้อนรับนักท่องเที่ยวและแสดงภาพรวมของสถานที่",
+                "en": "The first screen that welcomes tourists and provides an overview of the location.",
+                "zh": "欢迎游客并展示该地点概况的首个界面"
+            },
+            "sec1_sub1_title": {
+                "th": "การเปลี่ยนภาษา",
+                "en": "Language Switcher",
+                "zh": "切换语言"
+            },
+            "sec1_sub1_desc": {
+                "th": "มุมขวาบนของหน้าจอ สามารถกดปุ่มเพื่อเลือกภาษาที่ต้องการใช้งานได้ 3 ภาษา ได้แก่ ภาษาไทย (TH), ภาษาอังกฤษ (EN), และภาษาจีน (CH)",
+                "en": "In the top right corner of the screen, you can press the button to select your preferred language: Thai (TH), English (EN), or Chinese (CH).",
+                "zh": "在屏幕右上角，您可以按下按钮选择您想使用的语言：泰语 (TH)、英语 (EN) 或中文 (CH)"
+            },
+            "sec1_sub2_title": {
+                "th": "ปุ่มเริ่มต้น",
+                "en": "Start Button",
+                "zh": "开始按钮"
+            },
+            "sec1_sub2_desc": {
+                "th": "กดที่ปุ่ม \"เริ่มต้นการเดินทางเลย\" บริเวณกลางหน้าจอ เพื่อเข้าสู่หน้าแนะนำและเลือกเส้นทาง",
+                "en": "Press the \"Start Exploring\" button in the center of the screen to enter the introduction and route selection page.",
+                "zh": "按下屏幕中央的“开始探索”按钮，进入介绍和路线选择页面"
+            },
+            "sec1_sub3_title": {
+                "th": "ข้อมูลสถานที่",
+                "en": "Location Information",
+                "zh": "地点信息"
+            },
+            "sec1_sub3_desc": {
+                "th": "เลื่อนอ่านรายละเอียดเกี่ยวกับเส้นทางท่องเที่ยวเชิงนิเวศเบื้องต้น ซึ่งแบ่งออกเป็น เส้นทางสุขภาพ, เส้นทางสายมู, และจุดชมวิว สามารถกดเพื่อเข้าสู่หน้าแนะนำและเลือกเส้นทาง สามารถกด",
+                "en": "Scroll down to read basic details about the eco-tourism routes, which are divided into Wellness Route, Spiritual Route, and Sightseeing points. You can tap to enter the introduction and route selection page.",
+                "zh": "向下滚动阅读有关生态旅游路线的基本详细信息，分为康养路线、信仰路线和观景点您可以点击进入介绍和路线选择页面"
+            },
+            "sec2_title": {
+                "th": "2. หน้าแนะนำและเลือกเส้นทาง",
+                "en": "2. Route Selection",
+                "zh": "2. 路线介绍和选择"
+            },
+            "sec2_desc": {
+                "th": "หน้าต่างสำหรับดูสถิติและเลือกเส้นทางย่อยที่ต้องการเดินเดินทาง",
+                "en": "A screen to view statistics and select the specific sub-route you want to explore.",
+                "zh": "用于查看统计数据并选择您想探索的具体子路线的界面"
+            },
+            "sec2_sub1_title": {
+                "th": "แผนที่ภาพรวม",
+                "en": "Overview Map",
+                "zh": "总览地图"
+            },
+            "sec2_sub1_desc1": {
+                "th": "แผนที่แสดงเส้นทางเดินทั้งหมด เพื่อให้ผู้ใช้เห็นภาพรวมของพื้นที่ ซึ่งแผนที่สามารถเลื่อน ซูมเข้า-ออก และกดตรงจุดเพื่อดูรายละเอียดแต่ละจุดแวะพักบนเส้นทาง",
+                "en": "A map displaying all walking trails to give users an overview of the area. The map can be panned, zoomed in/out, and tapped at specific points to view details of each stop.",
+                "zh": "显示所有步道的地图，让用户了解该区域的概况地图可以平移、放大/缩小，并点击特定点以查看沿线每个站点的详细信息"
+            },
+            "sec2_sub1_desc2": {
+                "th": "สามารถกดปุ่มลูกศรเพื่อพับเก็บหรือกางแถบข้อมูลนี้ เพื่อเพิ่มพื้นที่ในการมองเห็นแผนที่",
+                "en": "You can press the arrow button to collapse or expand this information panel to increase the map's viewing area.",
+                "zh": "您可以按下箭头按钮折叠或展开此信息面板，以增加地图的查看区域"
+            },
+            "sec2_sub2_title": {
+                "th": "แผงสถิติรวม",
+                "en": "Statistics Dashboard",
+                "zh": "统计仪表板"
+            },
+            "sec2_sub2_desc": {
+                "th": "เมื่อคลิกเลือกเส้นทาง ระบบจะแสดงข้อมูลสถิติที่คำนวณไว้ ดังนี้: ระยะทาง (km), เวลา (mins), การเผาผลาญ (kcal)",
+                "en": "When a route is selected, the system displays the calculated statistics: Distance (km), Time (mins), Calories Burned (kcal).",
+                "zh": "选择路线后，系统会显示计算出的统计数据：距离 (km)，时间 (mins)，燃烧的卡路里 (kcal)"
+            },
+            "sec2_sub3_title": {
+                "th": "การ์ดหมวดหมู่เส้นทาง",
+                "en": "Route Category Cards",
+                "zh": "路线类别卡片"
+            },
+            "sec2_sub3_desc1": {
+                "th": "แถบด้านล่างจะแสดงหมวดหมู่เส้นทางหลัก โดยสามารถเลื่อนเพื่อดูรายละเอียดแต่ละหมวดหมู่",
+                "en": "The bottom bar displays the main route categories. You can scroll to see details of each category.",
+                "zh": "底部栏显示主要路线类别您可以滚动查看每个类别的详细信息"
+            },
+            "sec2_sub3_desc2": {
+                "th": "เมื่อกดจะขยายรายละเอียดออก",
+                "en": "When clicked, it expands to show details.",
+                "zh": "点击后，它会展开以显示详细信息"
+            },
+            "sec2_sub4_title": {
+                "th": "รายละเอียดเส้นทางย่อย",
+                "en": "Sub-route Details",
+                "zh": "子路线详情"
+            },
+            "sec2_sub4_desc": {
+                "th": "ภายในกล่องการ์ดที่กางออก จะระบุจุดเด่นของเส้นทางนั้นๆ และสามารถกดเลือกดูเส้นทางย่อยที่ต้องการ",
+                "en": "Inside the expanded card box, it highlights the key features of that route and allows you to select the specific sub-route you want to view.",
+                "zh": "在展开的卡片框内，它会突出显示该路线的主要特点，并允许您选择要查看的特定子路线"
+            },
+            "sec2_sub5_title": {
+                "th": "จุดแวะพักบนเส้นทาง",
+                "en": "Stops on the Route",
+                "zh": "路线上的站点"
+            },
+            "sec2_sub5_desc": {
+                "th": "แสดงรายชื่อจุดแวะพักตามลำดับ พร้อมรูปภาพประกอบ ซึ่งสามารถกดที่รูปภาพเพื่อขยายดูขนาดเต็ม",
+                "en": "Displays a chronological list of stops with accompanying images, which can be tapped to enlarge to full size.",
+                "zh": "显示站点的按时间顺序列表以及随附的图像，可以点击这些图像将其放大到全尺寸"
+            },
+            "sec2_sub6_title": {
+                "th": "ปุ่มยืนยันเส้นทาง",
+                "en": "Confirm Route Button",
+                "zh": "确认路线按钮"
+            },
+            "sec2_sub6_desc": {
+                "th": "เมื่อตัดสินใจได้แล้ว ให้กดปุ่ม \"เริ่มการเดินทาง\" ด้านล่างสุดของการ์ด เพื่อเข้าหน้าแผนที่นำทาง",
+                "en": "Once decided, press the \"Start Exploring\" button at the very bottom of the card to enter the navigation map page.",
+                "zh": "决定后，按下卡片最底部的“开始探索”按钮，进入导航地图页面"
+            },
+            "sec3_title": {
+                "th": "3. หน้าแผนที่นำทาง",
+                "en": "3. Navigation Map",
+                "zh": "3. 导航地图"
+            },
+            "sec3_desc": {
+                "th": "หน้าจอหลักสำหรับการนำทางระหว่างการเดินเดินทาง",
+                "en": "The main screen for navigation during your exploration.",
+                "zh": "探索期间用于导航的主屏幕"
+            },
+            "sec3_sub1_title": {
+                "th": "แผนที่อินเทอร์แอคทีฟ",
+                "en": "Interactive Map",
+                "zh": "交互式地图"
+            },
+            "sec3_sub1_desc": {
+                "th": "แสดงเส้นทางที่ต้องเดิน แสดงตำแหน่งปัจจุบันของผู้ใช้แบบเรียลไทม์ มีไอคอนจุดแวะพักต่างๆ บนแผนที่ สามารถเลื่อน ซูมเข้า-ออกแผนที่ และขยับย้ายตำแหน่งตัวแสดงตำแหน่งผู้ใช้",
+                "en": "Displays the path to walk, shows the user's current location in real-time, features various stop icons on the map, allows panning and zooming, and the user location marker can be moved.",
+                "zh": "显示要走的路径，实时显示用户的当前位置，在地图上具有各种站点图标，允许平移和缩放，并且可以移动用户位置标记"
+            },
+            "sec3_sub2_title": {
+                "th": "เครื่องมือควบคุมแผนที่",
+                "en": "Map Control Tools",
+                "zh": "地图控制工具"
+            },
+            "sec3_sub2_desc": {
+                "th": "แถบปุ่มกดด้านซ้ายของหน้าจอซึ่งประกอบด้วย:",
+                "en": "A button bar on the left side of the screen containing:",
+                "zh": "屏幕左侧的按钮栏，包含："
+            },
+            "sec3_sub2_li1": {
+                "th": "<b>เลเยอร์แผนที่: </b> สลับรูปแบบการแสดงผลแผนที่",
+                "en": "<b>Map Layer: </b> Toggles the map display format",
+                "zh": "<b>地图图层：</b> 切换地图显示格式"
+            },
+            "sec3_sub2_li2": {
+                "th": "<b>ปุ่ม GPS: </b> ดึงหน้าจอแผนที่กลับมายังตำแหน่งปัจจุบัน",
+                "en": "<b>GPS Button: </b> Brings the map view back to the current location",
+                "zh": "<b>GPS 按钮：</b> 将地图视图带回当前位置"
+            },
+            "sec3_sub2_li3": {
+                "th": "<b>เข็มทิศ: </b> เปิด/ปิด เข็มทิศบอกทิศทาง",
+                "en": "<b>Compass: </b> Turns the directional compass on/off",
+                "zh": "<b>指南针：</b> 打开/关闭方向指南针"
+            },
+            "sec3_sub2_li4": {
+                "th": "<b>ปุ่ม +/-: </b> ซูมเข้าและซูมออกแผนที่",
+                "en": "<b>+/- Buttons: </b> Zooms the map in and out",
+                "zh": "<b>+/- 按钮：</b> 放大和缩小地图"
+            },
+            "sec3_sub3_title": {
+                "th": "หน้าต่างข้อมูลจุดแวะพัก",
+                "en": "Stop Information Window",
+                "zh": "站点信息窗口"
+            },
+            "sec3_sub3_desc": {
+                "th": "เมื่อเดินไปถึงหรือกดที่ไอคอนจุดแวะพักบนแผนที่ จะมีกล่องข้อความเด้งขึ้นมาแสดงข้อมูลสถานที่ และสามารถกดที่รูปภาพเพื่อขยายเต็มจอ",
+                "en": "When you walk to or tap a stop icon on the map, a pop-up box will appear showing location information, and you can tap the image to view it in full screen.",
+                "zh": "当您走到或点击地图上的站点图标时，将出现一个弹出框，显示位置信息，您可以点击图像以全屏查看"
+            },
+            "sec3_sub4_title": {
+                "th": "แถบข้อมูล",
+                "en": "Information Panel",
+                "zh": "信息面板"
+            },
+            "sec3_sub4_desc": {
+                "th": "แสดงรายการจุดแวะพักทั้งหมดในเส้นทาง สามารถกดปุ่มลูกศรเพื่อพับเก็บหรือกางแถบข้อมูลนี้ เพื่อเพิ่มพื้นที่ในการมองเห็นแผนที่",
+                "en": "Displays a list of all stops on the route. You can press the arrow button to collapse or expand this information panel to increase the map's viewing area.",
+                "zh": "显示路线上所有站点的列表您可以按下箭头按钮折叠或展开此信息面板，以增加地图的查看区域"
+            },
+            "sec3_sub5_title": {
+                "th": "ปุ่มอ่านข้อมูลเพิ่มเติม",
+                "en": "Read More Button",
+                "zh": "阅读更多按钮"
+            },
+            "sec3_sub5_desc": {
+                "th": "สามารถกดได้จากทั้งในแถบเครื่องมือและในหน้าต่างข้อมูล จะเข้าสู่หน้าข้อมูลที่จะมีรายละเอียดต่างๆ ทั้ง ข้อมูล เรื่องเล่า กิจกรรมตามแต่ละจุดแวะพัก",
+                "en": "Can be pressed from both the toolbar and the information window. It will enter the information page containing various details including facts, stories, and activities for each stop.",
+                "zh": "可以从工具栏和信息窗口中按下它将进入信息页面，其中包含各种详细信息，包括每个站点的知识、故事和活动"
+            },
+            "sec3_sub6_title": {
+                "th": "ปุ่มเปลี่ยนเส้นทาง",
+                "en": "Change Route Button",
+                "zh": "更改路线按钮"
+            },
+            "sec3_sub6_desc1": {
+                "th": "สามารถกดที่ปุ่มเพื่อเปลี่ยนเป็นเส้นทางในหมวดอื่น",
+                "en": "You can press the button to switch to a route in a different category.",
+                "zh": "您可以按下按钮切换到不同类别的路线"
+            },
+            "sec3_sub6_desc2": {
+                "th": "ถ้ากดซ้ำที่ปุ่มที่กำลังทำงาน จะทำการเปลี่ยนเป็นอีกเส้นทางในหมวดเดิม",
+                "en": "If you press the currently active button again, it will switch to another route within the same category.",
+                "zh": "如果您再次按下当前处于活动状态的按钮，它将切换到同一类别中的另一条路线"
+            }
+        };
+
+        // 2. ดึงค่าภาษาปัจจุบันจาก LocalStorage (ค่าเริ่มต้นคือ 'th')
+        const currentLang = localStorage.getItem('selectedLang') || 'th';
+        function applyImagesByLanguage(lang) {
+            // จับคู่ภาษาเป็นตัวเลขท้ายไฟล์ตามที่คุณกำหนด (_1, _2, _3)
+            const suffixMap = {
+                'th': '_1',
+                'en': '_2',
+                'zh': '_3'
+            };
+
+            const suffix = suffixMap[lang] || '_1';
+
+            // ค้นหารูปภาพทุกรูปที่มี data-img-base
+            document.querySelectorAll('img[data-img-base]').forEach(img => {
+                const baseName = img.getAttribute('data-img-base');
+                // ประกอบ Path ใหม่: ../image/manual/m1 + _1 + .webp
+                img.src = `${baseName}${suffix}.webp`;
+            });
+        }
+        // 3. ฟังก์ชันแปลภาษา
+        function applyLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (manualTranslations[key] && manualTranslations[key][lang]) {
+                    element.innerHTML = manualTranslations[key][lang];
+                }
+            });
+            applyImagesByLanguage(lang);
+        }
+
+        // 4. สั่งให้แปลทันทีที่โหลดหน้าเสร็จ (ไม่ต้องกดปุ่มใดๆ)
+        applyLanguage(currentLang);
+
+        /* ----------------------------------------- */
+        /* ฟังก์ชันคัดกรองเนื้อหา                    */
+        /* ----------------------------------------- */
+        function filterManualContent() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fromPage = urlParams.get('from');
+
+            const secIntro = document.getElementById('sec-intro');
+            const secIndex = document.getElementById('sec-index');
+            const secMangrove = document.getElementById('sec-mangrove');
+
+            // 1. ซ่อนเนื้อหาทุกส่วนก่อน
+            if (secIntro) secIntro.style.display = 'none';
+            if (secIndex) secIndex.style.display = 'none';
+            if (secMangrove) secMangrove.style.display = 'none';
+
+            // 2. ตรวจสอบว่ามาจากหน้าไหน เพื่อโชว์เนื้อหา
+            if (fromPage === 'intro') {
+                if (secIntro) secIntro.style.display = 'block';
+            } else if (fromPage === 'index') {
+                if (secIndex) secIndex.style.display = 'block';
+            } else if (fromPage === 'mangrove') {
+                if (secMangrove) secMangrove.style.display = 'block';
+            } else {
+                // ถ้าไม่มี parameter ให้โชว์ทั้งหมด
+                if (secIntro) secIntro.style.display = 'block';
+                if (secIndex) secIndex.style.display = 'block';
+                if (secMangrove) secMangrove.style.display = 'block';
+            }
+        }
+
+        // เรียกใช้ฟังก์ชันทันทีที่โหลดหน้าจอ
+        window.onload = filterManualContent;
+    </script>
+<script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js').catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">สวนพฤกษศาสตร์ป่าชายเลนนานาชาติ รัชกาลที่ ๙</title>
+    <link rel="preload" as="image" href="../image/intro/intro.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/intro.css?v=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/png" href="../image/icon-192x192.png">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <!-- แถวที่ 1: โลโก้ และ เปลี่ยนภาษา -->
+        <div class="header-top-row">
+            <div class="logo-text">
+                <i class="fa-solid fa-leaf"></i> Mangrove Smart StoryMap
+            </div>
+
+            <div class="lang-switcher">
+                <button class="lang-btn" id="btn-th" onclick="changeLanguage('th')">TH</button>
+                <button class="lang-btn" id="btn-en" onclick="changeLanguage('en')">EN</button>
+                <button class="lang-btn" id="btn-zh" onclick="changeLanguage('zh')">CH</button>
+            </div>
+        </div>
+
+        <!-- แถวที่ 2: ปุ่มคู่มือ -->
+        <div class="header-bottom-row">
+            <a href="../view/manual.html?from=intro" class="btn-read-pdf">
+                <i class="fa-solid fa-book"></i> <span data-i18n="manual">คู่มือการใช้งาน</span>
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-tag" data-i18n="page_title">สวนพฤกษศาสตร์ป่าชายเลนนานาชาติ รัชกาลที่ ๙</div>
+        <h1 data-i18n="hero_h1">Mangrove Smart StoryMap</h1>
+        <p data-i18n="hero_p">
+            ระบบแผนที่นำทางอัจฉริยะ (Interactive Map) ที่จะช่วยยกระดับประสบการณ์การท่องเที่ยวเชิงนิเวศ ด้วยระบบ GPS
+            แบบเรียลไทม์ที่คอยนำทางและให้ข้อมูลเชิงลึกตลอดเส้นทางศึกษาธรรมชาติ
+            พร้อมฟีเจอร์ติดตามสุขภาพที่ช่วยคำนวณระยะทางและแคลอรี
+            รวมถึงรองรับการใช้งานหลายภาษาเพื่ออำนวยความสะดวกแก่นักท่องเที่ยวจากทั่วโลก
+        </p>
+        <button class="btn-main" onclick="window.location.href='index.html'" data-i18n="hero_btn">เริ่มต้นการเดินทางเลย <i
+                class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+
+        <div class="scroll-down-arrow" onclick="const target = document.getElementById('about'); 
+              const offset = 75;
+              const bodyRect = document.body.getBoundingClientRect().top;
+              const elementRect = target.getBoundingClientRect().top;
+              const elementPosition = elementRect - bodyRect;
+              const offsetPosition = elementPosition - offset;
+
+              window.scrollTo({
+                   top: offsetPosition,
+                   behavior: 'smooth'
+              });">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="../image/intro/hand.webp" alt="Mangrove Forest"
+                    style="width: 100%; height: auto; border-radius: 10px;" loading="lazy">
+            </div>
+            <div class="about-text">
+                <h2 data-i18n="about_h2" style="color: var(--primary-dark); margin-bottom: 10px;">
+                    ปอดแห่งใหม่ของเมืองจันท์
+                </h2>
+                <h3 data-i18n="about_h3" style="color: var(--accent); font-weight: 500;">
+                    สวนพฤกษศาสตร์ป่าชายเลนนานาชาติแห่งแรกของโลก</h3>
+                <p data-i18n="about_p1">ก้าวเดินไปบนรอยต่อของกาลเวลา จากอดีตผืนป่าเสื่อมโทรมและนากุ้งที่ถูกทิ้งร้าง
+                    สู่การฟื้นคืนชีพเป็น
+                    <strong>"สวนพฤกษศาสตร์ป่าชายเลนนานาชาติ รัชกาลที่ ๙"</strong> บนพื้นที่บ้านเสม็ดงาม จังหวัดจันทบุรี
+                </p>
+                <p data-i18n="about_p2">ที่นี่ไม่ใช่แค่สถานที่ท่องเที่ยว
+                    แต่เป็นห้องเรียนธรรมชาติขนาดใหญ่ที่รวบรวมพันธุ์ไม้ป่าชายเลนจากทั่วโลก
+                    พร้อมทำหน้าที่เป็นปอดผืนใหญ่ที่ช่วยฟอกอากาศ และรักษาสมดุลระบบนิเวศ
+                    เพื่อให้คุณได้เข้ามาสูดโอโซนบริสุทธิ์ให้เต็มปอด</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="routes" class="routes-section">
+        <div class="section-title">
+            <h2 data-i18n="routes_h2">ค้นหาเส้นทางที่ใช่สำหรับคุณ</h2>
+            <p data-i18n="routes_p">เราได้ออกแบบเส้นทางอัจฉริยะ เพื่อตอบสนองจุดประสงค์การเยี่ยมชมที่แตกต่างกัน
+                พร้อมข้อมูลนำทางแบบ
+                Real-time</p>
+        </div>
+
+        <div class="routes-grid">
+            <div id="routes-skeleton" style="display: contents;">
+                <div class="skeleton-route-card">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-meta"></div>
+                    </div>
+                </div>
+                <div class="skeleton-route-card">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-meta"></div>
+                    </div>
+                </div>
+                <div class="skeleton-route-card">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-meta"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="actual-routes" class="routes-grid" style="display: none; width: 100%;">
+                <a href="../view/index.html">
+                    <div class="route-card">
+                        <div class="card-img-container">
+                            <img src="../image/intro/wellness.webp" alt="Wellness Route" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="badge badge-wellness" data-i18n="route_wellness_badge">Wellness</span>
+                            <h3 data-i18n="route_wellness_title"><i class="fa-solid fa-person-walking"
+                                    style="font-size: 0.7em; color: #4E8A63;"></i> เส้นทางสุขภาพ</h3>
+                            <p data-i18n="route_wellness_desc">ฟื้นฟูร่างกายและจิตใจด้วยการเดินออกกำลังกายรอบป่าชายเลน
+                                มีจุดแวะพักสูดอากาศ</p>
+                            <div class="card-meta">
+                                <span data-i18n="km1"><i class="fa-solid fa-route"></i>เส้นทางที่ 1 | ~1.85 กม.</span>
+                                <span data-i18n="time1"><i class="fa-regular fa-clock"></i> ~28 นาที</span>
+                            </div>
+                            <div class="card-meta">
+                                <span data-i18n="km4"><i class="fa-solid fa-route"></i>เส้นทางที่ 2 | ~1.45 กม.</span>
+                                <span data-i18n="time4"><i class="fa-regular fa-clock"></i> ~22 นาที</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="../view/index.html?route=spiritual">
+                    <div class=" route-card">
+                        <div class="card-img-container">
+                            <img src="../image/intro/spiritual.webp" alt="Spiritual Route" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="badge badge-spiritual" data-i18n="route_spiritual_badge">Spiritual</span>
+                            <h3 data-i18n="route_spiritual_title"><i class="fa-solid fa-hands-praying"
+                                    style="font-size: 0.7em; color: #F5A623;"></i> เส้นทางสายมู</h3>
+                            <p data-i18n="route_spiritual_desc">ตามรอยความเชื่อและจิตวิญญาณแห่งบ้านเสม็ดงาม แวะสักการะ
+                                "พระพุทธศรีรัตนาสมุทราภิรักษ์"
+                                และ "ศาลหลวงปู่แบน" สิ่งศักดิ์สิทธิ์ที่ชาวบ้านศรัทธา</p>
+                            <div class="card-meta">
+                                <span data-i18n="km2"><i class="fa-solid fa-route"></i>เส้นทางที่ 1 | ~1.5 กม.</span>
+                                <span data-i18n="time2"><i class="fa-regular fa-clock"></i> ~23 นาที</span>
+                            </div>
+                            <div class="card-meta">
+                                <span data-i18n="km5"><i class="fa-solid fa-route"></i>เส้นทางที่ 2 | ~0.8 กม.</span>
+                                <span data-i18n="time5"><i class="fa-regular fa-clock"></i> ~12 นาที</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../view/index.html?route=sightseeing">
+                    <div class="route-card">
+                        <div class="card-img-container">
+                            <img src="../image/intro/view.webp" alt="Sightseeing Route" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="badge badge-sight" data-i18n="route_sight_badge">Sightseeing</span>
+                            <h3 data-i18n="route_sight_title"><i class="fa-solid fa-camera-retro"
+                                    style="font-size: 0.7em; color: #5D8AA8;"></i> จุดชมวิว</h3>
+                            <p data-i18n="route_sight_desc">เส้นทางสำหรับผู้รักการถ่ายภาพ
+                                ชื่นชมทัศนียภาพอันงดงามของระบบนิเวศป่าชายเลน
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="section-title">
+            <h2 data-i18n="feat_h2">ฟีเจอร์แผนที่อัจฉริยะ</h2>
+            <p data-i18n="feat_p">ยกระดับประสบการณ์การเดินป่าของคุณด้วยเทคโนโลยี</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                <h4 data-i18n="feat_1_title">Real-time GPS</h4>
+                <p data-i18n="feat_1_desc">ระบบนำทางแม่นยำด้วย GPS พร้อมเข็มทิศในตัว ไม่พลาดทุกจุดแวะพัก</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <h4 data-i18n="feat_2_title">Health Tracking</h4>
+                <p data-i18n="feat_2_desc">คำนวณระยะทาง เวลา และแคลอรี่ที่เผาผลาญ</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <h4 data-i18n="feat_3_title">StoryMap Insights</h4>
+                <p data-i18n="feat_3_desc">เรียนรู้เรื่องราวผ่าน Popup ข้อมูล พร้อมรูปภาพ</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-language"></i>
+                <h4 data-i18n="feat_4_title">Multi-Language</h4>
+                <p data-i18n="feat_4_desc">รองรับการใช้งานถึง 3 ภาษา (ไทย, อังกฤษ, จีน) สำหรับนักท่องเที่ยวต่างชาติ</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* =========================================
+           Fluid Typography (ปรับขนาดฟอนต์อัตโนมัติตามจอ)
+           ========================================= */
+        html {
+            font-size: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem) !important;
+        }
+
+        section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+            line-height: 1.3;
+        }
+
+        section h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem) !important;
+        }
+
+        p {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        /* ระยะห่างของ Section อัตโนมัติ */
+        section {
+            padding: clamp(40px, 8vw, 80px) 20px;
+        }
+
+        /* =========================================
+           Responsive Grids (จัดคอลัมน์อัตโนมัติ)
+           ========================================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .routes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        /* =========================================
+           Footer เดิมของคุณ
+           ========================================= */
+        footer {
+            background: #1b5e20;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .footer-social-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-social-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .footer-social-item:hover {
+            opacity: 0.8;
+        }
+
+        .footer-social-item i {
+            font-size: 20px;
+        }
+
+        .footer-social-item span {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           Mobile Specific 
+           ========================================= */
+        @media (max-width: 480px) {
+            p {
+                text-align: left;
+                /* จัดชิดซ้ายเพื่อแก้ปัญหาช่องว่างห่าง */
+                word-break: break-word;
+                text-indent: 1.5rem;
+                /* เอา Indent ออกเพื่อความเป็นระเบียบเรียบง่าย */
+            }
+
+            .hero {
+                padding: 100px 20px 40px;
+                /* เพิ่มพื้นที่ให้รูปหรือข้อความที่อาจล้น */
+            }
+        }
+    </style>
+
+    <footer>
+        <p data-i18n="footer">&copy; 2026 สวนพฤกษศาสตร์ป่าชายเลนนานาชาติ รัชกาลที่ ๙ | Mangrove Smart StoryMap Project</p>
+    </footer>
+    <script src="../js/intro.js?v=1"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(registration => {
+                        console.log('ลงทะเบียน Service Worker สำเร็จแล้ว! Scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ลงทะเบียน Service Worker ไม่สำเร็จ:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>
