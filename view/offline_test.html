@@ -109,6 +109,7 @@ async function runTests(){
   const btn = $("run"); btn.disabled = true; $("summary").innerHTML = "";
   const env = await showEnv();
   const label = $("label").value;
+  const warnOff = (label === "offline" && env.online);
   const items = [];
   LISTS.core.forEach(f => items.push(["core", f])); LISTS.image.forEach(f => items.push(["image", f])); LISTS.cdn.forEach(f => items.push(["cdn", f]));
   const results = [];
@@ -122,12 +123,12 @@ async function runTests(){
   const c = tileXY(TILE_CENTER.lat, TILE_CENTER.lng, TILE_CENTER.z);
   const tiles = [];
   for (const dx of [0, 1, -1]) {
-    const u = "https://mt1.google.com/vt/lyrs=m&x=" + (c.x + dx) + "&y=" + c.y + "&z=" + TILE_CENTER.z;
+    const u = "https://mt1.google.com/vt/lyrs=m&x=" + (c.x + dx) + "&y=" + c.y + "&z=" + TILE_CENTER.z + "&nc=" + Date.now() + Math.floor(Math.random() * 1e6);  // ใส่ตัวสุ่มกันเบราว์เซอร์ใช้ภาพเก่าจากแคชของมัน
     const r = await testTile(u); tiles.push({kind: "tile", url: u, inCache: false, ok: r.ok, status: r.ok ? 200 : "error", ms: r.ms});
   }
   results.push(...tiles);
   const envEnd = await envInfo();
-  runs.push({id: runs.length + 1, label, time: env.time, onlineStart: env.online, onlineEnd: envEnd.online, ua: env.ua, results});
+  runs.push({id: runs.length + 1, label, warn: warnOff, time: env.time, onlineStart: env.online, onlineEnd: envEnd.online, ua: env.ua, results});
   $("prog").textContent = "เสร็จแล้ว";
   renderSummary(); btn.disabled = false;
 }
@@ -144,6 +145,7 @@ function renderSummary(){
   runs.forEach(r => {
     const by = stats(r);
     h += "<h3 style='font-size:1rem;margin:12px 0 4px'>รอบที่ " + r.id + ": " + (r.label === "offline" ? "ออฟไลน์" : "ออนไลน์") + " <span class='mut'>(เบราว์เซอร์รายงาน " + (r.onlineStart ? "ออนไลน์" : "ออฟไลน์") + " ตอนเริ่ม)</span></h3>";
+    if (r.warn) h += "<p class='bad'>คำเตือน: เบราว์เซอร์ยังรายงานว่า \"ออนไลน์\" ตอนรอบนี้ ผลอาจไม่ใช่ออฟไลน์จริง ตรวจโหมดเครื่องบินและ Wi-Fi แล้วรันใหม่</p>";
     h += "<table><tr><th>กลุ่ม</th><th>ได้</th><th>อยู่ในแคช</th><th>เวลากลาง (ms)</th></tr>";
     Object.keys(KIND).forEach(k => { const b = by[k]; if (!b) return; const cls = b.ok === b.n ? "ok" : "bad"; h += "<tr><td>" + KIND[k] + "</td><td class='" + cls + "'>" + b.ok + " / " + b.n + "</td><td>" + (k === "tile" ? "-" : b.cache + " / " + b.n) + "</td><td>" + med(by[k].ms) + "</td></tr>"; });
     h += "</table>";
