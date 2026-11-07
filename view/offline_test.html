@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ทดสอบการทำงานออฟไลน์</title>
+<style>
+:root{--bg:#f4f6f5;--card:#fff;--ink:#1b2a22;--mut:#5b6b62;--ok:#1b7f4b;--bad:#b3261e;--line:#d7dfda;--acc:#1b5e20}
+@media (prefers-color-scheme:dark){:root{--bg:#121714;--card:#1b231f;--ink:#e8efe9;--mut:#9fb0a5;--ok:#58c487;--bad:#ff8a80;--line:#2c3832;--acc:#58c487}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,"Noto Sans Thai",sans-serif;padding:16px;max-width:760px;margin-inline:auto}
+h1{font-size:1.25rem;margin:0 0 4px}h2{font-size:1.05rem;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.mut{color:var(--mut);font-size:.9rem}.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}
+button{font:inherit;padding:10px 14px;border-radius:10px;border:1px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
+button.sec{background:transparent;color:var(--acc)}button:disabled{opacity:.5}
+select,input[type=text]{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chk{border-top:1px solid var(--line);padding:8px 0}.chk label{margin-right:10px;white-space:nowrap}
+pre{white-space:pre-wrap;word-break:break-word;font-size:.85rem;margin:0}
+</style>
+</head>
+<body>
+<h1>ทดสอบการทำงานออฟไลน์ (Mangrove Smart StoryMap)</h1>
+<p class="mut">วิธีใช้: ก่อนอื่นเปิดแอปปกติตอนมีเน็ตและรอสักครู่ให้ Service Worker ติดตั้ง (ดูว่า "ควบคุมหน้านี้: ใช่" ด้านล่างหลังรีเฟรชหน้านี้) แล้วเปิดหน้านี้ตอนมีเน็ตและกดรัน 1 ครั้ง (รอบออนไลน์) แล้วเปิดโหมดเครื่องบิน <b>โดยไม่ปิดหน้านี้</b> เลือกรอบเป็น "ออฟไลน์" และกดรันอีกครั้ง จากนั้นทำรายการตรวจด้วยตนเองด้านล่าง แล้วกดดาวน์โหลดผล</p>
+
+<div class="card" id="env"><h2>สถานะเครื่อง</h2><pre id="envtxt">กำลังตรวจ...</pre></div>
+
+<div class="card">
+  <h2>1) ทดสอบอัตโนมัติ</h2>
+  <div class="row">
+    <select id="label" style="max-width:280px"><option value="online">รอบออนไลน์ (มีเน็ต)</option><option value="offline">รอบออฟไลน์ (โหมดเครื่องบิน)</option></select>
+    <button id="run">รันทดสอบ</button>
+  </div>
+  <p class="mut" id="prog"></p>
+  <div id="summary"></div>
+</div>
+
+<div class="card">
+  <h2>2) รายการตรวจด้วยตนเอง (ทำตอนออฟไลน์)</h2>
+  <p class="mut">เปิดแอปจากลิงก์นี้ <a href="intro.html" target="_blank" rel="noopener">เปิดแอป</a> (แท็บใหม่) แล้วลองแต่ละข้อ เลือกผลและจดหมายเหตุสั้นๆ ได้</p>
+  <div id="manual"></div>
+</div>
+
+<div class="card">
+  <h2>3) ส่งออกผล</h2>
+  <div class="row"><button id="dl">ดาวน์โหลด CSV</button><button class="sec" id="cp">คัดลอกสรุป</button></div>
+  <p class="mut" id="msg"></p>
+</div>
+
+<script>
+/* รายการไฟล์สร้างจาก sw.js อัตโนมัติ (CORE_FILES, IMAGE_FILES, CDN_FILES) */
+const LISTS = {"core":["view/intro.html","view/index.html","view/mangrove.html","view/manual.html","view/plant_info.html","css/intro.css","css/index.css","css/mangrove.css","js/intro.js","js/index.js","js/mangrove.js","storage/info.json","storage/plants.json","storage/index_translate.json","storage/intro_translate.json","storage/mangrove_ui.json","manifest.json","image/icon-192x192.png","image/icon-512x512.png"],"image":["image/intro/hand.webp","image/intro/intro.webp","image/intro/spiritual.webp","image/intro/view.webp","image/intro/wellness.webp","image/stations/well1/s1_1.webp","image/stations/well1/s1_2.webp","image/stations/well1/s1_3.webp","image/stations/well1/s1_4.webp","image/stations/well1/s2_1.webp","image/stations/well1/s2_2.webp","image/stations/well1/s2_3.webp","image/stations/well1/s2_4.webp","image/stations/well1/s3_1.webp","image/stations/well1/s3_2.webp","image/stations/well1/s3_3.webp","image/stations/well1/s3_4.webp","image/stations/well1/s4_1.webp","image/stations/well1/s4_2.webp","image/stations/well1/s4_3.webp","image/stations/well1/s5_1.webp","image/stations/well1/s5_2.webp","image/stations/well1/s5_3.webp","image/stations/well1/s5_4.webp","image/stations/well1/s6_1.webp","image/stations/well1/s6_2.webp","image/stations/well1/s6_3.webp","image/stations/well1/s7_1.webp","image/stations/well1/s7_2.webp","image/stations/well1/s8_1.webp","image/stations/well1/s9_1.webp","image/stations/well1/s9_2.webp","image/stations/well1/s9_3.webp","image/stations/well1/s10_1.webp","image/stations/well1/s10_2.webp","image/stations/well1/s10_3.webp","image/stations/well1/s10_4.webp","image/stations/well1/s11_1.webp","image/stations/well1/s11_2.webp","image/stations/well1/s11_3.webp","image/stations/well1/s11_4.webp","image/stations/well1/s12_1.webp","image/stations/well1/s13_1.webp","image/stations/well1/s14_1.webp","image/stations/well1/s14_2.webp","image/stations/well1/s15_1.webp","image/stations/well2/s1_1.webp","image/stations/well2/s3_1.webp","image/stations/spirit1/s3_1.webp","image/stations/spirit1/s3_2.webp","image/stations/spirit1/s4_1.webp","image/stations/spirit1/s4_2.webp","image/stations/spirit1/s5_1.webp","image/stations/spirit1/s6_1.webp","image/stations/spirit1/s6_2.webp","image/stations/spirit1/s7_1.webp","image/stations/spirit1/s7_2.webp","image/stations/spirit1/s8_1.webp","image/stations/spirit1/s9_1.webp","image/stations/spirit1/s9_2.webp","image/stations/spirit1/s9_3.webp","image/stations/spirit1/s13_1.webp","image/stations/spirit1/s14_1.webp","image/stations/spirit1/s16_1.webp","image/stations/spirit2/s1_1.webp","image/stations/spirit2/s1_2.webp","image/stations/spirit2/s2_1.webp","image/stations/spirit2/s2_2.webp","image/stations/spirit2/s3_1.webp","image/stations/spirit2/s4_1.webp","image/stations/spirit2/s4_2.webp","image/stations/spirit2/s5_1.webp","image/stations/spirit2/s5_2.webp","image/views/v0_1.webp","image/views/v0_2.webp","image/views/v0_3.webp","image/views/v1_1.webp","image/views/v2_1.webp","image/views/v3_1.webp","image/views/v3_2.webp","image/views/v4_1.webp","image/views/v4_2.webp","image/views/v4_3.webp","image/views/v5_1.webp","image/views/v6_1.webp","image/views/v6_2.webp","image/views/v7_1.webp","image/views/v8_1.webp","image/views/v9_1.webp","image/views/v10_1.webp","image/views/v11_1.webp","image/views/v12_1.webp","image/views/v14_1.webp","image/views/v14_2.webp","image/flora/f1_1.webp","image/flora/f1_2.webp","image/flora/f2_1.webp","image/flora/f3_1.webp","image/flora/f3_2.webp","image/flora/f4_1.webp","image/flora/f4_2.webp","image/flora/f5_1.webp","image/flora/f5_2.webp","image/flora/f6_1.webp","image/flora/f6_2.webp","image/flora/f7_1.webp","image/flora/f8_1.webp","image/flora/f8_2.webp","image/flora/f8_3.webp","image/flora/f9_1.webp","image/flora/f10_1.webp","image/flora/f11_1.webp","image/flora/f12_1.webp","image/flora/f13_1.webp","image/flora/f14_1.webp","image/flora/f15_1.webp","image/flora/f16_1.webp","image/flora/f16_2.webp","image/flora/f17_1.webp","image/flora/f18_1.webp","image/flora/f18_2.webp","image/flora/f19_1.webp","image/flora/f20_1.webp","image/flora/f20_2.webp","image/flora/f21_1.webp","image/flora/f21_2.webp","image/flora/f22_1.webp","image/flora/f22_2.webp","image/flora/f22_3.webp","image/flora/f23_1.webp","image/flora/f23_2.webp","image/flora/f24_1.webp","image/flora/f25_1.webp","image/flora/f26_1.webp","image/flora/f30_1.webp","image/flora/f31_1.webp","image/flora/f31_2.webp","image/flora/f32_1.webp","image/bird/b1_1.webp","image/bird/b2_1.webp"],"cdn":["https://unpkg.com/leaflet@1.9.4/dist/leaflet.css","https://unpkg.com/leaflet@1.9.4/dist/leaflet.js","https://cdn.jsdelivr.net/npm/leaflet-rotate@0.2.0/dist/leaflet-rotate-src.js","https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js","https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-regular-400.woff2","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2","https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap","https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap","https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap"]};
+const TILE_CENTER = {lat:12.6630, lng:102.1035, z:17};
+const MANUAL_ITEMS = [
+ "เปิดหน้าแรกของแอปได้", "แผนที่แสดง (ระบุว่าพื้นหลังแผนที่ขึ้นหรือไม่ในหมายเหตุ)", "รายการจุดแวะพักแสดง", "รูปภาพของจุดแวะพักขึ้น",
+ "ภาพพาโนรามาเปิดได้", "สลับภาษาได้", "โหลดหน้าใหม่ (รีเฟรช) แล้วยังใช้ได้", "ปิดแอป/แท็บให้สนิท แล้วเปิดใหม่ตอนออฟไลน์ยังใช้ได้", "ฟอนต์และไอคอนแสดงถูกต้อง"
+];
+const $ = id => document.getElementById(id);
+const runs = [];            // ผลของแต่ละรอบ
+let manual = {};            // ผลตรวจด้วยตนเอง
+try { const s = JSON.parse(localStorage.getItem("ot_manual") || "{}"); if (s && typeof s === "object") manual = s; } catch(e){}
+
+function iso(){ return new Date().toISOString(); }
+function absUrl(f){ return /^https?:\/\//i.test(f) ? f : new URL("../" + f, location.href).href; }
+function withTimeout(p, ms){ return Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))]); }
+
+async function envInfo(){
+  const o = {online: navigator.onLine, ua: navigator.userAgent, time: iso(), https: location.protocol === "https:" || location.hostname === "localhost"};
+  o.swSupported = "serviceWorker" in navigator;
+  if (o.swSupported) {
+    try { const regs = await navigator.serviceWorker.getRegistrations(); o.swRegistrations = regs.length; o.swState = regs.map(r => (r.active && r.active.state) || (r.waiting && "waiting") || (r.installing && "installing") || "none").join(","); } catch(e){ o.swRegistrations = "?"; }
+    o.swControlled = !!navigator.serviceWorker.controller;
+  }
+  try {
+    const keys = await caches.keys(); o.caches = [];
+    for (const k of keys) { const c = await caches.open(k); const n = (await c.keys()).length; o.caches.push(k + " = " + n + " รายการ"); }
+  } catch(e){ o.caches = ["อ่านแคชไม่ได้: " + e.message]; }
+  return o;
+}
+async function showEnv(){
+  const o = await envInfo();
+  $("envtxt").textContent =
+   "สถานะเครือข่ายตามเบราว์เซอร์: " + (o.online ? "ออนไลน์" : "ออฟไลน์") + "\n" +
+   "Service Worker: " + (o.swSupported ? ("ลงทะเบียน " + o.swRegistrations + " ตัว, สถานะ " + (o.swState || "-") + ", ควบคุมหน้านี้: " + (o.swControlled ? "ใช่" : "ไม่ใช่")) : "เบราว์เซอร์ไม่รองรับ") + "\n" +
+   "แคช: " + (o.caches && o.caches.length ? o.caches.join("; ") : "ไม่มี") + "\n" +
+   "เครื่อง: " + o.ua;
+  return o;
+}
+window.addEventListener("online", showEnv); window.addEventListener("offline", showEnv);
+
+function tileXY(lat, lng, z){ const n = Math.pow(2, z); const x = Math.floor((lng + 180) / 360 * n); const r = lat * Math.PI / 180; const y = Math.floor((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * n); return {x, y}; }
+function testTile(url){ return new Promise(res => { const t0 = performance.now(); const im = new Image(); let done = false; const fin = ok => { if (done) return; done = true; res({ok, ms: Math.round(performance.now() - t0)}); }; im.onload = () => fin(true); im.onerror = () => fin(false); setTimeout(() => fin(false), 8000); im.src = url; }); }
+
+async function testOne(kind, f){
+  const url = absUrl(f), cdn = /^https?:\/\//i.test(f) && new URL(url).origin !== location.origin;
+  let inCache = false, ok = false, status = "", ms = 0;
+  try { inCache = !!(await caches.match(url, {ignoreSearch: true})); } catch(e){}
+  const t0 = performance.now();
+  try {
+    const res = await withTimeout(fetch(url, cdn ? {mode: "cors", credentials: "omit"} : {}), 8000);
+    status = res.status; ok = res.ok; await res.arrayBuffer();
+  } catch(e){ status = e.message === "timeout" ? "timeout" : "error"; }
+  ms = Math.round(performance.now() - t0);
+  return {kind, url: f, inCache, ok, status, ms};
+}
+
+async function runTests(){
+  const btn = $("run"); btn.disabled = true; $("summary").innerHTML = "";
+  const env = await showEnv();
+  const label = $("label").value;
+  const items = [];
+  LISTS.core.forEach(f => items.push(["core", f])); LISTS.image.forEach(f => items.push(["image", f])); LISTS.cdn.forEach(f => items.push(["cdn", f]));
+  const results = [];
+  const B = 6;
+  for (let i = 0; i < items.length; i += B) {
+    const part = await Promise.all(items.slice(i, i + B).map(([k, f]) => testOne(k, f)));
+    results.push(...part);
+    $("prog").textContent = "ทดสอบแล้ว " + results.length + " / " + items.length;
+  }
+  // ภาพพื้นหลังแผนที่ 3 ชิ้น (ไม่ได้อยู่ในแคชของ Service Worker)
+  const c = tileXY(TILE_CENTER.lat, TILE_CENTER.lng, TILE_CENTER.z);
+  const tiles = [];
+  for (const dx of [0, 1, -1]) {
+    const u = "https://mt1.google.com/vt/lyrs=m&x=" + (c.x + dx) + "&y=" + c.y + "&z=" + TILE_CENTER.z;
+    const r = await testTile(u); tiles.push({kind: "tile", url: u, inCache: false, ok: r.ok, status: r.ok ? 200 : "error", ms: r.ms});
+  }
+  results.push(...tiles);
+  const envEnd = await envInfo();
+  runs.push({id: runs.length + 1, label, time: env.time, onlineStart: env.online, onlineEnd: envEnd.online, ua: env.ua, results});
+  $("prog").textContent = "เสร็จแล้ว";
+  renderSummary(); btn.disabled = false;
+}
+
+function stats(r){
+  const by = {};
+  r.results.forEach(x => { const b = by[x.kind] || (by[x.kind] = {n: 0, ok: 0, cache: 0, ms: []}); b.n++; if (x.ok) b.ok++; if (x.inCache) b.cache++; if (x.ok) b.ms.push(x.ms); });
+  return by;
+}
+function med(a){ if (!a.length) return "-"; const s = [...a].sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; }
+const KIND = {core: "ไฟล์หลัก (หน้า/สคริปต์/ข้อมูล)", image: "รูปภาพ", cdn: "ไลบรารี/ฟอนต์จาก CDN", tile: "ภาพพื้นหลังแผนที่ (3 ชิ้น)"};
+function renderSummary(){
+  let h = "";
+  runs.forEach(r => {
+    const by = stats(r);
+    h += "<h3 style='font-size:1rem;margin:12px 0 4px'>รอบที่ " + r.id + ": " + (r.label === "offline" ? "ออฟไลน์" : "ออนไลน์") + " <span class='mut'>(เบราว์เซอร์รายงาน " + (r.onlineStart ? "ออนไลน์" : "ออฟไลน์") + " ตอนเริ่ม)</span></h3>";
+    h += "<table><tr><th>กลุ่ม</th><th>ได้</th><th>อยู่ในแคช</th><th>เวลากลาง (ms)</th></tr>";
+    Object.keys(KIND).forEach(k => { const b = by[k]; if (!b) return; const cls = b.ok === b.n ? "ok" : "bad"; h += "<tr><td>" + KIND[k] + "</td><td class='" + cls + "'>" + b.ok + " / " + b.n + "</td><td>" + (k === "tile" ? "-" : b.cache + " / " + b.n) + "</td><td>" + med(by[k].ms) + "</td></tr>"; });
+    h += "</table>";
+    const bad = r.results.filter(x => !x.ok && x.kind !== "tile");
+    if (bad.length) h += "<details><summary class='bad'>ไฟล์ที่โหลดไม่ได้ " + bad.length + " รายการ</summary><pre>" + bad.slice(0, 80).map(x => x.url + "  [" + x.status + "]").join("\n") + (bad.length > 80 ? "\n... และอื่นๆ" : "") + "</pre></details>";
+  });
+  $("summary").innerHTML = h;
+}
+
+function renderManual(){
+  $("manual").innerHTML = MANUAL_ITEMS.map((t, i) => {
+    const m = manual[i] || {};
+    return "<div class='chk'><div>" + (i + 1) + ". " + t + "</div>" +
+      ["ผ่าน", "ไม่ผ่าน", "ไม่ได้ลอง"].map(v => "<label><input type='radio' name='m" + i + "' value='" + v + "'" + (m.r === v ? " checked" : "") + "> " + v + "</label>").join("") +
+      "<input type='text' id='n" + i + "' placeholder='หมายเหตุ (ถ้ามี)' value='" + (m.n || "").replace(/'/g, "&#39;") + "'></div>";
+  }).join("");
+  MANUAL_ITEMS.forEach((_, i) => {
+    document.querySelectorAll("input[name=m" + i + "]").forEach(e => e.addEventListener("change", () => saveManual(i)));
+    $("n" + i).addEventListener("input", () => saveManual(i));
+  });
+}
+function saveManual(i){
+  const r = document.querySelector("input[name=m" + i + "]:checked");
+  manual[i] = {r: r ? r.value : "", n: $("n" + i).value};
+  try { localStorage.setItem("ot_manual", JSON.stringify(manual)); } catch(e){}
+}
+
+function csvCell(v){ v = String(v == null ? "" : v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+function toCsv(){
+  const head = ["section","run","label","time_iso","online_start","online_end","kind","item","in_cache","fetch_ok","status","ms","note","device"];
+  const rows = [head];
+  runs.forEach(r => r.results.forEach(x => rows.push(["auto", r.id, r.label, r.time, r.onlineStart, r.onlineEnd, x.kind, x.url, x.inCache, x.ok, x.status, x.ms, "", r.ua])));
+  MANUAL_ITEMS.forEach((t, i) => { const m = manual[i] || {}; rows.push(["manual", "", "", iso(), "", "", "manual", t, "", m.r || "", "", "", m.n || "", navigator.userAgent]); });
+  return "﻿" + rows.map(r => r.map(csvCell).join(",")).join("\n");
+}
+function summaryText(){
+  let t = "ผลทดสอบออฟไลน์ " + iso() + "\nเครื่อง: " + navigator.userAgent + "\n";
+  runs.forEach(r => { const by = stats(r); t += "\nรอบที่ " + r.id + " (" + (r.label === "offline" ? "ออฟไลน์" : "ออนไลน์") + ")\n"; Object.keys(KIND).forEach(k => { const b = by[k]; if (b) t += "  " + KIND[k] + ": ได้ " + b.ok + "/" + b.n + (k === "tile" ? "" : ", อยู่ในแคช " + b.cache + "/" + b.n) + "\n"; }); });
+  t += "\nตรวจด้วยตนเอง\n"; MANUAL_ITEMS.forEach((x, i) => { const m = manual[i] || {}; t += (i + 1) + ". " + x + ": " + (m.r || "-") + (m.n ? " (" + m.n + ")" : "") + "\n"; });
+  return t;
+}
+$("run").addEventListener("click", runTests);
+$("dl").addEventListener("click", () => {
+  try {
+    const blob = new Blob([toCsv()], {type: "text/csv;charset=utf-8"}); const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = "offlinetest_" + new Date().toISOString().replace(/[:.]/g, "-") + ".csv"; document.body.appendChild(a); a.click(); a.remove();
+    $("msg").textContent = "ดาวน์โหลดแล้ว (" + runs.length + " รอบ)";
+  } catch(e){ $("msg").textContent = "ดาวน์โหลดไม่ได้: " + e.message; }
+});
+$("cp").addEventListener("click", async () => { try { await navigator.clipboard.writeText(summaryText()); $("msg").textContent = "คัดลอกแล้ว"; } catch(e){ $("msg").textContent = "คัดลอกไม่ได้ ใช้ปุ่มดาวน์โหลดแทน"; } });
+renderManual(); showEnv();
+</script>
+</body>
+</html>
