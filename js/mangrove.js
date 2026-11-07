@@ -1633,8 +1633,56 @@ function kalmanUpdate(lat, lng, accuracy, ts) {
   return kf;
 }
 
+// ---------- Glide: จุดบนจอเลื่อนต่อเนื่องตามเส้นทาง (s = ระยะตามเส้น) ----------
+const GLIDE_CFG = {
+  GAIN: 1.0, // 1/วินาที: ดึงจุดเข้าหาค่าที่วัดได้ (มาก = ตามเร็วแต่กระตุกขึ้น)
+  MAX_V: 4, // ม./วินาที ความเร็วสูงสุดของจุดบนจอ
+  LEAD_MS: 3000, // คาดการณ์ล่วงหน้าด้วยความเร็วได้นานสุด (หลังจากนั้นให้ DR ทำงาน)
+  RESET_M: 40, // ห่างจากจุดที่แสดงเกินนี้ให้ข้ามไปเลย ไม่เลื่อน
+};
+let glide = null; // {key, pathIdx, s, tgt, vt, tgtT, last}
+
+// มีพิกัดใหม่ (หรือ dead reckoning): ตั้งเป้าหมายตามเส้นทาง คืน true ถ้าใช้ glide ได้
+function glideSetTarget(key, pathIdx, along, vt, now) {
+  if (
+    !glide ||
+    glide.key !== key ||
+    glide.pathIdx !== pathIdx ||
+    Math.abs(along - glide.s) > GLIDE_CFG.RESET_M
+  ) {
+    glide = { key, pathIdx, s: along, tgt: along, vt: 0, tgtT: now, last: now };
+  }
+  glide.tgt = along;
+  glide.vt = vt;
+  glide.tgtT = now;
+  return true;
+}
+
+// คืน [lat, lng] ของจุดที่แสดง ณ เวลา now (เรียกทุกเฟรม)
+function glideStep(now) {
+  const g = glide;
+  const path = buildRoute(g.key).paths[g.pathIdx];
+  const dt = Math.min(Math.max((now - g.last) / 1000, 0), 0.1);
+  g.last = now;
+  const lead = Math.min(now - g.tgtT, GLIDE_CFG.LEAD_MS) / 1000;
+  const err = g.tgt + g.vt * lead - g.s;
+  const v = Math.max(-GLIDE_CFG.MAX_V, Math.min(GLIDE_CFG.MAX_V, g.vt + GLIDE_CFG.GAIN * err));
+  const total = path.cum[path.cum.length - 1];
+  g.s = Math.max(0, Math.min(total, g.s + v * dt));
+  g.settled = Math.abs(err) < 0.05 && (g.vt === 0 || now - g.tgtT > GLIDE_CFG.LEAD_MS);
+  return pointAtS(path, g.s);
+}
+
 // ---------- ทำให้จุดเลื่อนนุ่ม ไม่กระโดด ----------
 function animateMarker() {
+  if (glide && isSimulating) glide = null; // โหมดจำลอง/ลากจุดเอง: ไม่ใช้ glide
+  if (glide && userMarker) {
+    const p = glideStep(Date.now());
+    renderPos = [p[0], p[1]];
+    userMarker.setLatLng(renderPos);
+    markerRaf = glide.settled ? null : requestAnimationFrame(animateMarker);
+    return;
+  }
   if (!targetPos || !userMarker) return;
   if (!renderPos) renderPos = [targetPos[0], targetPos[1]];
   renderPos[0] += (targetPos[0] - renderPos[0]) * 0.25;
@@ -1853,7 +1901,8 @@ function drTick() {
   const pt = pointAtS(path, next);
   currentPos = pt;
   drMoved = true;
-  moveMarkerSmooth(pt[0], pt[1]);
+  glideSetTarget(drState.key, drState.pathIdx, next, Math.sign(drState.v) * speed, Date.now());
+  if (!markerRaf) markerRaf = requestAnimationFrame(animateMarker);
   updateAccuracyCircle(pt[0], pt[1], lastAcc + drState.drDist);
 
   if (isTracking && !map.isPopupOpen()) {
@@ -1919,7 +1968,15 @@ function handleGpsFix(pos) {
   lastAccepted = { lat: s.lat, lng: s.lng, ts };
 
   currentPos = [s.lat, s.lng];
-  moveMarkerSmooth(s.lat, s.lng);
+  if (s.snapped && drState) {
+    // เกาะเส้นทาง: จุดเลื่อนต่อเนื่องตามระยะบนเส้น พร้อมคาดการณ์ด้วยความเร็ว
+    const vt = Math.abs(drState.v) < GPS_CFG.DR_MIN_SPEED ? 0 : Math.max(-2, Math.min(2, drState.v));
+    glideSetTarget(s.key, s.pathIdx, s.along, vt, Date.now());
+    if (!markerRaf) markerRaf = requestAnimationFrame(animateMarker);
+  } else {
+    glide = null; // ออกนอกเส้นทาง: ใช้การเลื่อนแบบเดิม
+    moveMarkerSmooth(s.lat, s.lng);
+  }
   updateAccuracyCircle(s.lat, s.lng, accuracy);
   trackDistance(currentPos);
 
