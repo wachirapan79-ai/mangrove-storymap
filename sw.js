@@ -13,7 +13,7 @@
    ========================================================================== */
 const CACHE_PREFIX = "mangrove-cache-";
 const CACHE_NAME = CACHE_PREFIX + "v4";
-const NETWORK_TIMEOUT_MS = 3500;
+const NETWORK_TIMEOUT_MS = 1500;
 const PRECACHE_BATCH = 8;
 
 // ---------- ไฟล์หลักของแอป ----------

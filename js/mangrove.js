@@ -1579,7 +1579,7 @@ let lastCheckPos = null;
 
 // ---------- ค่าปรับแต่ง ----------
 const GPS_CFG = {
-  MAX_ACCURACY: 100, // ทิ้งพิกัดที่คลาดเคลื่อนเกิน 100 ม. (ส่วนมากเป็นพิกัดจาก Wi-Fi/เสา)
+  MAX_ACCURACY: 10, // ทิ้งพิกัดที่ accuracy เกิน 10 ม. (เดิม 100)
   MAX_SPEED: 8, // ม./วินาที เกินนี้ถือว่ากระโดด (คนเดินปกติ ~1.4)
   Q_METERS_PER_SEC: 3, // ความไวของ Kalman: ยิ่งมาก ยิ่งตามเร็วแต่สั่นมากขึ้น
   DEADBAND_M: 1.5, // ขยับน้อยกว่านี้ไม่อัปเดตจุด (กันจุดสั่นตอนยืนนิ่ง)
@@ -1592,8 +1592,8 @@ const GPS_CFG = {
   DR_START_MS: 3000, // ไม่มีพิกัดดีเกินนี้ ถือว่าสัญญาณหาย แล้วเริ่มเดินต่อเอง
   DR_MAX_MS: 20000, // เดินต่อเองได้นานสุด (หลังจากนั้นหยุดรอสัญญาณ)
   DR_MAX_M: 25, // เดินต่อเองได้ไกลสุด (ม.)
-  DR_SPEED_FACTOR: 0.6, // เดินช้ากว่าความเร็วจริงที่ประเมินได้ (0.6 = 60%)
-  DR_MAX_SPEED: 1.0, // เพดานความเร็วตอนเดินต่อเอง (ม./วินาที)
+  DR_SPEED_FACTOR: 1.0, // เดินช้ากว่าความเร็วจริงที่ประเมินได้ (0.6 = 60%)
+  DR_MAX_SPEED: 1.5, // เพดานความเร็วตอนเดินต่อเอง (ม./วินาที)
   DR_MIN_SPEED: 0.4, // ถ้าก่อนสัญญาณหายเดินช้ากว่านี้ ถือว่ายืนอยู่ ไม่เดินต่อ
 };
 
@@ -2883,7 +2883,12 @@ document.addEventListener(
   true,
 ); // ใช้ capture phase
 
-window.addEventListener("load", loadApp);
+// เริ่มโหลดข้อมูลทันทีเมื่อ DOM พร้อม ไม่รอเหตุการณ์ load (ซึ่งรอภาพแผนที่ทุกชิ้น ถ้าเน็ตค้างหน้าจะไม่ขึ้นเลย)
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", loadApp);
+} else {
+  loadApp();
+}
 window.addEventListener("DOMContentLoaded", updateSidebarIcon);
 window.addEventListener("resize", updateSidebarIcon);
 
@@ -2897,4 +2902,3 @@ window.addEventListener("pageshow", function (event) {
     loadApp();
   }
 });
-
