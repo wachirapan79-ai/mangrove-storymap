@@ -321,24 +321,8 @@ async function toggleCompass() {
   // ========================================
 
   try {
-    // iOS: ต้องขอ Permission ก่อน
-    if (
-      typeof DeviceOrientationEvent !== "undefined" &&
-      typeof DeviceOrientationEvent.requestPermission === "function"
-    ) {
-      const permission = await DeviceOrientationEvent.requestPermission();
-
-      if (permission !== "granted") {
-        alert(
-          "❌ กรุณาอนุญาตการใช้เข็มทิศในการตั้งค่า Safari\n\nSettings → Safari → Motion & Orientation Access → เปิด",
-        );
-        return;
-      }
-
-      window.addEventListener("deviceorientation", compassHandler, true);
-    }
-    // Android / Desktop: ใช้ได้เลย
-    else {
+    // ฟังก์ชันเปิดการฟังเซนเซอร์ (Android / เบราว์เซอร์ทั่วไป)
+    const listenSensor = () => {
       if ("ondeviceorientationabsolute" in window) {
         window.addEventListener(
           "deviceorientationabsolute",
@@ -348,6 +332,37 @@ async function toggleCompass() {
       } else {
         window.addEventListener("deviceorientation", compassHandler, true);
       }
+    };
+    const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
+
+    if (
+      typeof DeviceOrientationEvent !== "undefined" &&
+      typeof DeviceOrientationEvent.requestPermission === "function"
+    ) {
+      // ต้องขอ Permission ก่อน (iOS และบางเบราว์เซอร์)
+      let permission = "denied";
+      try {
+        permission = await DeviceOrientationEvent.requestPermission();
+      } catch (e) {
+        permission = "denied";
+      }
+
+      if (permission === "granted") {
+        window.addEventListener("deviceorientation", compassHandler, true);
+      } else if (!isIOS && "ondeviceorientationabsolute" in window) {
+        // ไม่ใช่ iOS: ลองฟังเซนเซอร์ต่อ ไม่ต้องรอ permission
+        listenSensor();
+      } else {
+        alert(
+          isIOS
+            ? "❌ กรุณาอนุญาตการใช้เข็มทิศในการตั้งค่า Safari\n\nSettings → Safari → Motion & Orientation Access → เปิด"
+            : "❌ เบราว์เซอร์ไม่อนุญาตให้ใช้เซนเซอร์ทิศทาง\n\nเปิดสิทธิ์ Motion sensors ของเว็บไซต์นี้ในการตั้งค่าเบราว์เซอร์ หรือลองใช้ Chrome",
+        );
+        return;
+      }
+    } else {
+      // Android / Desktop: ใช้ได้เลย
+      listenSensor();
     }
 
     // เปิดสถานะ
