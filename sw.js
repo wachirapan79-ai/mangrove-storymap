@@ -12,7 +12,7 @@
      (เช่น v4 -> v5) เพื่อให้เครื่องผู้ใช้ดึงไฟล์ใหม่
    ========================================================================== */
 const CACHE_PREFIX = "mangrove-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v4";
+const CACHE_NAME = CACHE_PREFIX + "v5";
 const NETWORK_TIMEOUT_MS = 1500;
 const PRECACHE_BATCH = 8;
 
