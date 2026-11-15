@@ -9,10 +9,10 @@
    - ไม่ยุ่ง: แผนที่ Google, Nominatim, Open-Meteo, เสียง (ให้เบราว์เซอร์จัดการเอง)
 
    ⚠ เมื่อเปลี่ยนรูป/ฟอนต์เดิมที่ชื่อไฟล์เหมือนเดิม ให้เพิ่มเลขเวอร์ชัน CACHE_NAME
-     (เช่น v4 -> v5) เพื่อให้เครื่องผู้ใช้ดึงไฟล์ใหม่
+     (เช่น v5 -> v6) เพื่อให้เครื่องผู้ใช้ดึงไฟล์ใหม่
    ========================================================================== */
 const CACHE_PREFIX = "mangrove-cache-";
-const CACHE_NAME = CACHE_PREFIX + "v5";
+const CACHE_NAME = CACHE_PREFIX + "v6";
 const NETWORK_TIMEOUT_MS = 1500;
 const PRECACHE_BATCH = 8;
 
@@ -30,6 +30,7 @@ const CORE_FILES = [
   "js/index.js",
   "js/mangrove.js",
   "storage/info.json",
+  "storage/osm_area.json", // แผนที่พื้นฐานออฟไลน์จากข้อมูล OpenStreetMap (ถ้ายังไม่มีไฟล์ จะถูกข้ามโดยไม่ทำให้ติดตั้งล้ม)
   "storage/plants.json",
   "storage/index_translate.json",
   "storage/intro_translate.json",

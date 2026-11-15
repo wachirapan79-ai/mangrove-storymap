@@ -98,15 +98,62 @@ map.on("moveend", function () {
   saveMapState();
 });
 
+const TRANSPARENT_TILE =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 const street = L.tileLayer(
   `https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&hl=${getGoogleMapLang(currentLang)}&sbc=1`,
-  { maxZoom: 20, attribution: "© Google Maps" },
+  { maxZoom: 20, attribution: "© Google Maps", errorTileUrl: TRANSPARENT_TILE },
 ).addTo(map);
 
 const satellite = L.tileLayer(
   `https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&hl=${getGoogleMapLang(currentLang)}&sbc=1`,
-  { maxZoom: 20, attribution: "© Google Maps" },
+  { maxZoom: 20, attribution: "© Google Maps", errorTileUrl: TRANSPARENT_TILE },
 );
+
+// ---------- แผนที่พื้นฐานออฟไลน์ (วาดจากข้อมูล OpenStreetMap ของพื้นที่ศึกษา) ----------
+// อยู่ใต้ภาพแผนที่ Google: ออนไลน์เห็นภาพ Google ตามเดิม, ออฟไลน์ภาพไม่โหลดจึงเห็นชั้นนี้แทน
+// ไม่แคชภาพแผนที่ของ Google (ผิดเงื่อนไข) ไฟล์ storage/osm_area.json สร้างด้วย tools/fetch_osm_area.js
+map.getContainer().style.background = "#eef1e8";
+map.createPane("osmBase").style.zIndex = 150;
+const OSM_STYLE = {
+  wood: { color: "#b9d7a0", fillColor: "#cfe5b8", fillOpacity: 1, weight: 0 },
+  green: { color: "#d6e8c4", fillColor: "#dfeccf", fillOpacity: 1, weight: 0 },
+  scrub: { color: "#dde6c0", fillColor: "#e4ebc9", fillOpacity: 1, weight: 0 },
+  wetland: { color: "#a9d6c2", fillColor: "#bfe2d0", fillOpacity: 1, weight: 0 },
+  water: { color: "#9cc5e8", fillColor: "#b5d4ee", fillOpacity: 1, weight: 0 },
+  waterway: { color: "#8fbbe3", weight: 2, opacity: 1, fill: false },
+  coast: { color: "#7aa9d6", weight: 1.5, opacity: 1, fill: false },
+  building: { color: "#cdbfae", fillColor: "#ddd1c2", fillOpacity: 1, weight: 0.8 },
+  road: { color: "#ffffff", weight: 4, opacity: 1, fill: false, lineCap: "round" },
+  path: { color: "#c9b27c", weight: 1.5, opacity: 0.9, dashArray: "3 3", fill: false },
+};
+const OSM_ORDER = ["wood", "green", "scrub", "wetland", "water", "waterway", "coast", "building", "path", "road"];
+let osmBaseLayer = null;
+async function loadOfflineBaseMap() {
+  try {
+    const res = await fetch("../storage/osm_area.json");
+    if (!res.ok) return; // ยังไม่มีไฟล์ = ใช้แผนที่ออนไลน์อย่างเดียว
+    const fc = await res.json();
+    const renderer = L.canvas({ pane: "osmBase" });
+    const group = L.featureGroup([], {
+      attribution: "© <a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a> contributors",
+    });
+    for (const cls of OSM_ORDER) {
+      const feats = fc.features.filter((f) => f.properties && f.properties.c === cls);
+      if (!feats.length) continue;
+      L.geoJSON(feats, {
+        pane: "osmBase",
+        renderer,
+        interactive: false,
+        style: () => OSM_STYLE[cls],
+      }).addTo(group);
+    }
+    osmBaseLayer = group.addTo(map);
+  } catch (err) {
+    console.warn("โหลดแผนที่พื้นฐานออฟไลน์ไม่ได้:", err && err.message);
+  }
+}
+loadOfflineBaseMap();
 
 let routeLayer = L.layerGroup().addTo(map);
 const activePathLayer = L.featureGroup().addTo(map);
