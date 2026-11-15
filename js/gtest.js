@@ -29,7 +29,7 @@
   function frame() {
     if (st.mode === "test" && typeof userMarker !== "undefined" && userMarker) {
       const p = userMarker.getLatLng();
-      st.frames.push([Date.now(), +p.lat.toFixed(7), +p.lng.toFixed(7)]);
+      st.frames.push([Date.now(), +p.lat.toFixed(7), +p.lng.toFixed(7), typeof glide !== "undefined" && glide ? 1 : 0]);
     }
     requestAnimationFrame(frame);
   }
@@ -79,10 +79,20 @@
     box.appendChild(b);
     return b;
   }
+  // ระยะจาก fix ล่าสุดถึงเส้นทางบ้าน: ต้องใกล้กว่ารัศมีเกาะเส้น (≥12 ม.) glide จึงทำงาน
+  function offRoute() {
+    try {
+      const f = st.fixes[st.fixes.length - 1];
+      if (!db.hometest || !f) return "";
+      const n = nearestOnSegments(f.lat, f.lng, buildRoute("hometest").segs);
+      const on = typeof glide !== "undefined" && glide;
+      return ` | ห่างเส้น ${n.d.toFixed(0)} ม. | glide ${on ? "ทำงาน" : "ไม่ทำงาน (เดินให้ใกล้เส้นสีชมพู)"}`;
+    } catch (e) { return ""; }
+  }
   function say() {
     info.textContent =
       `glide=${glideOn ? "ON" : "OFF"} | โหมด: ${st.mode} | รอบแรก ${st.lap1.length} จุด | ทดสอบ: fix ${st.fixes.length}, เฟรม ${st.frames.length}` +
-      (db && db.hometest ? " | เส้นทางบ้านพร้อม" : "");
+      (db && db.hometest ? " | เส้นทางบ้านพร้อม" : "") + offRoute();
   }
   btn("1 เริ่มบันทึกรอบแรก", () => { st.lap1 = []; st.mode = "rec1"; say(); });
   btn("2 สร้างเส้นทาง", () => {
