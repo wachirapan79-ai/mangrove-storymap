@@ -1655,10 +1655,13 @@ const GLIDE_CFG = {
   LEAD_MS: 3000, // คาดการณ์ล่วงหน้าด้วยความเร็วได้นานสุด (หลังจากนั้นให้ DR ทำงาน)
   RESET_M: 40, // ห่างจากจุดที่แสดงเกินนี้ให้ข้ามไปเลย ไม่เลื่อน
 };
+// สวิตช์ทดสอบ A/B: เปิดหน้าด้วย ?glide=off เพื่อใช้การเลื่อนแบบเดิม (ค่าเริ่มต้น = เปิด glide)
+const GLIDE_ENABLED = new URLSearchParams(window.location.search).get("glide") !== "off";
 let glide = null; // {key, pathIdx, s, tgt, vt, tgtT, last}
 
 // มีพิกัดใหม่ (หรือ dead reckoning): ตั้งเป้าหมายตามเส้นทาง คืน true ถ้าใช้ glide ได้
 function glideSetTarget(key, pathIdx, along, vt, now) {
+  if (!GLIDE_ENABLED) return false;
   if (
     !glide ||
     glide.key !== key ||
@@ -1916,8 +1919,11 @@ function drTick() {
   const pt = pointAtS(path, next);
   currentPos = pt;
   drMoved = true;
-  glideSetTarget(drState.key, drState.pathIdx, next, Math.sign(drState.v) * speed, Date.now());
-  if (!markerRaf) markerRaf = requestAnimationFrame(animateMarker);
+  if (glideSetTarget(drState.key, drState.pathIdx, next, Math.sign(drState.v) * speed, Date.now())) {
+    if (!markerRaf) markerRaf = requestAnimationFrame(animateMarker);
+  } else {
+    moveMarkerSmooth(pt[0], pt[1]); // ?glide=off: แบบเดิม
+  }
   updateAccuracyCircle(pt[0], pt[1], lastAcc + drState.drDist);
 
   if (isTracking && !map.isPopupOpen()) {
@@ -1983,7 +1989,7 @@ function handleGpsFix(pos) {
   lastAccepted = { lat: s.lat, lng: s.lng, ts };
 
   currentPos = [s.lat, s.lng];
-  if (s.snapped && drState) {
+  if (GLIDE_ENABLED && s.snapped && drState) {
     // เกาะเส้นทาง: จุดเลื่อนต่อเนื่องตามระยะบนเส้น พร้อมคาดการณ์ด้วยความเร็ว
     const vt = Math.abs(drState.v) < GPS_CFG.DR_MIN_SPEED ? 0 : Math.max(-2, Math.min(2, drState.v));
     glideSetTarget(s.key, s.pathIdx, s.along, vt, Date.now());
